@@ -33,7 +33,7 @@
                 <option value="hanmail.net">hanmail.net</option>
                 <option value="manual_input">직접입력</option>
             </select>
-            <button id="btn_member_email_check" type="button">이메일 중복확인ㄴ</button>
+            <button id="btn_member_email_check" type="button">이메일 중복확인</button>
         </div>
         <label for="member_name">이름</label>
         <input type="text" name="name" id="member_name" placeholder="이름을 입력해 주세요">
@@ -61,6 +61,9 @@
                 <label for="member_addr2">상세주소</label>
                 <input type="text" name="member_addr2" id="member_addr2" placeholder="상세주소를 입력해 주세요">
             </div>
+        </div>
+        <div id="buttonwrap">
+            <button id="input_btn" type="button">가입 확인</button>
         </div>
     </div>
 </body>

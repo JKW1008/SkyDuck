@@ -13,7 +13,6 @@
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id',  $id);
             $stmt->execute();
-
             return $stmt->rowCount() ? true : false;
         }
 
@@ -33,23 +32,25 @@
         public function input($marr){
             $new_hash_passowrd = password_hash($marr['password'], PASSWORD_DEFAULT);
 
-            $sql = "INSERT INTO sd_Users(ID, Password, Email, Name, MobileNumber1, MobileNumber2, MobileNumber3, PhoneNumber1, PhoneNumber2, PhoneNumber3, Zipcode, Adress, DetailAdress, SignupDate) VALUES
-            (:id, :password, :email, :name, :mobile1, :mobile2, :mobile3, :phone1, :phone2, :phone3, :zipcode, :adress, :detailadress, NOW())";
+            $sql = "INSERT INTO sd_Users(ID, Password, Email, Name, MobileNumber, PhoneNumber, ZipCode, Address, DetailAddress, SignupDate) VALUES
+            (:id, :password, :email, :name, :mobile, :phone, :zipcode, :address, :detailaddress, NOW())";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $marr['id']);
             $stmt->bindParam(':password', $new_hash_passowrd);
             $stmt->bindParam(':email', $marr['email']);
             $stmt->bindParam(':name', $marr['name']);
-            $stmt->bindParam(':mobile1', $marr['mobile1']);
-            $stmt->bindParam(':mobile2', $marr['mobile2']);
-            $stmt->bindParam(':mobile3', $marr['mobile3']);
-            $stmt->bindParam(':phone1', $marr['phone1']);
-            $stmt->bindParam(':phone2', $marr['phone2']);
-            $stmt->bindParam(':phone3', $marr['phone3']);
+            $stmt->bindParam(':mobile', $marr['mobile']);
+            $stmt->bindParam(':phone', $marr['phone']);
             $stmt->bindParam(':zipcode', $marr['zipcode']);
-            $stmt->bindParam(':adress', $marr['adress']);
-            $stmt->bindParam(':detailadress', $marr['detailadress']);
+            $stmt->bindParam(':address', $marr['address']);
+            $stmt->bindParam(':detailaddress', $marr['detailaddress']);
             $stmt->execute();
+            // print_r($stmt->errorInfo());
+            if ($stmt->rowCount() === 0){
+                return false;
+            }
+
+            return true;
         }
 
         public function login($id, $pw){
@@ -71,6 +72,15 @@
             } else {
                 return false;
             }
-        }     
+        }
+
+        public function getInfo($id){
+            $sql = "SELECT * FROM sd_Users WHERE ID=:id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetch();
+        }
     }
 ?>

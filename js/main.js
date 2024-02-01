@@ -39,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn_member_id_check = document.querySelector("#btn_member_id_check");
     btn_member_id_check.addEventListener("click", () => {
         const member_id = document.querySelector("#member_id");
-        console.log("btn_member_id_check clicked");
-        
+    
         if (member_id.value == "") {
             alert("아이디를 입력해 주세요");
             member_id.focus();
@@ -52,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             member_id.value = '';
             member_id.focus();
             return false;
-        }
+        };
 
         const f = new FormData();
         f.append("id", member_id.value);
@@ -63,11 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
         xhr.send(f);
 
         xhr.onload = () => {
-            if (xhr.status == 200) {
+            if (xhr.status === 200) {
                 const responseText = xhr.responseText;
+                console.log(responseText);
                 try {
                     const data = JSON.parse(responseText);
-                    if (data.result === "success") {
+                    console.log(data);
+                    if (data.result === 'success') {
                         alert("사용이 가능한 아이디 입니다.");
                         document.getElementById("id_chk").value = "1";
                         idCheck = true;
@@ -98,15 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // 페이지 로딩 시 초기 emailToCheck 변수 설정
     emailToCheck = member_email.value + "@" + email_domain.value;
 
-    // email_domain.addEventListener("change", () => {
-    //     // 도메인이 변경될 때마다 emailToCheck 변수 업데이트
-    //     const selectedDomain = email_domain.value;
+    email_domain.addEventListener("change", () => {
+        // 도메인이 변경될 때마다 emailToCheck 변수 업데이트
+        const selectedDomain = email_domain.value;
 
-    //     // 직접 입력 옵션 선택 시 사용자가 입력한 이메일을 사용
-    //     emailToCheck = (selectedDomain === "manual_input") ? member_email.value + "@" + manual_email_input.value : member_email.value + "@" + selectedDomain;
+        // 직접 입력 옵션 선택 시 사용자가 입력한 이메일을 사용
+        emailToCheck = (selectedDomain === "manual_input") ? member_email.value + "@" + manual_email_input.value : member_email.value + "@" + selectedDomain;
 
-    //     console.log("이메일 중복 확인을 위한 변수: ", emailToCheck);
-    // });
+        console.log("이메일 중복 확인을 위한 변수: ", emailToCheck);
+    });
 
     btn_member_email_check.addEventListener("click", () => {
         if (member_email.value === '') {
@@ -258,12 +259,12 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("id", member_id.value);
         f.append("password", memberPassword.value);
         f.append("email", emailToCheck);
-        f.append("name", member_name);
-        f.append("mobile", input_mobile + "-" + input_mobile2 + "-" + input_mobile3);
-        f.append("phone", input_phone + "-" + input_phone2 + "-" + input_phone3);
-        f.append("zipcode", member_zipcode);
-        f.append("addr", member_addr1);
-        f.append("detail_addr", member_addr2);
+        f.append("name", member_name.value);
+        f.append("mobile", input_mobile.value + "-" + input_mobile2.value + "-" + input_mobile3.value);
+        f.append("phone", input_phone.value + "-" + input_phone2.value + "-" + input_phone3.value);
+        f.append("zipcode", member_zipcode.value);
+        f.append("addr", member_addr1.value);
+        f.append("detail_addr", member_addr2.value);
         f.append("mode", "member_input");
 
         const xhr = new XMLHttpRequest();
@@ -271,12 +272,31 @@ document.addEventListener("DOMContentLoaded", () => {
         xhr.send(f);
 
         xhr.onload = () => {
-            if (xhr.status == 200) {
-
-            } else if (xhr.status == 404) {
-                alert("실패 파일이 존재하지 않습니다.");
-
-            };
+            if (xhr.status === 200) {
+                const responseText = xhr.responseText;
+                console.log(responseText);
+                try {
+                    const data = JSON.parse(responseText);
+                    if (data.result === 'success') {
+                        alert("회원 가입이 성공적으로 완료되었습니다.");
+                        self.location.href = "./member_login.php";
+                        // 성공 시 필요한 추가 작업 수행
+                    } else if (data.result === 'fail') {
+                        alert("회원 가입에 실패했습니다. 다시 시도해 주세요.");
+                        // 실패 시 필요한 추가 작업 수행
+                    } else if (data.result === 'error') {
+                        alert("서버에서 오류가 발생했습니다. 다시 시도해 주세요.");
+                        console.error("Server error:", data.message);
+                        // 오류 시 필요한 추가 작업 수행
+                    }
+                } catch (error) {
+                    console.error("JSON parsing error:", error);
+                }
+            } else if (xhr.status === 404) {
+                alert("연결 실패: 파일이 존재하지 않습니다.");
+            } else {
+                alert("알 수 없는 오류가 발생했습니다.");
+            }
         }
     });
 

@@ -7,7 +7,7 @@
     
     $mem = new Member($db);
 
-    echo $POST;
+    // echo $_POST;
     
     
     $id = (isset($_POST['id']) && $_POST['id'] != '') ? $_POST['id'] : '';
@@ -44,6 +44,32 @@
             die(json_encode(['result' => 'fail']));
         }else {
             die(json_encode(['result' => 'success']));
+        }
+    } else if ($mode == 'member_input') {
+        $arr = [
+            'id' => $id,
+            'password' => $password,
+            'email' => $email,
+            'name' => $name,
+            'mobile' => $mobile,
+            'phone' => $phone,
+            'zipcode' => $zipcode,
+            'address' => $addr,
+            'detailaddress' => $detail_addr
+        ];
+
+        try {
+            $result = $mem->input($arr);
+
+            header('Content-Type: application/json');
+            if ($result) {
+                die(json_encode(['result' => 'success']));
+            } else {
+                die(json_encode(['result' => 'fail']));
+            }
+        } catch (Exception $e) {
+            header('Content-Type: application/json');
+            die(json_encode(['result' => 'error', 'message' => $e->getMessage()]));
         }
     }
 ?>

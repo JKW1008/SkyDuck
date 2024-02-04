@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         emailToCheck = member_email.value + "@" + email_domain.value;
         console.log(emailToCheck);
         // 여기에 이메일 중복 확인 등의 작업을 수행할 수 있습니다.
-        // console.log("emailToCheck 전역 변수 사용 예시: ", emailToCheck);
+        console.log("emailToCheck 전역 변수 사용 예시: ", emailToCheck);
         const f = new FormData();
         f.append("email", emailToCheck);
         f.append("mode", "email_chk");

@@ -4,12 +4,6 @@ function isId(asValue) {
 	return regExp.test(asValue);
 }
 
-function isEmailId(asValue) {
-	var regExp = /^[a-z]+[a-z0-9]{5,19}$/g;
- 
-	return regExp.test(asValue);
-}
-
 function validatePassword(password) {
     // 비밀번호가 영문, 숫자, 특수문자를 포함하고 8자에서 16자까지의 길이를 가지는지 확인하는 정규식
     const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[a-zA-Z\d!@#$%^&*()-_+=]{8,16}$/;
@@ -19,6 +13,14 @@ function validatePassword(password) {
     } else {
         return false; // 비밀번호가 조건을 만족하지 않는 경우
     }
+}
+
+function isValidEmailDomain(emailDomain) {
+    // 이메일 도메인을 검사하는 정규식
+    const domainRegex = /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
+    
+    // 정규식 검사
+    return domainRegex.test(emailDomain);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -64,18 +66,119 @@ document.addEventListener("DOMContentLoaded", () => {
         const f = new FormData();
         f.append("id", business_member_id.value);
         f.append("mode", "id_chk");
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "./pg/business_member_process.php", true);
+        xhr.send(f);
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const responseText = xhr.responseText;
+                console.log(responseText);
+                try {
+                    const data = JSON.parse(responseText);
+                    console.log(data);
+                    if (data.result === 'success') {
+                        alert("사용이 가능한 아이디 입니다.");
+                        document.getElementById("id_chk").value = "1";
+                        idCheck = true;
+                    } else if (data.result === "fail") {
+                        alert("이미 사용중인 아이디 입니다. 다른 아이디를 입력해 주세요.");
+                        document.getElementById("id_chk").value = "0";
+                        idCheck = false;
+                        business_member_id.value = "";
+                        business_member_id.foucus();
+                    } else if (data.result === "empty_id") {
+                        alert("아이디가 비어있습니다.");
+                        business_member_id.foucus();
+                    }
+                } catch (error) {
+                    console.error("JSON parsing error : ", error);
+                }
+            } else if (xhr.status == 404) {
+                alert("연결 실패 파일이 존재하지 않습니다.");
+            }
+        }
     })
 
-    emailToCheck = member_email.value + "@" + email_domain.value;
+    btn_member_email_check.addEventListener("click", () => {
+        if (business_member_email.value === '') {
+            alert("이메일을 입력해 주세요");
+            business_member_email.focus();
+            return false;
+        }
 
-    email_domain.addEventListener("change", () => {
-        // 도메인이 변경될 때마다 emailToCheck 변수 업데이트
-        const selectedDomain = email_domain.value;
+        if (email_domain.value == "manual_input") {
 
-        // 직접 입력 옵션 선택 시 사용자가 입력한 이메일을 사용
-        emailToCheck = (selectedDomain === "manual_input") ? member_email.value + "@" + manual_email_input.value : member_email.value + "@" + selectedDomain;
+            if (manual_email_input.value == "") {
+                alert("이메일 주소를 입력해 주세요");
+                manual_email_input.focus();
+                return false;
+            };
 
-        console.log("이메일 중복 확인을 위한 변수: ", emailToCheck);
+            if (!isValidEmailDomain(manual_email_input.value)) {
+                alert("잘못된 형식의 이메일 도메인입니다. 다시 입력해 주세요.");
+                manual_email_input.value = "";
+                manual_email_input.focus();
+                return false;
+            };
+            
+            emailToCheck = business_member_email.value + "@" + manual_email_input.value;
+        } else {
+            emailToCheck = business_member_email.value + "@" + email_domain.value;
+        }
+        console.log(emailToCheck);
+        
+        const f = new FormData();
+        f.append("email", emailToCheck);
+        f.append("mode", "email_chk");
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "./pg/business_member_process.php", true);
+        xhr.send(f);
+
+        xhr.onload = () => {
+            if (xhr.status == 200) {
+                const responseText = xhr.responseText;
+                try {
+                    const data = JSON.parse(responseText);
+                    if (data.result == "success") {
+                        alert("사용가능한 이메일 입니다.");
+                        document.getElementById("email_chk").value = "1";
+                        emailChecked = true;
+                    } else if (data.result === "fail") {
+                        alert("중복된 이메일 입니다.");
+                        document.getElementById("email_chk").value = "0";
+                        emailChecked = false;
+                        business_member_email.value = "";
+                        business_member_email.focus();
+                        if (email_domain.value == "manual_input") {
+                            manual_email_input.value = "";
+                        }
+                        email_domain.value = "gmail.com";
+                    } else if (data.result === "empty_email") {
+                        alert("이메일이 비어있습니다.");
+                        business_member_email.focus();
+                        if (email_domain.value == "manual_input") {
+                            manual_email_input.value = "";
+                        }
+                        email_domain.value = "gmail.com";
+                    } else if (data.result === "email_format_wrong") {
+                        alert("이메일이 형식에 맞지 않습니다.");
+                        business_member_email.value = "";
+                        if (email_domain.value == "manual_input") {
+                            manual_email_input.value = "";
+                        }
+                        email_domain.value = "gmail.com";
+                        business_member_email.focus();
+                    }
+                } catch (error) {
+                    console.error("JSON parsing error : ", error);
+                }
+            } else if (xhr.status == 404) {
+                alert("실패 존재하지 않는 파일입니다.");
+            };
+        };
     });
 
     btn_zipcode.addEventListener("click", () => {

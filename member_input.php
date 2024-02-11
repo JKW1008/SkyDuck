@@ -12,7 +12,6 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="./js/main.js"></script>
     <div id="inputform">
-        <input type="hidden" name="mode" value="input">
         <input type="hidden" name="id_chk" id="id_chk" value="0">
         <input type="hidden" name="email_chk" id="email_chk" value="0">
         <label for="member_id">아이디</label>

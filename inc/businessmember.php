@@ -29,7 +29,7 @@
             return $stmt->rowCount() ? true : false;
         }
 
-        public function business_nuber_exists($business_number){
+        public function business_number_exists($business_number){
             $sql = "SELECT * FROM sd_BusinessUsers WHERE BusinessRegistrationNumber = :businessNumber";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':businessNumber', $business_number);
@@ -41,14 +41,15 @@
             $new_hash_password = password_hash($marr['password'], PASSWORD_DEFAULT);
 
             $sql = "INSERT INTO sd_BusinessUsers(ID, Password, CompanyName, CEOName, PhoneNumber, MobileNumber, FaxNumber, Email, Zipcode, Address, DetailAddress, BusinessRegistrationNumber, BusinessRegistrationImage, BusinessType, BusinessCategory, SignupDate) VALUES
-            (:id, :password, :companyname, :ceoname, :email, :phonenumber, :mobilenumber, :faxnumber, :zipcode, :address, :detailaddress, :businessregistrationnumber, :businessregistrationimage, :businesstype, :businesscategory, NOW())";
+            (:id, :password, :companyname, :ceoname, :email, :mobilenumber, :phonenumber, :faxnumber, :zipcode, :address, :detailaddress, :businessregistrationnumber, :businessregistrationimage, :businesstype, :businesscategory, NOW())";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $marr['id']);
             $stmt->bindParam(':password', $new_hash_password);
             $stmt->bindParam(':companyname', $marr['companyname']);
             $stmt->bindParam(':ceoname', $marr['ceoname']);
             $stmt->bindParam(':email', $marr['email']);
-            $stmt->bindParam(':phonenumber', $marr['mobilenumber']);
+            $stmt->bindParam(':mobilenumber', $marr['mobilenumber']);
+            $stmt->bindParam(':phonenumber', $marr['phonenumber']);
             $stmt->bindParam(':faxnumber', $marr['faxnumber']);
             $stmt->bindParam(':zipcode', $marr['zipcode']);
             $stmt->bindParam(':address', $marr['address']);
@@ -67,6 +68,32 @@
         }
 
         public function business_login($id, $pw, $number){
+            $sql = "SELECT Password FROM sd_BusinessUsers WHERE ID = :id AND BusinessRegistrationNumber = :brn";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':brn', $number);
 
+            $stmt->execute();
+
+            if ($stmt->rowCount()) {
+                $row = $stmt->fetch();
+
+                if (password_verify($pw, $row['Password'])) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        public function getInfo($id) {
+            $sql = "SELECT * FROM sd_BusinessUsers WHERE ID = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetch();
         }
     }

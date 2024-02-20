@@ -10,6 +10,8 @@ if ($currentPath == '/index.php') {
 }
 ?>
 
+
+
 <section class="relative w-full h-screen flex justify-center">
     <video class="z-0 absolute top-0 left-0 w-full h-full object-cover" autoplay muted>
         <source src="./video/mainBgmp4.mp4" type="video/mp4">
@@ -26,18 +28,234 @@ if ($currentPath == '/index.php') {
     </div>
 </section>
 
-<div class="pt-[80px] flex  flex-col justify-center items-center">
-    <h1 class="font-bold text-[44px] text-mblack mb-[12px]">Service Scope</h1>
-    <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
-    <p class="text-xl text-grayService font-bold">원스탑(One-Stop) 디자인 컨설팅 서비스</p>
-</div>
+<div class=" flex  flex-col justify-center items-center mt-[170px] mb-[60px]">
+        <h1 class="font-bold text-[44px] text-mblack mb-[12px]">Service Scope</h1>
+        <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
+        <p class="text-xl text-grayService font-bold md:block hidden">원스탑(One-Stop) 디자인 컨설팅 서비스</p>
+    </div>
 
-<div>
-    <img src="./CK_cm08353833_l 4.png" alt="">
-</div>
+    <div class="w-[91%] justify-center items-center  h-[420px] m-auto sm:block hidden transition-all duration-700 ">
+        <div class="m-auto flex justify-center items-center w-full max-w-[1440px]  h-full service overflow-hidden">
+            <div class="w-1/4  bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainmak.png')] bg-cover bg-center rounded-s-[20px] transition-all duration-700 ">
+                <div class="flex justify-center items-center gap-[20px] mt-[80px] fourtitle">
+                    <img class="w-[55px]" src="./image/icon/mak.png" alt="">
+                    <p class="text-[#ffff] font-bold text-2xl">마케팅·광고</p>
+                </div>
+                <div class="w-4/5 fourcard overflow-hidden whitespace-nowrap">
+                    <div class="m-auto w-full flex-col items-start rounded-[20px] bg-blend-darken bg-black bg-opacity-50 py-[40px] px-[60px]">
+                        <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                            <img class="w-[50px]" src="./image/icon/mak.png" alt="">
+                            <p class="text-[#ffff] font-bold text-2xl ps-2">마케팅·광고</p>
+                        </div>
+                        <div class="flex-col items-center justify-start pt-4">
+                            <p class="font-medium text-[#ffff] text-xl">디자인은 예술이 아닌 생활입니다.</p>
+                            <p class="font-medium text-[#ffff] text-xl">누구나 보고싶게 만들어 주세요</p>
+                        </div>
+                        <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                            <ul class="list-disc">
+                                <li>홍보물(브로슈어, 리플렛, 전단지 외)</li>
+                                <li>사인제품(현수막, 배너 외)</li>
+                                <li>판촉물(기념품 외)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/4 bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainvisual.png')] bg-cover bg-center transition-all duration-700">
+                <div class="flex justify-center items-center gap-[20px] mt-[80px] fourtitle">
+                    <img class="w-[55px]" src="./image/icon/visual.png" alt="">
+                    <p class="text-[#ffff] font-bold text-2xl">비주얼 아이덴티티</p>
+                </div>
+                <div class="w-4/5 fourcard overflow-hidden whitespace-nowrap">
+                    <div class="m-auto w-full flex-col items-start rounded-[20px] bg-blend-darken bg-black bg-opacity-50 py-[40px] px-[60px]">
+                        <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                            <img class="w-[55px]" src="./image/icon/visual.png" alt="">
+                            <p class="text-[#ffff] font-bold text-2xl ps-2">비주얼 아이덴티티</p>
+                        </div>
+                        <div class="flex-col items-center justify-start pt-4">
+                            <p class="font-medium text-[#ffff] text-xl">몸에 맞는 옷을 입듯</p>
+                            <p class="font-medium text-[#ffff] text-xl">브랜드에도 맞는 디자인을 입히세요.</p>
+                        </div>
+                        <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                            <ul class="list-disc">
+                                <li>BI, CI, Package 디자인</li>
+                                <li>서류 양식 디자인 </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/4 bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainpublishing.png')]  bg-cover bg-center transition-all duration-700 ">
+                <div class="flex justify-center items-center gap-[20px] mt-[80px] fourtitle">
+                    <img class="w-[55px]" src="./image/icon/publishing.png" alt="">
+                    <p class="text-[#ffff] font-bold text-2xl">환경그래픽</p>
+                </div>
+                <div class="w-4/5 fourcard overflow-hidden whitespace-nowrap">
+                    <div class="m-auto w-full flex-col items-start rounded-[20px] bg-blend-darken bg-black bg-opacity-50 py-[40px] px-[60px]">
+                        <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                            <img class="w-[55px]" src="./image/icon/publishing.png" alt="">
+                            <p class="text-[#ffff] font-bold text-2xl ps-2">환경그래픽</p>
+                        </div>
+                        <div class="flex-col items-center justify-start pt-4">
+                            <p class="font-medium text-[#ffff] text-xl">가장 오래 머무는 사무실과 학교,</p>
+                            <p class="font-medium text-[#ffff] text-xl">눈이 피로하지 않게 디자인해 주세요</p>
+                        </div>
+                        <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                            <ul class="list-disc">
+                                <li>학교 현황판, 입간판, 게시대</li>
+                                <li>표찰, 유리창 시트, 스카시</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/4  bg-right bg-blend-darken bg-black bg-opacity-50 h-full  bg-[url('./image/main/service-mainInternet.png')] bg-cover  rounded-e-[20px] transition-all duration-700">
+                <div class="flex justify-center items-center gap-[20px] mt-[80px] fourtitle">
+                    <img class="w-[55px]" src="./image/icon/Internet.png" alt="">
+                    <p class="text-[#ffff] font-bold text-2xl">웹디자인</p>
+                </div>
+                <div class="w-4/5 fourcard overflow-hidden whitespace-nowrap">
+                    <div class="m-auto w-full flex-col items-start rounded-[20px] bg-blend-darken bg-black bg-opacity-50 py-[40px] px-[60px]">
+                        <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                            <img class="w-[55px]" src="./image/icon/Internet.png" alt="">
+                            <p class="text-[#ffff] font-bold text-2xl ps-2">웹디자인</p>
+                        </div>
+                        <div class="flex-col items-center justify-start pt-4">
+                            <p class="font-medium text-[#ffff] text-xl">고객과 소통하는 창구역할을 하는 </p>
+                            <p class="font-medium text-[#ffff] text-xl"> 웹에 꼭 맞는 코디는 필수</p>
+                        </div>
+                        <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                            <ul class="list-disc">
+                                <li>UX/UI 디자인</li>
+                                <li>웹 퍼블리싱</li>
 
-<div>
-</div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sm:hidden mt-[60px] ">
+        <div class="m-auto w-[91%] h-[250px]">
+            <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainmak.png')] bg-cover bg-center rounded-[20px]">
+                <img class="w-[55px]" src="./image/icon/mak.png" alt="">
+                <p class="text-[#ffff] font-bold text-base relative underline-custom">마케팅·광고</p>
+            </div>
+        </div>
+        <div class="m-auto w-[91%] h-[250px]">
+            <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainvisual.png')] bg-cover bg-center rounded-[20px]">
+                <img class="w-[55px]" src="./image/icon/visual.png" alt="">
+                <p class="text-[#ffff] font-bold text-base relative underline-custom-visual">비주얼 아이덴티티</p>
+            </div>
+        </div>
+        <div class="m-auto w-[91%] h-[250px]">
+            <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainpublishing.png')] bg-cover bg-center rounded-[20px]">
+                <img class="w-[55px]" src="./image/icon/publishing.png" alt="">
+                <p class="text-[#ffff] font-bold text-base relative underline-custom">환경그래픽</p>
+            </div>
+        </div>
+        <div class="m-auto w-[91%] h-[250px]">
+            <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainInternet.png')] bg-cover bg-center rounded-[20px]">
+                <img class="w-[55px]" src="./image/icon/Internet.png" alt="">
+                <p class="text-[#ffff] font-bold text-base relative underline-custom">웹디자인</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="md:block hidden">
+        <img class="w-full absolute transform -translate-y-[9rem] -z-10" src="./image/main/portfoliobg.png" alt="">
+    </div>
+    <div class=" flex  flex-col justify-center items-center mt-[170px] ">
+        <h1 class="font-bold text-[44px] text-mblack mb-[12px]">Portfolio</h1>
+        <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
+    </div>
+
+    <div class="mt-[60px]">
+        <div class="m-auto  grid sm:grid-cols-2 md:grid-cols-3 w-[91%] max-w-[1440px] gap-[20px]">
+            <div>
+                <img class="w-full" src="./image/main/Portfolio1.png" alt="">
+            </div>
+            <div>
+                <img class="w-full" src="./image/main/Portfolio2.png" alt="">
+            </div>
+            <div>
+                <img class="w-full" src="./image/main/Portfolio3.png" alt="">
+            </div>
+            <div>
+                <img class="w-full" src="./image/main/Portfolio4.png" alt="">
+            </div>
+            <div class="sm:block hidden">
+                <img class="w-full" src="./image/main/Portfolio5.png" alt="">
+            </div>
+            <div class="sm:block hidden">
+                <img class="w-full" src="./image/main/Portfolio6.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center my-[50px]">
+        <a class=" rounded-full py-[13px] px-[20px] bg-black text-white font-bold flex justify-center items-center" href="">
+            포트폴리오 더보기
+            <svg class="w-4 h-4 text-white ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+        </a>
+    </div>
+
+
+    <div class="w-full">
+        <div class=" flex  flex-col justify-center items-center mt-[170px]">
+            <h1 class="font-bold text-[44px] text-mblack mb-[12px]">Process</h1>
+            <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
+        </div>
+        <div class="">
+            <img class=" w-[50%] absolute transform translate-x-full -translate-y-16 -z-10 sm:block hidden" src="./image/main/processbg.png" alt="">
+        </div>
+        <div class=" w-[91%] m-auto flex justify-center items-center ">
+            <div class=" sm:block hidden mt-[60px] w-full max-w-[1440px]">
+                <img class="w-[80%] m-auto" src="./image/main/processmain.png" alt="">
+            </div>
+            <div class=" sm:hidden  mt-[60px] w-full max-w-[1440px]">
+                <img class="w-[80%] m-auto" src="./image/main/processmobile.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class=" flex  flex-col justify-center items-center text-center mt-[200px] ">
+        <h1 class="font-bold text-[44px] text-mblack mb-[12px]">Contact</h1>
+        <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
+    </div>
+
+    <div class="m-auto pb-[60px]">
+        <div class="w-[91%] max-w-[1440px] m-auto pt-[25px] pb-[35px] ps-3 border-mblack border-b-[3px]">
+            <p class="font-bold text-mblack text-2xl mb-3">무엇이든 편하게 물어보세요.</p>
+            <p class="font-medium text-mblack text-lg">상담을 신청해 주시면 최대한 빠르게 연락드리겠습니다.</p>
+        </div>
+    </div>
+
+    <!-- 부트스트랩 CDN 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('.service > div').mouseover(function() {
+                $(this).removeClass('w-1/4').removeClass('bg-opacity-50');
+                $(this).addClass('w-1/2').addClass('bg-opacity-25').addClass('on').addClass('flex').addClass('justify-center').addClass('items-center');
+                $('.service > div').not(this).addClass('w-1/6').not(this).addClass('off');
+                $('.service > div').not(this).removeClass('w-1/4').not(this).removeClass('w-1/2');
+
+            });
+            $('.service > div').mouseleave(function() {
+                $(this).addClass('w-1/4').addClass('bg-blend-darken').addClass('bg-black').addClass('bg-opacity-50');
+                $(this).removeClass('w-1/2').removeClass('bg-opacity-25').removeClass('on').removeClass('flex').removeClass('justify-center').removeClass('items-center');
+                $('.service > div').not(this).addClass('w-1/4');
+                $('.service > div').not(this).removeClass('w-1/6').removeClass('w-1/2').removeClass('off');
+
+
+            });
+        });
+    </script>
 
 
 

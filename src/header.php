@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!--테일윈드 CDN -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+
     <style type="text/tailwindcss">
         @layer utilities {
       .content-auto {
@@ -23,6 +26,51 @@
             src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
             font-weight: 400;
             font-style: normal;
+        }
+    </style>
+
+    <style>
+        .off p {
+            display: none;
+        }
+
+        .on .fourtitle {
+            display: none;
+        }
+
+        .fourcard {
+            display: none;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .on .fourcard {
+            display: block;
+            opacity: 1;
+        }
+
+        .underline-custom::after {
+            content: '';
+            display: block;
+            width: 168px;
+            /* 밑줄의 길이를 조절합니다. */
+            height: 2px;
+            background: #fff;
+            /* 밑줄의 색상을 설정합니다. */
+            position: absolute;
+            bottom: -3px;
+        }
+
+        .underline-custom-visual::after {
+            content: '';
+            display: block;
+            width: 168px;
+            /* 밑줄의 길이를 조절합니다. */
+            height: 2px;
+            background: #fff;
+            /* 밑줄의 색상을 설정합니다. */
+            position: absolute;
+            bottom: -3px;
         }
     </style>
 

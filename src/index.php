@@ -228,10 +228,63 @@ if ($currentPath == '/index.php') {
         <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
     </div>
 
-    <div class="m-auto pb-[60px]">
-        <div class="w-[91%] max-w-[1440px] m-auto pt-[25px] pb-[35px] ps-3 border-mblack border-b-[3px]">
+    <div class="m-auto pb-[60px] sm:block hidden">
+        <div class="w-[91%] max-w-[1440px] m-auto pt-[25px] pb-[35px] px-3 border-mblack border-b-[3px]">
             <p class="font-bold text-mblack text-2xl mb-3">무엇이든 편하게 물어보세요.</p>
             <p class="font-medium text-mblack text-lg">상담을 신청해 주시면 최대한 빠르게 연락드리겠습니다.</p>
+        </div>
+        <div class="flex justify-center items-center w-[91%] max-w-[1440px] m-auto pt-[25px] pb-[35px] px-3">
+            <form class="w-full" action="">
+                <div class="lg:flex justify-between">
+                    <div class="flex lg:block">
+                        <p class="font-semibold text-lg">상담에 필요한 기본정보를</p>
+                        <p class="font-semibold text-lg ">입력해주세요.</p>
+                    </div>
+                    <div class=" grid grid-cols-3 gap-6 ">
+                        <div class="relative">
+                            <input class="placeholder-slate-400 border rounded-[4px]" type="text" placeholder="이름" name="user_name">                            
+                        </div>
+                        <div class="relative">
+                            <input class="placeholder-slate-400 border rounded-[4px]" type="text" placeholder="연락처" name="user_phone">
+                            <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">
+                                *
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <input class="placeholder-slate-400 border rounded-[4px]" type="text" placeholder="이메일" name="user_email">
+                            <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">
+                                *
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <input class="placeholder-slate-400 border rounded-[4px]" type="text" placeholder="회사명" name="company_name">
+                            <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">
+                                *
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <input class="placeholder-slate-400 border rounded-[4px]" type="text" placeholder="직급" name="company_rank">
+                            
+                        </div>
+                        <div class="relative">
+                            <input class="placeholder-slate-400 border rounded-[4px]" type="text" placeholder="홈페이지" name="homepage">
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center pt-12">
+                    <button class="rounded-md py-3 px-16 bg-black text-white text-base font-semibold" type="submit">상담 신청</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="sm:hidden flex-col items-center justify-center w-[91%] m-auto">
+        <div class=" border-b-4 border-black text-center">
+            <p class="font-bold text-lg">당신의 프로젝트에 대해 이야기해주세요.</p>
+            <p class="py-3 text-xs">문의를 남겨주시면 최대한 빠르게 답변드리겠습니다.</p>
+        </div>
+        <div class="m-auto pt-10  text-center">
+            <a class="rounded-md w-full  bg-black text-white font-bold text-xl px-[60px] py-[23px]" href="">견적문의</a>
         </div>
     </div>
 

@@ -80,6 +80,7 @@
                 extend: {
                     colors: {
                         clifford: '#da373d',
+                        iconred: 'E60A0A',
                         mblack: '#333',
                         grayService: '#717171',
                         customblue: '#16214D',

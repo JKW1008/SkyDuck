@@ -54,10 +54,13 @@ $filename = basename(__FILE__, '.php');
             <img src="./image/Page_intro/classification_m.png" alt="">
         </div>
     </article>
-    <article id="howToCome" class="w-full max-w-[1440px]">
+    <article id="howToCome" class="w-full max-w-[1440px] flex flex-col justify-center items-center px-10 max-[390px]:px-5 py-20">
+        <div class="w-full max-w-[1196px] my-12 border-[#001C7E] border-b-4">
+            <div class="text-[46px] max-[720px]:text-[32px] max-[390px]:text-[28px]"><span class=" font-bold">오시는길</span></div>
+        </div>
+
         <div id="map" class="w-full h-[550px] max-h-[400px] "></div>
-    <div>카카오맵</div>
-       
+
     </article>
 </section>
 
@@ -72,30 +75,32 @@ $filename = basename(__FILE__, '.php');
 
 
 <script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(35.8847927, 128.612648), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = {
+            center: new kakao.maps.LatLng(35.8847927, 128.612648), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-var imageSrc = './image/icon/mapIcon_2.png', // 마커이미지의 주소입니다    
-    imageSize = new kakao.maps.Size(82, 62), // 마커이미지의 크기입니다
-    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-      
-// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-    markerPosition = new kakao.maps.LatLng(35.8847927, 128.612610); // 마커가 표시될 위치입니다
+    var imageSrc = './image/icon/mapIcon_2.png', // 마커이미지의 주소입니다    
+        imageSize = new kakao.maps.Size(82, 62), // 마커이미지의 크기입니다
+        imageOption = {
+            offset: new kakao.maps.Point(27, 69)
+        }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
-// 마커를 생성합니다
-var marker = new kakao.maps.Marker({
-    position: markerPosition, 
-    image: markerImage // 마커이미지 설정 
-});
+    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+        markerPosition = new kakao.maps.LatLng(35.8847927, 128.612610); // 마커가 표시될 위치입니다
 
-// 마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);  
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition,
+        image: markerImage // 마커이미지 설정 
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
 </script>
 
 <?php

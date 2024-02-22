@@ -49,6 +49,21 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
+
+<!-- 헤더 토글 스크립트 -->
+<script>
+        document.getElementById('MenuToggleBtn').addEventListener('click', function() {
+            document.getElementById('ToggleMenu').classList.remove('left-[100%]');
+            document.getElementById('ToggleMenu').classList.add('left-0');
+        });
+    </script>
+    <script>
+        document.getElementById('ToggleCloseBtn').addEventListener('click', function() {
+            document.getElementById('ToggleMenu').classList.remove('left-0');
+            document.getElementById('ToggleMenu').classList.add('left-[100%]');
+        });
+    </script>
+
 </body>
 
 </html>

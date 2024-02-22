@@ -138,28 +138,86 @@ if ($currentPath == '/index.php') {
 </div>
 
 <div class="sm:hidden mt-[60px] ">
-    <div class="m-auto w-[91%] h-[250px]">
+    <div class="m-auto w-[91%] ">
         <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainmak.png')] bg-cover bg-center rounded-[20px]">
-            <img class="w-[55px]" src="./image/icon/mak.png" alt="">
-            <p class="text-[#ffff] font-bold text-base relative underline-custom">마케팅·광고</p>
+        <div class="m-auto w-full flex-col items-start ">
+                    <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                        <img class="w-[50px]" src="./image/icon/mak.png" alt="">
+                        <p class="text-[#ffff] font-bold text-2xl ps-2">마케팅·광고</p>
+                    </div>
+                    <div class="flex-col items-center justify-start pt-4">
+                        <p class="font-medium text-[#ffff] text-xl">디자인은 예술이 아닌 생활입니다.</p>
+                        <p class="font-medium text-[#ffff] text-xl">누구나 보고싶게 만들어 주세요</p>
+                    </div>
+                    <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                        <ul class="list-disc">
+                            <li>홍보물(브로슈어, 리플렛, 전단지 외)</li>
+                            <li>사인제품(현수막, 배너 외)</li>
+                            <li>판촉물(기념품 외)</li>
+                        </ul>
+                    </div>
+                </div>
         </div>
     </div>
-    <div class="m-auto w-[91%] h-[250px]">
+    <div class="m-auto w-[91%]">
         <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainvisual.png')] bg-cover bg-center rounded-[20px]">
-            <img class="w-[55px]" src="./image/icon/visual.png" alt="">
-            <p class="text-[#ffff] font-bold text-base relative underline-custom-visual">비주얼 아이덴티티</p>
+        <div class="m-auto w-full flex-col items-start ">
+                    <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                        <img class="w-[55px]" src="./image/icon/visual.png" alt="">
+                        <p class="text-[#ffff] font-bold text-2xl ps-2">비주얼 아이덴티티</p>
+                    </div>
+                    <div class="flex-col items-center justify-start pt-4">
+                        <p class="font-medium text-[#ffff] text-xl">몸에 맞는 옷을 입듯</p>
+                        <p class="font-medium text-[#ffff] text-xl">브랜드에도 맞는 디자인을 입히세요.</p>
+                    </div>
+                    <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                        <ul class="list-disc">
+                            <li>BI, CI, Package 디자인</li>
+                            <li>서류 양식 디자인 </li>
+                        </ul>
+                    </div>
+                </div>
         </div>
     </div>
-    <div class="m-auto w-[91%] h-[250px]">
+    <div class="m-auto w-[91%]">
         <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainpublishing.png')] bg-cover bg-center rounded-[20px]">
-            <img class="w-[55px]" src="./image/icon/publishing.png" alt="">
-            <p class="text-[#ffff] font-bold text-base relative underline-custom">환경그래픽</p>
+        <div class="m-auto w-full flex-col items-start ">
+                    <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                        <img class="w-[55px]" src="./image/icon/publishing.png" alt="">
+                        <p class="text-[#ffff] font-bold text-2xl ps-2">환경그래픽</p>
+                    </div>
+                    <div class="flex-col items-center justify-start pt-4">
+                        <p class="font-medium text-[#ffff] text-xl">가장 오래 머무는 사무실과 학교,</p>
+                        <p class="font-medium text-[#ffff] text-xl">눈이 피로하지 않게 디자인해 주세요</p>
+                    </div>
+                    <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                        <ul class="list-disc">
+                            <li>학교 현황판, 입간판, 게시대</li>
+                            <li>표찰, 유리창 시트, 스카시</li>
+                        </ul>
+                    </div>
+                </div>
         </div>
     </div>
-    <div class="m-auto w-[91%] h-[250px]">
+    <div class="m-auto w-[91%]">
         <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainInternet.png')] bg-cover bg-center rounded-[20px]">
-            <img class="w-[55px]" src="./image/icon/Internet.png" alt="">
-            <p class="text-[#ffff] font-bold text-base relative underline-custom">웹디자인</p>
+        <div class="m-auto w-full flex-col items-start">
+                    <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                        <img class="w-[55px]" src="./image/icon/Internet.png" alt="">
+                        <p class="text-[#ffff] font-bold text-2xl ps-2">웹디자인</p>
+                    </div>
+                    <div class="flex-col items-center justify-start pt-4">
+                        <p class="font-medium text-[#ffff] text-xl">고객과 소통하는 창구역할을 하는 </p>
+                        <p class="font-medium text-[#ffff] text-xl"> 웹에 꼭 맞는 코디는 필수</p>
+                    </div>
+                    <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                        <ul class="list-disc">
+                            <li>UX/UI 디자인</li>
+                            <li>웹 퍼블리싱</li>
+
+                        </ul>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
@@ -341,8 +399,6 @@ if ($currentPath == '/index.php') {
             $(this).removeClass('w-1/2').removeClass('bg-opacity-25').removeClass('on').removeClass('flex').removeClass('justify-center').removeClass('items-center');
             $('.service > div').not(this).addClass('w-1/4');
             $('.service > div').not(this).removeClass('w-1/6').removeClass('w-1/2').removeClass('off');
-
-
         });
     });
 </script>

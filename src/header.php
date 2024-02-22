@@ -82,6 +82,7 @@
                         clifford: '#da373d',
                         iconred: 'E60A0A',
                         mblack: '#333',
+                        loginblue: '#182548',
                         grayService: '#717171',
                         customblue: '#16214D',
                         custombluetransparent: 'rgba(22, 33, 77, 0.00)',

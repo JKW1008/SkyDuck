@@ -100,10 +100,6 @@
 </head>
 
 <body class=" relative transition-all font-[Pretendard-Regular] pb-[500px] ">
-
-
-
-    <!-- header text-white 부분 index 아닐때는 빼야함 -->
     <header id="mainHeader" class="z-[999] fixed w-full h-16 flex justify-center items-center bg-white duration-300 shadow-md">
         <div class="container max-w-[1024px] flex flex-row justify-between px-10">
             <a href="./">
@@ -129,7 +125,42 @@
                         <div class="w-[65px] h-[39px] bg-[#333333] rounded-md flex justify-center items-center text-white">로그인</div>
                     </a>
                 </div>
-                <div class="hidden p-2 max-[640px]:block rounded-lg hover:bg-gray-500 hover:opacity-75"><img src="./image/icon/toggleBtn.png" alt=""></div>
+                <div id="MenuToggleBtn" class="hidden p-2 max-[640px]:block rounded-lg bg-[#004190] hover:bg-white hover:opacity-75"><img src="./image/icon/toggleBtn.png" alt=""></div>
             </div>
         </div>
     </header>
+    <div id="ToggleMenu" class="fixed w-screen h-full top-0 left-[100%] bg-[#F1F3F6] z-[1000] duration-150">
+        <div class=" relative w-full h-full flex flex-col justify-start items-center">
+            <div class=" absolute top-8 w-full flex justify-between px-10 items-center">
+                <div><a href="./"><img src="./image/logo/SkyDuck_Logo.png" alt=""></a></div>
+                <div id="ToggleCloseBtn" class="w-[22px] h-[22px]"><img src="./image/icon/btn_X.png" alt="X"></div>
+            </div>
+            <div class="w-full flex flex-col text-[16px] font-bold pt-24 px-4 gap-6">
+                <a href="#" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
+                    <div>로그인</div>
+                    <img src="./image/icon/bracket_R.png" alt="">
+                </a>
+                <div class="w-full flex flex-col bg-white px-2 rounded-xl py-3">
+                    <a href="./intro.php" class="w-full flex justify-between items-center rounded-xl  px-3 py-2">
+                        <div>회사소개</div>
+                        <img src="./image/icon/bracket_R.png" alt="">
+                    </a>
+                    <a href="./portfolio.php" class="w-full flex justify-between items-center rounded-xl  px-3 py-2">
+                        <div>포트폴리오</div>
+                        <img src="./image/icon/bracket_R.png" alt="">
+                    </a>
+                    <a href="./board.php" class="w-full flex justify-between items-center rounded-xl  px-3 py-2">
+                        <div>게시판</div>
+                        <img src="./image/icon/bracket_R.png" alt="">
+                    </a>
+                    <a href="#" class="w-full flex justify-between items-center rounded-xl  px-3 py-2">
+                        <div>견적문의</div>
+                        <img src="./image/icon/bracket_R.png" alt="">
+                    </a>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>

@@ -25,8 +25,8 @@ include './header.php';
       <input class="w-full my-2 p-3 placeholder-slate-400 border rounded-md" type="password" placeholder="비밀번호" name="user_password">
       <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" id="btn_login_person" type="button">로그인</button>
     </form>
-    <div class="flex justify-between">
-      <a href="">회원가입</a>
+    <div class="flex justify-center gap-3">
+      <a href="">회원가입</a>/
       <a href="">비밀번호 찾기</a>
     </div>
   </div>

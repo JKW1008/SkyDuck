@@ -101,7 +101,7 @@
 
 <body class=" relative transition-all font-[Pretendard-Regular] pb-[500px] ">
     <header id="mainHeader" class="z-[999] fixed w-full h-16 flex justify-center items-center bg-white duration-300 shadow-md">
-        <div class="container max-w-[1024px] flex flex-row justify-between px-10">
+        <div class="container max-w-[1440px] flex flex-row justify-between px-10">
             <a href="./">
                 <div class="h-full ">
                     <img class="w-full h-full object-contain" src="./image/logo/SkyDuck_Logo.png" alt="">
@@ -121,7 +121,7 @@
                     <a href="#">
                         <div>견적문의</div>
                     </a>
-                    <a href="#">
+                    <a href="./login.php">
                         <div class="w-[65px] h-[39px] bg-[#333333] rounded-md flex justify-center items-center text-white">로그인</div>
                     </a>
                 </div>

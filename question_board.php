@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <script src="./js/board_input.js"></script>
     <h2>Question Board Form</h2>
     <table>
         <tr>
@@ -16,7 +17,7 @@
         </tr>
         <tr>
             <td><label for="password">Password (4-digit):</label></td>
-            <td><input type="number" id="password" name="password" min="1000" max="9999" required></td>
+            <td><input type="text" id="password" name="password" min="1000" max="9999" required></td>
         </tr>
         <tr>
             <td><label for="email">Email:</label></td>
@@ -39,7 +40,7 @@
             <td><input type="file" id="attachments" name="attachments"></td>
         </tr>
     </table>
-    <button type="submit">Submit</button>
+    <button type="button" id="board_write_submit">Submit</button>
 </body>
 
 </html>

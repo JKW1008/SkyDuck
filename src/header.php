@@ -121,7 +121,7 @@
                     <a href="#">
                         <div>견적문의</div>
                     </a>
-                    <a href="#">
+                    <a href="./login.php">
                         <div class="w-[65px] h-[39px] bg-[#333333] rounded-md flex justify-center items-center text-white">로그인</div>
                     </a>
                 </div>
@@ -136,7 +136,7 @@
                 <div id="ToggleCloseBtn" class="w-[22px] h-[22px]"><img src="./image/icon/btn_X.png" alt="X"></div>
             </div>
             <div class="w-full flex flex-col text-[16px] font-bold pt-24 px-4 gap-6">
-                <a href="#" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
+                <a href="./login.php" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
                     <div>로그인</div>
                     <img src="./image/icon/bracket_R.png" alt="">
                 </a>

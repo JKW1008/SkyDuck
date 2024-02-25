@@ -3,7 +3,7 @@ include './header.php';
 ?>
 
 
-
+<script src="./js/login.js"></script>
 
 <div class="pt-40 m-auto w-4/5 sm:w-1/2">
   <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist" data-tabs-active-classes="bg-loginblue text-white border-none">
@@ -17,14 +17,14 @@ include './header.php';
 </div>
 <div class="m-auto w-4/5 sm:w-1/2" id="default-tab-content">
   <div class="hidden  mt-8 " id="person" role="tabpanel" aria-labelledby="person-tab">
-    <form action="">
+    
       <div class="py-3  border-b-2 border-black">
         <h1 class="text-4xl font-medium">개인 로그인 </h1>
       </div>
-      <input class="w-full mt-10 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="아이디" name="user_id">
-      <input class="w-full my-2 p-3 placeholder-slate-400 border rounded-md" type="password" placeholder="비밀번호" name="user_password">
+      <input class="w-full mt-10 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="아이디" name="user_id" id="member_login_id_person">
+      <input class="w-full my-2 p-3 placeholder-slate-400 border rounded-md" type="password" placeholder="비밀번호" name="user_password" id="member_login_password_person">
       <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" id="btn_login_person" type="button">로그인</button>
-    </form>
+    
     <div class="flex justify-between">
       <a href="">회원가입</a>
       <a href="">비밀번호 찾기</a>
@@ -35,10 +35,10 @@ include './header.php';
       <div class="py-3  border-b-2 border-black">
         <h1 class="text-4xl font-medium">사업자 로그인 </h1>
       </div>
-      <input class="w-full mt-10 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="아이디" name="buiness_number">
-      <input class="w-full mt-2 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="아이디" name="buiness_id">
+      <input class="w-full mt-10 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="아이디" name="buiness_number" id="member_login_id_buiness">
+      <input class="w-full mt-2 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="아이디" name="buiness_id" id="member_login_password_buiness">
       <input class="w-full my-2 p-3 placeholder-slate-400 border rounded-md" type="password" placeholder="비밀번호" name="buiness_password">
-      <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" id="btn_login_person" type="button">로그인</button>
+      <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" id="btn_login_buiness" type="button">로그인</button>
     </form>
     <div class="flex justify-between">
       <a href="">회원가입</a>

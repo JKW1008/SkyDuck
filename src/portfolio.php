@@ -18,45 +18,66 @@ $filename = basename(__FILE__, '.php');
         render_header($title, $subtitle, $filename);
         ?>
     </div>
-
-    <div class=""></div>
-
-    <div class="pt-[80px]">
-        포트폴리오
-    </div>
 </section>
- 
-<div class="mb-4 border-b border-gray-200 dark:border-gray-700 ">
-    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-active-classes="text-[#cc0000] hover:text-[#cc0000] border-b-0 border-t-4" data-tabs-toggle="#default-tab-content" role="tablist">
-        <li class="me-2" role="presentation">
-            <button class=" focus:text-[#cc0000] text-[#cc0000] inline-block p-4 border-b-2" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false" >Profile</button>
-        </li>
-        <li class="me-2" role="presentation">
-            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Dashboard</button>
-        </li>
-        <li class="me-2" role="presentation">
-            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Settings</button>
-        </li>
-        <li role="presentation">
-            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">Contacts</button>
-        </li>
-    </ul>
-</div>
-<div id="default-tab-content">
-    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-    </div>
-    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-    </div>
-    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Settings tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-    </div>
-    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-    </div>
-</div>
 
+<section class="relative w-full flex flex-col justify-center items-center mt-24">
+    <article class="w-full max-w-[1440px] max-[740px]:px-4">
+        <div class="mb-4 ">
+            <ul class="flex flex-wrap justify-center -mb-px text-[#333333] text-[20px] font-medium text-center space-x-10 max-[740px]:space-x-2" id="default-tab" data-tabs-active-classes="text-[#333333] hover:text-[#333333] font-bold border-[#001C7E] border-b-0 border-t-4" data-tabs-toggle="#default-tab-content" role="tablist">
+                <li class="me-2 flex justify-center max-[740px]:w-[140px]" role="presentation">
+                    <button class="inline-block py-1 text-[#333333]" id="listAll-tab" data-tabs-target="#listAll" type="button" role="tab" aria-controls="listAll" aria-selected="false">전체보기</button>
+                </li>
+                <li class="me-2 flex justify-center max-[740px]:w-[140px]" role="presentation">
+                    <button class="inline-block py-1" id="listAd-tab" data-tabs-target="#listAd" type="button" role="tab" aria-controls="listAd" aria-selected="false">광고·편집</button>
+                </li>
+                <li class="me-2 flex justify-center max-[740px]:w-[140px]" role="presentation">
+                    <button class="inline-block py-1" id="listVi-tab" data-tabs-target="#listVi" type="button" role="tab" aria-controls="listVi" aria-selected="false">비주얼아이덴티티</button>
+                </li>
+                <li class="me-2 flex justify-center max-[740px]:w-[140px]" role="presentation">
+                    <button class="inline-block py-1" id="listEnv-tab" data-tabs-target="#listEnv" type="button" role="tab" aria-controls="listEnv" aria-selected="false">환경디자인</button>
+                </li>
+                <li class="me-2 flex justify-center max-[740px]:w-[140px]" role="presentation2">
+                    <button class="inline-block py-1" id="listWeb-tab" data-tabs-target="#listWeb" type="button" role="tab" aria-controls="listWeb" aria-selected="false">웹디자인</button>
+                </li>
+                <li class=" flex justify-center max-[740px]:w-[140px]" role="presentation">
+                    <button class="inline-block py-1" id="listEct-tab" data-tabs-target="#listEct" type="button" role="tab" aria-controls="listEct" aria-selected="false">기타</button>
+                </li>
+            </ul>
+        </div>
+        <div id="default-tab-content">
+            <div class="hidden p-4 rounded-lg" id="listAll" role="tabpanel" aria-labelledby="listAll-tab">
+                <?php
+                include './portfolioList/listAll.php'
+                ?>
+            </div>
+            <div class="hidden p-4 rounded-lg" id="listAd" role="tabpanel" aria-labelledby="listAd-tab">
+                <?php
+                include './portfolioList/listAd.php'
+                ?>
+            </div>
+            <div class="hidden p-4 rounded-lg" id="listVi" role="tabpanel" aria-labelledby="listVi-tab">
+                <?php
+                include './portfolioList/listVi.php'
+                ?>
+            </div>
+            <div class="hidden p-4 rounded-lg" id="listEnv" role="tabpanel" aria-labelledby="listEnv-tab">
+                <?php
+                include './portfolioList/listEnv.php'
+                ?>
+            </div>
+            <div class="hidden p-4 rounded-lg" id="listWeb" role="tabpanel" aria-labelledby="listWeb-tab">
+                <?php
+                include './portfolioList/listWeb.php'
+                ?>
+            </div>
+            <div class="hidden p-4 rounded-lg" id="listEct" role="tabpanel" aria-labelledby="listEct-tab">
+                <?php
+                include './portfolioList/listEct.php'
+                ?>
+            </div>
+        </div>
+    </article>
+</section>
 <?php
 include './footer.php';
 ?>

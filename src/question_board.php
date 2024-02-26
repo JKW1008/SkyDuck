@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td><label for="attachments">Attachments (comma-separated file names):</label></td>
-            <td><input type="file" id="attachments" name="attachments"></td>
+            <td><input type="file" id="attachments" name="attachments" multiple></td>
         </tr>
     </table>
     <button type="button" id="board_write_submit">Submit</button>

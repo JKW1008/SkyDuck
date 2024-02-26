@@ -163,12 +163,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (data.result === 'success') {
                         alert("견적문의 요청이 접수 되었습니다.");
-                        return false;
+                        self.location.reload();
                     };
 
                     if (data.result === 'fail') {
                         alert('견적 문의에 실패했습니다. 다시 입력해 주세요.');
-                        self.location.reload();
+                        return false;
                     };
                 } catch (error) {
                     console.error("JSON parsing error:", error);

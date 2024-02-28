@@ -16,7 +16,7 @@
             $stmt->bindParam(':phone_number', $arr['phone_number']);
             $stmt->bindParam(':title', $arr['title']);
             $stmt->bindParam(':content', $arr['content']);
-            $stmt->bindParam(':attachments', $arr['attachment']);
+            $stmt->bindParam(':attachments', implode(', ', $arr['attachment']));
             $stmt->execute();
             if ($stmt->rowCount() === 0) {
                 return false;

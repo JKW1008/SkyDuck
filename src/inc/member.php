@@ -82,5 +82,79 @@
             $stmt->execute();
             return $stmt->fetch();
         }
+        public function list($page, $limit, $paramArr) {
+            $start = ($page - 1) * $limit;
+            $where = "";
+        
+            if ($paramArr['sn'] != '' && $paramArr['sf'] != '') {
+                switch ($paramArr['sn']) {
+                    case 1: $sn_str = 'Name'; break;
+                    case 2: $sn_str = 'ID'; break;
+                    case 3: $sn_str = 'Email'; break;
+                }
+        
+                $where = " WHERE ".$sn_str." = :sf ";
+            }
+        
+            $sql = "SELECT IDX, ID, Name, Email, DATE_FORMAT(SignupDate, '%Y-%m-%d %H:%i') AS SignupDate 
+                    FROM sd_Users ". $where ." 
+                    ORDER BY IDX DESC LIMIT ".$start.",".$limit;
+            
+            $stmt = $this->conn->prepare($sql);
+        
+            if ($where != '') {
+                $stmt->bindParam(':sf', $paramArr['sf']);
+            }
+        
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
+        
+        public function total($paramArr){
+
+            $where = "";
+
+            if($paramArr['sn'] != '' && $paramArr['sf'] != ''){
+                switch($paramArr['sn']){
+                    case 1 : $sn_str = 'Name'; break;
+                    case 2 : $sn_str = 'ID'; break;
+                    case 3 : $sn_str = 'Email'; break;
+                }
+
+                $where = "  WHERE ".$sn_str."=:sf ";
+            }
+
+            $sql = "SELECT COUNT(*) cnt FROM sd_Users ". $where;
+            $stmt = $this->conn->prepare($sql);
+
+            if($where != ''){
+                $stmt->bindParam(':sf', $paramArr['sf']);
+            }
+
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $row = $stmt->fetch();
+            return $row['cnt'];
+        }
+
+        public function getAllData(){
+
+
+            $sql = "SELECT * FROM sd_Users ORDER BY IDX ASC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
+
+        public function getInfoFormIdx($idx){
+            $sql = "SELECT * FROM sd_Users WHERE IDX=:idx";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":idx", $idx);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetch();
+        }
     }
 ?>

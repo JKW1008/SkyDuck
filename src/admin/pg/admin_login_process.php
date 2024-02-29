@@ -26,6 +26,7 @@ if ($mode == 'admin_login') {
     if ($admin->login($id, $password)) {
         session_start();
         $_SESSION['ses_id'] = 'skyduck_admin';
+        $_SESSION['ses_grade'] = 'admin';
         die(json_encode(['result' => 'admin_login_success']));
     } else {
         die(json_encode(['result' => 'login_fail']));

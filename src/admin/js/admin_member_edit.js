@@ -19,6 +19,7 @@ function validatePassword(password) {
 
 document.addEventListener("DOMContentLoaded", () => {
     let emailChecked = false;
+    const member_id = document.querySelector("#member_id");
     const member_password = document.querySelector("#member_password");
     const member_password_check = document.querySelector("#member_password_check");
     const member_name = document.querySelector("#member_name");
@@ -26,9 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const member_mobile = document.querySelector("#member_mobile");
     const member_mobile2 = document.querySelector("#member_mobile2");
     const member_mobile3 = document.querySelector("#member_mobile3");
+    const mMobile = member_mobile.value + "-" + member_mobile2.value + "-" + member_mobile3.value;
     const member_phone = document.querySelector("#member_phone");
     const member_phone2 = document.querySelector("#member_phone2");
     const member_phone3 = document.querySelector("#member_phone3");
+    const mPhone = member_phone.value + "-" + member_phone2.value + "-" + member_phone3.value;
     const old_email = document.querySelector("#old_email");
     const email_id = document.querySelector("#member_email");
     const email_domain = document.querySelector("#email_domain");
@@ -99,11 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (data.result === "success") {
                         alert("사용가능한 이메일 입니다.");
-                        document.querySelector("#email_chk") = "1";
+                        // document.querySelector("#email_chk") = "1";
                         emailChecked = true;
                     } else if (data.result === "fail") {
                         alert("이미 사용중인 이메일입니다.");
-                        document.querySelector("#email_chk") = "0";
+                        // document.querySelector("#email_chk") = "0";
                         emailChecked = false;
                         email_id.value = "";
                         if (email_domain.value == "manual_input") {
@@ -193,7 +196,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (!validatePassword(memberPassword.value)) {
+
+        if (!emailChecked) {
+            alert("이메일 중복확인을 먼저 진행해 주세요.");
+            return false;
+        }
+
+        if (member_password.value != '' && member_password_check.value != '' &&!validatePassword(member_password.value)) {
             alert("형식에 맞지않는 비밀번호 입니다.");
             member_password.value = "";
             member_password.focus();
@@ -255,5 +264,43 @@ document.addEventListener("DOMContentLoaded", () => {
             member_addr2.focus();
             return false;
         };
+
+        const f = new FormData();
+        f.append("id", member_id.value);
+        f.append("password", member_password.value);
+        f.append("email", new_email);
+        f.append("name", member_name.value);
+        f.append("mobile", mMobile);
+        f.append("phone", mPhone);
+        f.append("zipcode", member_zipcode.value);
+        f.append("addr", member_addr1.value);
+        f.append("detail_addr", member_addr2.value);
+        f.append("mode", "admin_edit");
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "./../pg/member_process.php", true);
+        xhr.send(f);
+
+        xhr.onload = () => {
+            if (xhr.status == 200) {
+                const responseText = xhr.responseText;
+                try {
+                    const data = JSON.parse(responseText);
+                    if (data.result == 'success') {
+                        alert("수정되었습니다.");
+                        self.location.href = "./admin_member.php";
+                    } else if (data.result == 'fail' ) {
+                        alert("수정실패");
+                        return false;
+                    };
+                } catch (error) {
+                    console.error("JSON parsing error:", error);
+                }
+            } else if (xhr.status == 404) {
+                alert("연결 실패: 파일이 존재하지 않습니다.");
+            } else {
+                alert("알 수 없는 오류가 발생했습니다.");
+            }
+        }
     });
 });

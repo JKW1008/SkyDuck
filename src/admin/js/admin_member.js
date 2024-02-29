@@ -36,4 +36,45 @@ document.addEventListener("DOMContentLoaded", () => {
             self.location.href = "admin_member_edit.php?idx=" + idx;
         });
     });
+
+    const btn_mem_deletes = document.querySelectorAll(".btn_mem_delete");
+
+    btn_mem_deletes.forEach((box) => {
+        box.addEventListener("click", () => {
+            if (confirm("본 회원을 삭제하시겠습니까?")) {
+                const idx = box.dataset.idx;
+
+                const f = new FormData();
+                f.append("idx", idx);
+
+                const xhr = new XMLHttpRequest();
+
+                xhr.open("POST", "./admin_member_delete.php", true);
+                xhr.send(f);
+
+                xhr.onload = () => {
+                    if (xhr.status == 200) {
+                        const data = JSON.parse(xhr.responseText);
+                        if (data.result == 'access_denied') {
+                            alert("권한 없음");
+                            self.location.href = "./admin_login.php";
+                        } 
+                        
+                        if (data.result == 'empty_idx') {
+                            alert("번호가 존재하지 않습니다.");
+                            return false;
+                        }
+                        
+                        if (data.result == 'success') {
+                            alert("삭제 성공");
+                            self.location.reload();
+                        };
+                    } else if (xhr.status == 404) {
+                        alert("통신 실패");
+                    }
+                }
+            };
+        });
+    })
+
 });

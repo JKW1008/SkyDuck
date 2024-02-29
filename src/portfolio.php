@@ -14,8 +14,9 @@ $filename = basename(__FILE__, '.php');
         $title = "포트폴리오";
         $subtitle = "";
         $filename = "portfolio";
+        $textColor = "";
 
-        render_header($title, $subtitle, $filename);
+        render_header($title, $subtitle, $filename,$textColor);
         ?>
     </div>
 

@@ -107,7 +107,7 @@ include './header.php';
     </div>
 
     <div class="flex mt-4 max-[369px]:block"  id="Wrap">
-      <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="member_phone">휴대전화 <p class="text-red-600">*</p></label></div>
+      <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="member_phone">팩스번호 <p class="text-red-600">*</p></label></div>
       <div class="w-full flex justify-between items-center gap-2">
         <input class="w-1/3 rounded-md border-[#D9D9D9] " type="text" id="business_member_fax" name="member_phone" pattern="[0-9]{3}">
         <input class="w-1/3 rounded-md border-[#D9D9D9] " type="text" id="business_member_fax2" name="member_phone2" pattern="[0-9]{4}">

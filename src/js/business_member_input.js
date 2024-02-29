@@ -315,14 +315,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (company_name.value == "") {
-            alert("업체명을 입력해 주세요");
-            company_name.focus();
-            return false;
-        };
+        // if (company_name.value == "") {
+        //     alert("업체명을 입력해 주세요");
+        //     company_name.focus();
+        //     return false;
+        // };
 
         if (ceo_name.value == "") {
-            alert("대표명을 입력해주세요.");
+            alert("이름을 입력해주세요.");
             return false;
         };
 
@@ -330,17 +330,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const b_phone = business_member_phone.value + "-" + business_member_phone2.value + "-" + business_member_phone3.value;
         const b_fax = business_member_fax.value + "-" + business_member_fax2.value + "-" + business_member_fax3.value;
 
-        if (business_member_mobile.value == "" || business_member_mobile2.value == "" || business_member_mobile3.value == "") {
-            alert("전화번호를 입력해 주세요");
-            business_member_mobile.value = "";
-            business_member_mobile2.value = "";
-            business_member_mobile3.value = "";
-            business_member_mobile.focus();
-            return false;
-        };
+        // if (business_member_mobile.value == "" || business_member_mobile2.value == "" || business_member_mobile3.value == "") {
+        //     alert("전화번호를 입력해 주세요");
+        //     business_member_mobile.value = "";
+        //     business_member_mobile2.value = "";
+        //     business_member_mobile3.value = "";
+        //     business_member_mobile.focus();
+        //     return false;
+        // };
 
         if (business_member_phone.value == "" || business_member_phone2.value == "" || business_member_phone3.value == "") {
-            alert("전화번호를 입력해주세요2");
+            alert("휴대전화번호를 입력해주세요2");
             business_member_phone.value = "";
             business_member_phone2.value = "";
             business_member_phone3.value = "";
@@ -348,33 +348,33 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (business_member_fax.value == "" || business_member_fax2.value == "" || business_member_fax3.value == "") {
-            alert("팩스번호를 입력해 주세요");
-            business_member_fax.value = "";
-            business_member_fax2.value = "";
-            business_member_fax3.value = "";
-            business_member_fax.focus();
-            return false;
-        };
+        // if (business_member_fax.value == "" || business_member_fax2.value == "" || business_member_fax3.value == "") {
+        //     alert("팩스번호를 입력해 주세요");
+        //     business_member_fax.value = "";
+        //     business_member_fax2.value = "";
+        //     business_member_fax3.value = "";
+        //     business_member_fax.focus();
+        //     return false;
+        // };
 
         const member_zipcode = document.getElementById("member_zipcode");
         const member_addr1 = document.getElementById("member_addr1");
         const member_addr2 = document.getElementById("member_addr2");
 
-        if (member_zipcode.value == "") {
-            alert("우편번호를 입력해 주세요");
-            return false;
-        };
+        // if (member_zipcode.value == "") {
+        //     alert("우편번호를 입력해 주세요");
+        //     return false;
+        // };
 
-        if (member_addr1.value == "") {
-            alert("주소를 입력해주세요");
-            return false;
-        };
+        // if (member_addr1.value == "") {
+        //     alert("주소를 입력해주세요");
+        //     return false;
+        // };
 
-        if (member_addr2.value == "") {
-            alert("상세주소를 입력해 주세요");
-            return false;
-        };
+        // if (member_addr2.value == "") {
+        //     alert("상세주소를 입력해 주세요");
+        //     return false;
+        // };
 
         if (business_registration_number.value == "") {
             alert("사업자 등록번호를 입력해 주세요");
@@ -387,22 +387,22 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (business_type.value == "") {
-            alert("업태를 입력해 주세요");
-            business_type.focus();
-            return false;
-        };
+        // if (business_type.value == "") {
+        //     alert("업태를 입력해 주세요");
+        //     business_type.focus();
+        //     return false;
+        // };
 
-        if (business_category.value == "") {
-            alert("업종을 입력해 주세요");
-            business_category.focus();
-            return false;
-        };
+        // if (business_category.value == "") {
+        //     alert("업종을 입력해 주세요");
+        //     business_category.focus();
+        //     return false;
+        // };
 
-        if (businessImageInput.files.length === 0) {
-            alert("사업자 등록증을 첨부해 주세요");
-            return false;
-        }
+        // if (businessImageInput.files.length === 0) {
+        //     alert("사업자 등록증을 첨부해 주세요");
+        //     return false;
+        // }
 
         const f = new FormData();
         f.append("id", business_member_id.value);
@@ -444,14 +444,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     }
 
-                    if (data.result == "empty_bname") {
-                        alert("회사명을 입력해 주세요");
-                        company_name.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_bname") {
+                    //     alert("회사명을 입력해 주세요");
+                    //     company_name.focus();
+                    //     return false;
+                    // }
 
                     if (data.result == "empty_ceo_name") {
-                        alert("대표명을 입력해 주세요");
+                        alert("이름을 입력해 주세요");
                         ceo_name.focus();
                         return false;
                     }
@@ -462,11 +462,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     }
 
-                    if (data.result == "empty_b_mobile") {
-                        alert("전화번호를 입력해주세요");
-                        business_member_mobile.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_b_mobile") {
+                    //     alert("전화번호를 입력해주세요");
+                    //     business_member_mobile.focus();
+                    //     return false;
+                    // }
 
                     if (data.result == "empty_b_phone") {
                         alert("연락처를 입력해 주세요");
@@ -474,27 +474,27 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     }
 
-                    if (data.result == "empty_b_fax") {
-                        alert("팩스 번호를 입력해 주세요");
-                        business_member_fax.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_b_fax") {
+                    //     alert("팩스 번호를 입력해 주세요");
+                    //     business_member_fax.focus();
+                    //     return false;
+                    // }
 
-                    if (data.result == "empty_zipcode") {
-                        alert("우편번호를 입력해 주세요");
-                        return false;
-                    }
+                    // if (data.result == "empty_zipcode") {
+                    //     alert("우편번호를 입력해 주세요");
+                    //     return false;
+                    // }
 
-                    if (data.result == "empty_addr") {
-                        alert("주소를 입력해 주세요");
-                        return false;
-                    }
+                    // if (data.result == "empty_addr") {
+                    //     alert("주소를 입력해 주세요");
+                    //     return false;
+                    // }
 
-                    if (data.result == "empty_detail_addr") {
-                        alert("상세 주소를 입력해 주세요.");
-                        member_addr2.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_detail_addr") {
+                    //     alert("상세 주소를 입력해 주세요.");
+                    //     member_addr2.focus();
+                    //     return false;
+                    // }
 
                     if (data.result == "empty_b_number") {
                         alert("사업자 번호를 입력해 주세요");
@@ -502,17 +502,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     }
 
-                    if (data.result == "empty_b_type") {
-                        alert("업태를 입력해 주세요.");
-                        business_type.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_b_type") {
+                    //     alert("업태를 입력해 주세요.");
+                    //     business_type.focus();
+                    //     return false;
+                    // }
 
-                    if (data.result == "empty_b_category") {
-                        alert("업종을 입력해 주세요");
-                        business_category.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_b_category") {
+                    //     alert("업종을 입력해 주세요");
+                    //     business_category.focus();
+                    //     return false;
+                    // }
 
                     if (data.result == "fail") {
                         alert("회원가입에 실패했습니다. 다시 한번 시도해 주세요");

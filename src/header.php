@@ -118,7 +118,7 @@
                     <a href="./board.php">
                         <div>게시판</div>
                     </a>
-                    <a href="#">
+                    <a href="./qna.php">
                         <div>견적문의</div>
                     </a>
                     <a href="./login.php">
@@ -153,7 +153,7 @@
                         <div>게시판</div>
                         <img src="./image/icon/bracket_R.png" alt="">
                     </a>
-                    <a href="#" class="w-full flex justify-between items-center rounded-xl  px-3 py-2">
+                    <a href="./qna.php" class="w-full flex justify-between items-center rounded-xl  px-3 py-2">
                         <div>견적문의</div>
                         <img src="./image/icon/bracket_R.png" alt="">
                     </a>

@@ -232,8 +232,8 @@ if ($currentPath == '/index.php') {
 
 <div class="mt-[60px]">
     <div class="m-auto  grid sm:grid-cols-2 md:grid-cols-3 w-[91%] max-w-[1440px] gap-[20px]">
-        <div>
-            <img class="w-full" src="./image/main/Portfolio1.png" alt="">
+        <div  >
+            <img class="w-full " src="./image/main/Portfolio1.png" alt="">
         </div>
         <div>
             <img class="w-full" src="./image/main/Portfolio2.png" alt="">

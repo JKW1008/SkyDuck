@@ -14,8 +14,9 @@ $filename = basename(__FILE__, '.php');
         $title = "회사소개";
         $subtitle = "HOME / 회사소개";
         $filename = "intro";
+        $textColor = "";
 
-        render_header($title, $subtitle, $filename);
+        render_header($title, $subtitle, $filename,$textColor);
         ?>
     </div>
 

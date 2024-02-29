@@ -26,7 +26,7 @@ include './header.php';
       <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" id="btn_login_person" type="button">로그인</button>
     
     <div class="flex justify-between">
-      <a href="">회원가입</a>
+      <a href="./stipulation.php">회원가입</a>
       <a href="">비밀번호 찾기</a>
     </div>
   </div>
@@ -41,7 +41,7 @@ include './header.php';
       <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" id="btn_login_buiness" type="button">로그인</button>
     </form>
     <div class="flex justify-between">
-      <a href="">회원가입</a>
+      <a href="./stipulation.php">회원가입</a>
       <a href="">비밀번호 찾기</a>
     </div>
   </div>

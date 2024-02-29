@@ -15,8 +15,9 @@ include './header.php';
         $title = "My Title";
         $subtitle = "My Subtitle";
         $filename = "board";
+        $textColor ="";
 
-        render_header($title, $subtitle, $filename);
+        render_header($title, $subtitle, $filename, $textColor);
         ?>
     </div>
 

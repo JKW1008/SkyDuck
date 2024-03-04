@@ -145,7 +145,7 @@
             foreach($memArr AS $row){
 
             // 2023-11-11 11:11:11
-            $row['create_at'] = substr($row['create_at'], 0, 16);
+            $row['SignupDate'] = substr($row['SignupDate'], 0, 16);
         ?>
                 <tr>
                     <td><?= $row['IDX']; ?></td>
@@ -176,8 +176,6 @@
             </div>
             <div class="d-flex mt-3 justify-content-between align-items-start">
                 <?php
-        $param = '$bcode=' .$bcode;
-
         if(isset($sn) && $sn != '' && isset($sf) && $sf != ''){      
             $param = '&sn='. $sn.'&sf='. $sf;
         }

@@ -41,16 +41,16 @@
             $new_hash_password = password_hash($marr['password'], PASSWORD_DEFAULT);
 
             $sql = "INSERT INTO sd_BusinessUsers(ID, Password, CompanyName, CEOName, PhoneNumber, MobileNumber, FaxNumber, Email, Zipcode, Address, DetailAddress, BusinessRegistrationNumber, BusinessRegistrationImage, BusinessType, BusinessCategory, SignupDate) VALUES
-            (:id, :password, :companyname, :ceoname, :email, :mobilenumber, :phonenumber, :faxnumber, :zipcode, :address, :detailaddress, :businessregistrationnumber, :businessregistrationimage, :businesstype, :businesscategory, NOW())";
+            (:id, :password, :companyname, :ceoname, :phonenumber, :mobilenumber, :faxnumber, :email, :zipcode, :address, :detailaddress, :businessregistrationnumber, :businessregistrationimage, :businesstype, :businesscategory, NOW())";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $marr['id']);
             $stmt->bindParam(':password', $new_hash_password);
             $stmt->bindParam(':companyname', $marr['companyname']);
             $stmt->bindParam(':ceoname', $marr['ceoname']);
-            $stmt->bindParam(':email', $marr['email']);
             $stmt->bindParam(':mobilenumber', $marr['mobilenumber']);
             $stmt->bindParam(':phonenumber', $marr['phonenumber']);
             $stmt->bindParam(':faxnumber', $marr['faxnumber']);
+            $stmt->bindParam(':email', $marr['email']);
             $stmt->bindParam(':zipcode', $marr['zipcode']);
             $stmt->bindParam(':address', $marr['address']);
             $stmt->bindParam(':detailaddress', $marr['detailaddress']);
@@ -96,4 +96,66 @@
             $stmt->execute();
             return $stmt->fetch();
         }
+
+        public function list($page, $limit, $paramArr) {
+            $start = ($page - 1) * $limit;
+            $where = "";
+        
+            if ($paramArr['sn'] != '' && $paramArr['sf'] != '') {
+                switch ($paramArr['sn']) {
+                    case 1: $sn_str = 'ID'; break;
+                    case 2: $sn_str = 'Email'; break;
+                    case 3: $sn_str = 'CompanyName'; break;
+                    case 4: $sn_str = 'CEOName'; break;
+                    case 5: $sn_str = 'IDX'; break;
+                }
+        
+                $where = " WHERE ".$sn_str." = :sf ";
+            }
+        
+            $sql = "SELECT * 
+            FROM sd_BusinessUsers " . $where . 
+            " ORDER BY IDX DESC 
+            LIMIT " . $start . "," . $limit;
+    
+            
+            $stmt = $this->conn->prepare($sql);
+        
+            if ($where != '') {
+                $stmt->bindParam(':sf', $paramArr['sf']);
+            }
+        
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
+        
+        public function total($paramArr){
+            $where = "";
+        
+            if($paramArr['sn'] != '' && $paramArr['sf'] != ''){
+                switch($paramArr['sn']){
+                    case 1: $sn_str = 'ID'; break;
+                    case 2: $sn_str = 'Email'; break;
+                    case 3: $sn_str = 'CompanyName'; break;
+                    case 4: $sn_str = 'CEOName'; break;
+                    case 5: $sn_str = 'IDX'; break;
+                }
+        
+                $where = " WHERE ".$sn_str."=:sf ";
+            }
+        
+            $sql = "SELECT COUNT(*) cnt FROM sd_BusinessUsers ". $where;
+            $stmt = $this->conn->prepare($sql);
+        
+            if($where != ''){
+                $stmt->bindParam(':sf', $paramArr['sf']);
+            }
+        
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $row = $stmt->fetch();
+            return $row['cnt'];
+        }
+        
     }

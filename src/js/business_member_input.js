@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("addr", member_addr1.value);
         f.append("detail_addr", member_addr2.value);
         f.append("b_number", business_registration_number.value);
-        f.append("b_type", business_category.value);
+        f.append("b_type", business_type.value);
         f.append("b_category", business_category.value);
         f.append("photo", b_image, b_image.name);
         f.append("mode", "input");

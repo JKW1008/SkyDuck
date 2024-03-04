@@ -139,8 +139,6 @@
         }
 
         public function getAllData(){
-
-
             $sql = "SELECT * FROM sd_Users ORDER BY IDX ASC";
             $stmt = $this->conn->prepare($sql);
             $stmt->setFetchMode(PDO::FETCH_ASSOC);

@@ -1,5 +1,5 @@
-<div>
+<div id="divAd" class="grid grid-cols-3 max-[740px]:grid-cols-2 max-[390px]:grid-cols-1 gap-4 max-[390px]:gap-4 items-center overflow-hidden object-fill">
 
-광고·편집
+    <script src="./js/portfolioList_Ad.js"></script>
 
 </div>

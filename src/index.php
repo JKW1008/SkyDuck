@@ -292,7 +292,7 @@ if ($currentPath == '/index.php') {
         <p class="font-medium text-mblack text-lg">상담을 신청해 주시면 최대한 빠르게 연락드리겠습니다.</p>
     </div>
     <div class="flex justify-center items-center w-[91%] max-w-[1440px] m-auto pt-[25px] pb-[35px] px-3">
-        <form class="w-full" action="" id="contact-form" name="formname">
+        <form class="w-full" action=""   name="formname">
             <div class="lg:flex justify-between">
                 <div class="flex lg:block">
                     <p class="font-semibold text-lg">상담에 필요한 기본정보를</p>
@@ -321,13 +321,10 @@ if ($currentPath == '/index.php') {
                         </div>
                     </div>
                     <div class="relative">
-                        <input class="w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="직급" name="company_rank">
+                        <input class="w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="내용" name="company_detail">
 
                     </div>
-                    <div class="relative">
-                        <input class="w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="홈페이지" name="homepage">
-
-                    </div>
+                    
                 </div>
             </div>
             <div class="text-center pt-12">
@@ -351,7 +348,7 @@ if ($currentPath == '/index.php') {
     // Email JS
     (function() {
         // https://dashboard.emailjs.com/admin/account
-        emailjs.init('Wh5DPzjPo5Ysz-aZX');
+        emailjs.init('lwVwvssxtK8-d1g-b');
     })();
         
     window.onload = function() {
@@ -373,7 +370,7 @@ if ($currentPath == '/index.php') {
             }else{
                 
                 // these IDs from the previous steps
-                emailjs.sendForm('service_3gg7lt9', 'template_zfjaacv', this)
+                emailjs.sendForm('service_7deictp', 'template_ikqaxfi', this)
                     .then(function() {
                         console.log('SUCCESS!');
                         alert('전송이 완료되었습니다');

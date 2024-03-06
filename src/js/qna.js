@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const qna_submit = document.querySelector("#qna_submit");
 
     qna_submit.addEventListener("click", () => {
-        if (qna_name.value == "") {
-            alert("이름을 입력해주세요");
-            qna_name.focus();
-            return false;
-        };
+        // if (qna_name.value == "") {
+        //     alert("이름을 입력해주세요");
+        //     qna_name.focus();
+        //     return false;
+        // };
 
         if (qna_tel.value == "") {
             alert("연락처를 입력해 주세요");
@@ -36,17 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (qna_garde.value == "") {
-            alert("직급을 입력해 주세요");
-            qna_garde.focus();
-            return false;
-        };
+        // if (qna_garde.value == "") {
+        //     alert("직급을 입력해 주세요");
+        //     qna_garde.focus();
+        //     return false;
+        // };
 
-        if (qna_user_page.value == "") {
-            alert("홈페이지를 입력해 주세요");
-            qna_user_page.focus();
-            return false;
-        };
+        // if (qna_user_page.value == "") {
+        //     alert("홈페이지를 입력해 주세요");
+        //     qna_user_page.focus();
+        //     return false;
+        // };
 
         const c_boxes = document.querySelectorAll("input[type='checkbox']");
         let checked = false;
@@ -108,11 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const responseText = xhr.responseText;
                 try {
                     const data = JSON.parse(responseText);
-                    if (data.result === 'empty_name') {
-                        alert("이름이 비어있습니다. 다시 입력해 주세요");
-                        qna_name.focus();
-                        return false;
-                    };
+                    // if (data.result === 'empty_name') {
+                    //     alert("이름이 비어있습니다. 다시 입력해 주세요");
+                    //     qna_name.focus();
+                    //     return false;
+                    // };
 
                     if (data.result === 'empty_tel') {
                         alert("연락처가 비어있습니다. 다시 입력해 주세요.");
@@ -132,17 +132,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     };
 
-                    if (data.result === 'empty_grade') {
-                        alert("직급이 비어있습니다. 다시 입력해 주세요.");
-                        qna_garde.focus();
-                        return false;
-                    };
+                    // if (data.result === 'empty_grade') {
+                    //     alert("직급이 비어있습니다. 다시 입력해 주세요.");
+                    //     qna_garde.focus();
+                    //     return false;
+                    // };
 
-                    if (data.result === 'empty_userpage') {
-                        alert("사이트가 비어있습니다. 예시 사이트라도 넣어주세요");
-                        qna_user_page.focus();
-                        return false;
-                    };
+                    // if (data.result === 'empty_userpage') {
+                    //     alert("사이트가 비어있습니다. 예시 사이트라도 넣어주세요");
+                    //     qna_user_page.focus();
+                    //     return false;
+                    // };
 
                     if (data.result === 'empty_budget') {
                         alert("예산이 비어있습니다. 다시 입력해 주세요.");
@@ -156,10 +156,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     };
 
-                    if (data.result === 'empty_services') {
-                        alert("서비스를 선택해 주세요");
-                        return false;
-                    }
+                    // if (data.result === 'empty_services') {
+                    //     alert("서비스를 선택해 주세요");
+                    //     return false;
+                    // }
 
                     if (data.result === 'success') {
                         alert("견적문의 요청이 접수 되었습니다.");

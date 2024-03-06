@@ -22,9 +22,9 @@
     // echo "Services Array: ";
     // print_r($services);
 
-    if ($name == '') {
-        die(json_encode(['result' => 'empty_name']));
-    };
+    // if ($name == '') {
+    //     die(json_encode(['result' => 'empty_name']));
+    // };
 
     if ($tel == '') {
         die(json_encode(['result' => 'empty_tel']));
@@ -38,13 +38,13 @@
         die(json_encode(['result' => 'emtpy_cname']));
     };
 
-    if ($grade == '') {
-        die(json_encode(['result' => 'empty_grade']));
-    };
+    // if ($grade == '') {
+    //     die(json_encode(['result' => 'empty_grade']));
+    // };
 
-    if ($user_page == '') {
-        die(json_encode(['result' => 'empty_userpage']));
-    };
+    // if ($user_page == '') {
+    //     die(json_encode(['result' => 'empty_userpage']));
+    // };
 
     if ($budget == '') {
         die(json_encode(['result' => 'empty_budget']));

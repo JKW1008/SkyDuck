@@ -22,6 +22,7 @@
     $db = $pdo;
 
     include "../inc/portfolio.php";
+    include "../inc/lib.php";
 
     $sn = (isset($_GET['sn']) && $_GET['sn'] != '' && is_numeric($_GET['sn'])) ? $_GET['sn'] : '';
     $sf = (isset($_GET['sf']) && $_GET['sf'] != '') ? $_GET['sf'] : '';
@@ -170,6 +171,7 @@
                 <button class="btn btn-primary w-25" id="btn_search">검색</button>
                 <button class="btn btn-success w-25" id="btn_all">전체목록</button>
                 <button class="btn btn-primary" id="btn_excel">엑셀로 저장</button>
+                <button class="btn btn-primary" id="btn_input">글쓰기</button>
 
             </div>
             <div class="d-flex mt-3 justify-content-between align-items-start">
@@ -181,9 +183,12 @@
         
         echo my_pagination($total, $limit, $page_limit, $page, $param);
         ?>
+
             </div>
 
         </main>
+
+
     </div>
 </body>
 

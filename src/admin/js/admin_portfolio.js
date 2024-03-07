@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const btn_input = document.querySelector("#btn_input");
+
+    btn_input.addEventListener("click", () => {
+        self.location.href = "./admin_portfolio_input.php";
+    });
+
     const btn_search = document.querySelector("#btn_search");
 
     btn_search.addEventListener("click", () => {
@@ -63,6 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             };
+        });
+    });
+
+    const btn_mem_edit = document.querySelectorAll(".btn_mem_edit");
+
+    btn_mem_edit.forEach((box) => {
+        box.addEventListener("click", () => {
+            const idx = box.dataset.idx;
+
+            self.location.href = "admin_portfolio_edit.php?idx=" + idx;
         });
     });
 });

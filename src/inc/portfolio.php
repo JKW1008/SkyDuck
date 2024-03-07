@@ -8,14 +8,20 @@
         }
 
         public function input($arr) {
+            // 'description' 키가 $arr에 있는지 확인
+            if (!isset($arr['description'])) {
+                // 존재하지 않으면 기본값 설정
+                $arr['description'] = '특별한 설명이 없습니다';
+            }
+        
             $sql = "INSERT INTO sd_portfolio(Category, Name, description, ImageRoute, UploadDate) VALUES(:category, :name, :description, :imageRoute, NOW())";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':category', $arr['Category']);
             $stmt->bindParam(':name', $arr['Name']);
-            $stmt->bindParam(':description', $arr['Description']);
+            $stmt->bindParam(':description', $arr['description']);
             $stmt->bindParam(':imageRoute', $arr['ImageRoute']);
             $stmt->execute();
-        
+            
             // 삽입된 행의 수를 확인하여 성공 여부 판단
             if ($stmt->rowCount() === 0) {
                 return false;
@@ -23,6 +29,7 @@
         
             return true;
         }
+        
         
         public function total($paramArr) {
             $where = "";
@@ -113,5 +120,13 @@
             return [];
         }
 
+        public function getInfoFormIdx($idx){
+            $sql = "SELECT * FROM sd_portfolio WHERE IDX=:idx";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":idx", $idx);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetch();
+        }
     }
 ?>

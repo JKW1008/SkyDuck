@@ -75,5 +75,8 @@
             header('Content-Type: application/json');
             die(json_encode(['result' => 'error', 'message' => $e->getMessage()]));
         }
+    } else if ($mode == "portfolio_edit") {
+        $old_name = (isset($_POST['old_name']) && $_POST['old_name'] != '') ? $_POST['old_name'] : '';
+        $old_images = (isset($_POST['old_images']) && $_POST['old_images'] != '') ? $_POST['old_images'] : '';
     };
 ?>

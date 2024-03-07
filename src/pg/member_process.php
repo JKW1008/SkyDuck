@@ -94,5 +94,4 @@
             die(json_encode(['result' => 'fail', 'message' => $result['error']]));
         }
     }
-    
 ?>

@@ -22,6 +22,8 @@
     $db = $pdo;
 
     include "../inc/businessmember.php";
+    include "../inc/lib.php";   
+
 
     $sn = (isset($_GET['sn']) && $_GET['sn'] != '' && is_numeric($_GET['sn'])) ? $_GET['sn'] : '';
     $sf = (isset($_GET['sf']) && $_GET['sf'] != '') ? $_GET['sf'] : '';

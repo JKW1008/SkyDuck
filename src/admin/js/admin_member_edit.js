@@ -196,13 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-
-        if (!emailChecked) {
-            alert("이메일 중복확인을 먼저 진행해 주세요.");
-            return false;
-        }
-
-        if (member_password.value != '' && member_password_check.value != '' &&!validatePassword(member_password.value)) {
+        if (member_password.value != '' && member_password_check.value != '' && !validatePassword(member_password.value)) {
             alert("형식에 맞지않는 비밀번호 입니다.");
             member_password.value = "";
             member_password.focus();

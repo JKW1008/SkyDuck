@@ -11,6 +11,7 @@ function getExtensionOfFilename(filename) {
     return "";
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const btn_cancel = document.querySelector("#btn_cancel");
 
@@ -21,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn_submit = document.querySelector("#btn_submit");
     const choice_category = document.querySelector("#choice_category");
     const name = document.querySelector("#name");
+    const old_name = document.querySelector("#old_name");
+    const old_images = document.querySelector("#old_images");
     const description = document.querySelector("#description");
     const detail_photo = document.querySelector("#detail_photo");
 
@@ -55,8 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const f = new FormData();
         f.append("category", choice_category.value);
         f.append("name", name.value);
+        f.append("old_name", old_name.value);
+        f.append("old_images", old_images.value);
         f.append("description", description.value);
-        f.append("mode", "portfolio_input");
+        f.append("mode", "portfolio_edit");
 
         let ext = "";
 
@@ -84,59 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             f.append("files[]", files);
-        }
+        };
 
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "./pg/admin_portfolio.php", true);
         xhr.send(f);
 
         xhr.onload = () => {
-            if (xhr.status == 200) {
-                const responseText = xhr.responseText;
-                try {
-                    const data = JSON.parse(responseText);
-
-                    if (data.result == 'empty_category') {
-                        alert("카테고리를 선택해 주세요");
-                        choice_category.focus();
-                        return false;
-                    };
-
-                    if (data.result == 'empty_name') {
-                        alert("프로젝트명을 입력해주세요");
-                        name.focus();
-                        return false;
-                    };
-
-                    if (data.result == 'empty_description') {
-                        alert("설명을 입력해 주세요");
-                        description.focus();
-                        return false;
-                    };
-
-                    if (data.result == 'empty_mode') {
-                        alert("허용되지않은 접근입니다.");
-                        self.location.reload();
-                        return false;
-                    };
-
-                    if (data.result == 'success') {
-                        alert("업로드 성공.");
-                        window.location.href = "./admin_portfolio.php";
-                    };
-
-                    if (data.result == 'fail') {
-                        alert("업로드 실패");
-                        self.location.reload();
-                        return false;
-                    };
-                } catch (error) {
-                    console.error("JSON parsing error:", error);
-                }
-            } else if (xhr.status == 404) {
-                alert("접근 실패 존재하지 않는 파일입니다.");
-                return false;
-            };
-        };
+            
+        }
     });
 });

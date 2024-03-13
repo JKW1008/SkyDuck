@@ -36,7 +36,7 @@
             die(json_encode(['result' => 'empty_email']));
         }
 
-        if ($mem->email_format_check($emial)) {
+        if ($mem->email_format_check($email)) {
             die(json_encode(['result' => 'email_format_wrong']));
         }
 

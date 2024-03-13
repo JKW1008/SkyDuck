@@ -35,7 +35,7 @@ include './header.php';
       <div class="py-3  border-b-2 border-black">
         <h1 class="text-4xl font-medium">사업자 로그인 </h1>
       </div>
-      <input class="w-full mt-10 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="아이디" name="buiness_number" id="member_login_id_buiness">
+      <input class="w-full mt-10 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="사업자등록번호" name="buiness_number" id="member_login_id_buiness">
       <input class="w-full mt-2 p-3 placeholder-slate-400 border rounded-md" type="text" placeholder="아이디" name="buiness_id" id="member_login_password_buiness">
       <input class="w-full my-2 p-3 placeholder-slate-400 border rounded-md" type="password" placeholder="비밀번호" name="buiness_password">
       <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" id="btn_login_buiness" type="button">로그인</button>

@@ -1,3 +1,14 @@
+<?php
+    include "./inc/common.php";
+
+    if ($ses_id == '') {
+        echo "<script>
+        alert('로그인이 필요한 서비스입니다.');
+        window.location.href = './index.php';
+    </script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

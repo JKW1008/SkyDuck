@@ -34,7 +34,7 @@
     }else if($mode == 'email_chk') {
         if ($email == '') {
             die(json_encode(['result' => 'empty_email']));
-        }
+        };
 
         if ($mem->email_exists($email)) {
             die(json_encode(['result' => 'fail']));

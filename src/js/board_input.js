@@ -135,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const responsText = xhr.responseText;
             try {
               const data = JSON.parse(responsText);
-
               if (data.result == 'empty_name') {
                 alert("이름이 비어있습니다. 입력해주세요.");
                 name.focus();

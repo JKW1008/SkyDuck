@@ -6,6 +6,11 @@
     $port = "3306";
 
 
+    // define('DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT'] );
+    // define('SRC_ROOT', DOCUMENT_ROOT . '/src');
+    // define('DATA_DIR'     , SRC_ROOT . '/data'   );
+    // define('REPLY_DIR', DATA_DIR . '/admin_reply');    // 파일이 저장될 절대 경로
+
     try {
         // PDO 객체를 생성하여 데이터베이스에 연결
         $dsn = "mysql:host=$host;port=$port;dbname=$db";

@@ -87,10 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("grade", qna_garde.value);
         f.append("user_page", qna_user_page.value);
         const cBoxes = document.querySelectorAll("input[type='checkbox']:checked");
+        let values = [];
         cBoxes.forEach(function(cBox) {
-            // console.log(cBox.value);
-            f.append("services[]", cBox.value);
+            values.push(cBox.value);
         });
+        let joinedValues = values.join(','); // 배열을 쉼표로 구분된 문자열로 변환
+        f.append("services", joinedValues);
         f.append("budget", qna_budget.value);
         f.append("schedule", qna_schedule.value);
         if (qna_content.value == "") {

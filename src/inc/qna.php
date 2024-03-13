@@ -8,8 +8,8 @@
         }
 
         public function input($arr) {
-            $sql = "INSERT INTO sd_Estimate_inquiry(name, contact_number, email, company_name, position, website, service_required, budget, timeline, additional_notes) VALUES
-            (:name, :contact_number, :email, :company_name, :position, :website, :service_r, :budget, :timeline, :a_note)";
+            $sql = "INSERT INTO sd_Estimate_inquiry(name, contact_number, email, company_name, position, website, service_required, budget, timeline, additional_notes, created_at) VALUES
+            (:name, :contact_number, :email, :company_name, :position, :website, :service_r, :budget, :timeline, :a_note, NOW())";            
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':name', $arr['name']);
             $stmt->bindParam(':contact_number', $arr['c_number']);
@@ -27,6 +27,88 @@
             }
 
             return true;
+        }
+
+        public function list($page, $limit, $paramArr) {
+            $start = ($page - 1) * $limit;
+            $where = "";
+        
+            if ($paramArr['sn'] != '' && $paramArr['sf'] != '') {
+                switch ($paramArr['sn']) {
+                    case 1: $sn_str = 'company_name'; break;
+                    case 2: $sn_str = 'name'; break;
+                    case 3: $sn_str = 'idx'; break;
+                }
+        
+                $where = " WHERE ".$sn_str." = :sf ";
+            }
+        
+            $sql = "SELECT * 
+            FROM sd_Estimate_inquiry " . $where . 
+            " ORDER BY idx DESC 
+            LIMIT " . $start . "," . $limit;
+        
+        
+            $stmt = $this->conn->prepare($sql);
+        
+            if ($where != '') {
+                $stmt->bindParam(':sf', $paramArr['sf']);
+            }
+        
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
+        
+        public function total($paramArr){
+            $where = "";
+        
+            if($paramArr['sn'] != '' && $paramArr['sf'] != ''){
+                switch($paramArr['sn']){
+                    case 1: $sn_str = 'company_name'; break;
+                    case 2: $sn_str = 'name'; break;
+                    case 3: $sn_str = 'idx'; break;
+                }
+        
+                $where = " WHERE ".$sn_str."=:sf ";
+            }
+        
+            $sql = "SELECT COUNT(*) cnt FROM sd_Estimate_inquiry ". $where;
+            $stmt = $this->conn->prepare($sql);
+        
+            if($where != ''){
+                $stmt->bindParam(':sf', $paramArr['sf']);
+            }
+        
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $row = $stmt->fetch();
+            return $row['cnt'];
+        }
+        
+
+        public function getAllData(){
+            $sql = "SELECT * FROM sd_Estimate_inquiry ORDER BY idx ASC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
+
+        public function member_del($idx){
+            $sql = "DELETE FROM sd_Estimate_inquiry WHERE idx = :idx";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':idx', $idx);
+            $stmt->execute();
+        }
+
+        public function getInfoFormIdx($idx){
+            $sql = "SELECT * FROM sd_Estimate_inquiry WHERE idx=:idx";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":idx", $idx);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetch();
         }
     }
 ?>

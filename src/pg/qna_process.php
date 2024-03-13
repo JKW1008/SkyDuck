@@ -11,13 +11,13 @@
     $tel = (isset($_POST['tel']) && $_POST['tel'] != '') ? $_POST['tel'] : '';
     $email = (isset($_POST['email']) && $_POST['email'] != '') ? $_POST['email'] : '';
     $c_name = (isset($_POST['c_name']) && $_POST['c_name'] != '') ? $_POST['c_name'] : '';
-    $grade = (isset($_POST['grade']) && $_POST['user_page'] != '') ? $_POST['user_page'] : '';
+    $grade = (isset($_POST['grade']) && $_POST['grade'] != '') ? $_POST['grade'] : '';
     $user_page = (isset($_POST['user_page']) && $_POST['user_page'] != '') ? $_POST['user_page'] : '';
     $budget = (isset($_POST['budget']) && $_POST['budget'] != '') ? $_POST['budget'] : '';
     $schedule = (isset($_POST['schedule']) && $_POST['schedule'] != '') ? $_POST['schedule'] : '';
     $content = (isset($_POST['content']) && $_POST['content'] != '') ? $_POST['content'] : '';
 
-    $services = (isset($_POST['services']) && is_array($_POST['services'])) ? $_POST['services'] : array();
+    $services = (isset($_POST['services']) && $_POST['services'] != '') ? $_POST['services'] : '';
 
     // echo "Services Array: ";
     // print_r($services);

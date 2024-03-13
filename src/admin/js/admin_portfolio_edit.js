@@ -44,10 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
             description.value = "특별한 설명이 없습니다.";
         };
 
-        if (detail_photo.value == "") {
-            alert("사진을 첨부해 주세요.");
-            return false;
-        };
+        // if (detail_photo.value == "") {
+        //     alert("사진을 첨부해 주세요.");
+        //     return false;
+        // };
 
         if (detail_photo.files.length > 5) {
             alert("첨부할 수 있는 파일의 갯수는 5개 입니다.");
@@ -96,7 +96,52 @@ document.addEventListener("DOMContentLoaded", () => {
         xhr.send(f);
 
         xhr.onload = () => {
-            
-        }
+            if (xhr.status == 200) {
+                const responseText = xhr.responseText;
+                try {
+                    const data = JSON.parse(responseText);
+
+                    if (data.result == 'empty_category') {
+                        alert("카테고리를 선택해 주세요");
+                        choice_category.focus();
+                        return false;
+                    };
+
+                    if (data.result == 'empty_name') {
+                        alert("프로젝트명을 입력해주세요");
+                        name.focus();
+                        return false;
+                    };
+
+                    if (data.result == 'empty_description') {
+                        alert("설명을 입력해 주세요");
+                        description.focus();
+                        return false;
+                    };
+
+                    if (data.result == 'empty_mode') {
+                        alert("허용되지않은 접근입니다.");
+                        self.location.reload();
+                        return false;
+                    };
+
+                    if (data.result == 'success') {
+                        alert("수정 성공.");
+                        window.location.href = "./admin_portfolio.php";
+                    };
+
+                    if (data.result == 'fail') {
+                        alert("수정 실패");
+                        self.location.reload();
+                        return false;
+                    };
+                } catch (error) {
+                    console.error("JSON parsing error:", error);
+                }
+            } else if (xhr.status == 404) {
+                alert("실패 존재하지 않는 파일입니다.");
+                return false;
+            };
+        };
     });
 });

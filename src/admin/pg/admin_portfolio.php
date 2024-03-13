@@ -76,7 +76,93 @@
             die(json_encode(['result' => 'error', 'message' => $e->getMessage()]));
         }
     } else if ($mode == "portfolio_edit") {
+        session_start();
+
         $old_name = (isset($_POST['old_name']) && $_POST['old_name'] != '') ? $_POST['old_name'] : '';
         $old_images = (isset($_POST['old_images']) && $_POST['old_images'] != '') ? $_POST['old_images'] : '';
+        $uploadedFiles = [];
+        $uploadedFilesString = '';
+        $idx = (isset($_GET['idx']) && $_GET['idx'] != '') ? $_GET['idx'] : '';
+    
+        if ($name != $old_name && empty($_FILES['files']['tmp_name'])) {
+            $upload_dir = "../../data/admin_portfolio/";
+    
+            // $old_name으로 시작하는 모든 파일을 찾아서 $name으로 변경한다.
+            $files = glob($upload_dir . $old_name . ".*");
+            foreach ($files as $file) {
+                $ext = pathinfo($file, PATHINFO_EXTENSION);
+                rename($file, $upload_dir . $name . "." . $ext);
+    
+                // 변경된 파일명을 배열에 추가
+                $uploadedFiles[] = $name . "." . $ext;
+            };
+            $uploadedFilesString = implode(',', $uploadedFiles);
+        };
+
+        if ($name == $old_name && !empty($_FILES['files']['tmp_name'])) {
+            $upload_dir = "../../data/admin_portfolio/";
+            $uploadedFiles = [];
+        
+            // 새로 업로드된 파일을 저장
+            foreach ($_FILES['files']['tmp_name'] as $index => $tmp_name) {
+                $ext = pathinfo($_FILES['files']['name'][$index], PATHINFO_EXTENSION);
+                $newFilename = $name . "." . $ext;
+                move_uploaded_file($tmp_name, $upload_dir . $newFilename);
+        
+                // 새로 업로드된 파일명을 배열에 추가
+                $uploadedFiles[] = $newFilename;
+            }
+        
+            // 기존에 있던 파일을 삭제
+            $oldFiles = explode(',', $old_images);
+            foreach ($oldFiles as $oldFile) {
+                if (file_exists($upload_dir . $oldFile)) {
+                    unlink($upload_dir . $oldFile);
+                }
+            }
+            // 파일명들을 하나의 문자열로 만듦
+            $uploadedFilesString = implode(',', $uploadedFiles);
+        };
+
+        if ($name != $old_name && !empty($_FILES['files']['tmp_name'])) {
+            $upload_dir = "../../data/admin_portfolio/";
+            $uploadedFiles = [];
+        
+            // 새로 업로드된 파일을 저장
+            foreach ($_FILES['files']['tmp_name'] as $index => $tmp_name) {
+                $ext = pathinfo($_FILES['files']['name'][$index], PATHINFO_EXTENSION);
+                $newFilename = $name . "." . $ext;
+                move_uploaded_file($tmp_name, $upload_dir . $newFilename);
+        
+                // 새로 업로드된 파일명을 배열에 추가
+                $uploadedFiles[] = $newFilename;
+            }
+        
+            // 기존에 있던 파일을 삭제
+            $oldFiles = glob($upload_dir . $old_name . ".*");
+            foreach ($oldFiles as $oldFile) {
+                unlink($oldFile);
+            }
+        
+            // 파일명들을 하나의 문자열로 만듦
+            $uploadedFilesString = implode(',', $uploadedFiles);
+        };
+
+        $arr = [
+            'category' => $category,
+            'name' => $name,
+            'description' => $description,
+            'imageRoute' => $uploadedFilesString,
+            'idx' => $idx
+        ];
+
+        $result = $portfolio->admin_portfolio_edit($arr);
+
+        if ($result['success']) {
+            die(json_encode(['result' => 'success']));
+        } else {
+            die(json_encode(['result' => 'fail', 'message' => $result['error']]));
+        }
     };
+    
 ?>

@@ -21,25 +21,27 @@
 
     $db = $pdo;
 
-    include "../inc/portfolio.php";
-    include "../inc/lib.php";
+    include "../inc/Questionboard.php";
+    include "../inc/reply.php";
 
-    $sn = (isset($_GET['sn']) && $_GET['sn'] != '' && is_numeric($_GET['sn'])) ? $_GET['sn'] : '';
-    $sf = (isset($_GET['sf']) && $_GET['sf'] != '') ? $_GET['sf'] : '';
+    $idx = (isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx'])) ? $_GET['idx'] : '';
 
-    $port = new Portfolio($db);
+    if($idx == ''){
+        die("
+            <script>
+                alert('idx 값이 비었습니다.');
+                self.location.href = './admin_board.php';
+            </script>
+        ");
+    };
 
-    $paramArr = [ 'sn' => $sn, 'sf' => $sf];
+    $board = new Board($db);
+    $reply = new Reply($db);
 
-    $total = $port->total($paramArr);
-    $limit = 5;
-    $page_limit = 5;
-    $page = (isset($_GET['page']) && $_GET['page'] != '' && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
-
-    $param = ''; 
-
-    $portArr = $port->list($page, $limit, $paramArr);
-    // print_r($portArr);
+    $row = $board->getInfoFormIdx($idx);
+    $replyrow = $reply->getInfoBoardIdx($idx);
+    // print_r($row);
+    // print_r($row);
 ?>
 
 <!DOCTYPE html>
@@ -51,12 +53,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/admin_main.css">
+    <link rel="stylesheet" href="./css/admin_board_view.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
-    <script src="./js/admin_portfolio.js"></script>
+    <script src="./js/admin_board_view.js"></script>
 </head>
 
 <body>
@@ -129,65 +132,69 @@
         </ul>
     </nav>
     <div id="main_wrap">
-        <main class="border rounded-2 p-5" style="height: calc(100vh - 257px);">
-            <div class="container">
-                <h3>회원관리</h3>
-            </div>
-            <table class="mt-3 table table-border">
-                <tr>
-                    <th>번호</th>
-                    <th>프로젝트이름</th>
-                    <th>카테고리</th>
-                    <th>등록일시</th>
-                    <th>관리</th>
-                </tr>
-                <?php
-            foreach($portArr AS $row){
-            // 2023-11-11 11:11:11
-                $row['UploadDate'] = substr($row['UploadDate'], 0, 16);
+        <table>
+            <!-- Array ( [idx] => 8
+            [name] => data
+            [password] => 1234
+            [email] => test@test.com
+            [phone_number] => 0101111111
+            [title] => teset
+            [content] => ewtsefgda
+            [attachments] => data-1.png, data-2.png, data-3.png
+            [posting_time] => 2024-03-08 17:20:59 ) -->
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" name="name" required value="<?= $row['name'] ?>" readonly></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password (4-digit):</label></td>
+                <td><input type="text" id="password" name="password" min="1000" max="9999" required
+                        value="<?= $row['password'] ?>" readonly></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" required value="<?= $row['email'] ?>" readonly></td>
+            </tr>
+            <tr>
+                <td><label for="phone_number">Phone Number:</label></td>
+                <td><input type="tel" id="phone_number" name="phone_number" required value="<?= $row['phone_number'] ?>"
+                        readonly></td>
+            </tr>
+            <tr>
+                <td><label for="title">Title:</label></td>
+                <td><input type="text" id="title" name="title" required value="<?= $row['title'] ?>" readonly></td>
+            </tr>
+            <tr>
+                <td><label for="content">Content:</label></td>
+                <td><textarea id="content" name="content" rows="4" required><?= $row['content'] ?></textarea></td>
+            </tr>
+            <!-- <tr>
+                <td><label for="attachments">Attachments (comma-separated file names):</label></td>
+                <td><input type="file" id="attachments" name="attachments" multiple></td>
+            </tr> -->
+        </table>
+        <?php
+            if (!empty($replyrow)) {
         ?>
-                <tr>
-                    <td><?= $row['idx']; ?></td>
-                    <td><?= $row['Name']; ?></td>
-                    <td><?= $row['Category']; ?></td>
-                    <td><?= $row['UploadDate']; ?></td>
-                    <td>
-                        <button class="btn btn-primary btn-sm btn_mem_edit" data-idx="<?= $row['idx']; ?>">수정</button>
-                        <button class="btn btn-danger btn-sm btn_mem_delete" data-idx="<?= $row['idx']; ?>">삭제</button>
-                    </td>
-                </tr>
-                <?php
-            }
+        <button id="reply_view" type="button" data-idx="<?= $row['idx']; ?>">답글보기</button>
+        <?php
+        } else {
         ?>
-            </table>
-            <div class=" container mt-3 d-flex gap-2 w-50">
-                <select class="form-select w-25" name="sn" id="sn">
-                    <option value="1">이름</option>
-                    <option value="2">번호</option>
-                    <option value="3">카테고리</option>
-                </select>
-                <input type="text" class="form-control w-25" id="sf" name="sf">
-                <button class="btn btn-primary w-25" id="btn_search">검색</button>
-                <button class="btn btn-success w-25" id="btn_all">전체목록</button>
-                <button class="btn btn-primary" id="btn_excel">엑셀로 저장</button>
-                <button class="btn btn-primary" id="btn_input">글쓰기</button>
-
-            </div>
-            <div class="d-flex mt-3 justify-content-between align-items-start">
-                <?php
-
-        if(isset($sn) && $sn != '' && isset($sf) && $sf != ''){      
-            $param = '&sn='. $sn.'&sf='. $sf;
+        <button id="reply" type="button" data-idx="<?= $row['idx']; ?>">답글달기</button>
+        <?php
         }
-        
-        echo my_pagination($total, $limit, $page_limit, $page, $param);
         ?>
+        <button id="view_all" type="button">전체보기</button>
+    </div>
+    <div id="imagewrap">
+        <?php
+        $images = explode(", ", $row['attachments']);
 
-            </div>
-
-        </main>
-
-
+        for ($i = 0; $i < count($images); $i++) {
+            echo '<h3>'.$images[$i].'</h3>';
+            echo '<img src="./../data/board_attachment/'.$images[$i].'" alt="설명'.($i+1).'" width=400>';
+        }
+    ?>
     </div>
 </body>
 

@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const btn_mem_edit = document.querySelectorAll(".btn_mem_edit");
-
     const btn_search = document.querySelector("#btn_search");
 
     btn_search.addEventListener("click", () => {
@@ -13,27 +11,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const sn = document.querySelector("#sn");
 
-        self.location.href = "./admin_member.php?sn=" + sn.value + "&sf=" + sf.value;
+        self.location.href = "./admin_qna.php?sn=" + sn.value + "&sf=" + sf.value;
     });
 
     const btn_all = document.querySelector("#btn_all");
 
     btn_all.addEventListener("click", () => {
-        self.location.href = "./admin_member.php";
+        self.location.href = "./admin_qna.php";
     });
 
     const btn_excel = document.querySelector("#btn_excel");
 
     btn_excel.addEventListener("click", () => {
-      self.location.href = "./admin_member_to_excel.php";
+      self.location.href = "./admin_qna_to_excel.php";
     });
+
+    const btn_mem_edit = document.querySelectorAll(".btn_mem_edit");
 
 
     btn_mem_edit.forEach((button) => {
         button.addEventListener("click", () => {
             // alert(button.dataset.idx); // Note the change here from dataset.IDX to dataset.idx
             const idx = button.dataset.idx;
-            self.location.href = "admin_member_edit.php?idx=" + idx;
+            self.location.href = "admin_qna_view.php?idx=" + idx;
         });
     });
 
@@ -41,14 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btn_mem_deletes.forEach((box) => {
         box.addEventListener("click", () => {
-            if (confirm("본 회원을 삭제하시겠습니까?")) {
+            if (confirm("본 문의를 삭제하시겠습니까?")) {
                 const idx = box.dataset.idx;
+
                 const f = new FormData();
                 f.append("idx", idx);
 
                 const xhr = new XMLHttpRequest();
 
-                xhr.open("POST", "./admin_member_delete.php", true);
+                xhr.open("POST", "./admin_qna_delete.php", true);
                 xhr.send(f);
 
                 xhr.onload = () => {
@@ -75,5 +76,4 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         });
     });
-
-});
+})

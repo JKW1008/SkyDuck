@@ -218,5 +218,68 @@
         } else {
             die(json_encode(['result' => 'fail', 'message' => $result['error']]));
         }
+    } else if ($mode == 'business_edit') {
+        session_start();
+
+        $old_photo = (isset($_POST['old_photo']) && $_POST['old_photo'] != '') ? $_POST['old_photo'] : '';
+        $old_b_name = (isset($_POST['old_b_name']) && $_POST['old_b_name'] != '') ? $_POST['old_b_name'] : '';
+    
+        // Check if b_name has changed
+        if ($old_b_name != $b_name) {
+            // Rename the old image file
+            if (!empty($old_photo) && file_exists("./data/business_image/" . $old_photo)) {
+                $extArray = explode('.', $old_photo);
+                $ext = end($extArray);
+                $new_photo_with_new_b_name = $b_name . "." . $ext;
+                rename("../data/business_image/" . $old_photo, "./data/business_image/" . $new_photo_with_new_b_name);
+                $old_photo = $new_photo_with_new_b_name;
+            }
+        }
+    
+        // Handle new image file
+        if (!empty($_FILES['photo']['name'])) {
+            // Delete the old image file
+            if (!empty($old_photo) && file_exists("./data/business_image/" . $old_photo)) {
+                unlink("./data/business_image/" . $old_photo);
+            }
+    
+            // Process the new image file
+            $extArray = explode('.', $_FILES['photo']['name']);
+            $ext = end($extArray);
+            $new_photo = $b_name . "." . $ext;
+            move_uploaded_file($_FILES['photo']['tmp_name'], "./data/business_image/" . $new_photo);
+            $old_photo = $new_photo;
+        }
+    
+    
+        $extArray = explode('.', $old_photo);
+        $ext = end($extArray);
+        $new_photo_with_new_b_name = $_POST['b_name'] . "." . $ext;
+    
+        $arr = [
+            'id' => $id,
+            'password' => $password,
+            'companyname' => $b_name,
+            'ceoname' => $ceo_name,
+            'mobilenumber' => $b_mobile,
+            'phonenumber' => $b_phone,
+            'faxnumber' => $b_fax,
+            'email' => $email,
+            'zipcode' => $zipcode,
+            'address' => $addr,
+            'detailaddress' => $detail_addr,
+            'businessregistrationnumber' => $b_number,
+            'businessregistrationimage' => (!empty($new_photo)) ? $new_photo : $old_photo,
+            'businesstype' => $b_type,
+            'businesscategory' => $b_category
+        ];
+    
+        $result = $bmem->business_member_edit($arr);
+    
+        if ($result['success']) {
+            die(json_encode(['result' => 'success']));
+        } else {
+            die(json_encode(['result' => 'fail', 'message' => $result['error']]));
+        }
     }
 ?>

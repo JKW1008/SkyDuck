@@ -212,6 +212,49 @@
                 return ['success' => false, 'error' => '허가되지 않은 사용자입니다.'];
             }
         }
+
+        public function member_edit($arr) {
+            // 세션에서 사용자 ID 확인하고 조건을 설정합니다.
+            $sql = 'UPDATE sd_Users SET Name=:name, Email=:email, ZipCode=:zipcode, Address=:address, DetailAddress=:detailaddress, MobileNumber=:mobile, PhoneNumber=:phone';
+    
+            $params = [
+                ':name' => $arr['name'],
+                ':email' => $arr['email'],
+                ':zipcode' => $arr['zipcode'],
+                ':address' => $arr['address'],
+                ':detailaddress' => $arr['detailaddress'],
+                ':mobile' => $arr['mobile'],
+                ':phone' => $arr['phone'],
+            ];
+    
+            if ($arr['password'] != '') {
+                // 비밀번호를 위해 단방향 해시
+                $new_hash_password = password_hash($arr['password'], PASSWORD_DEFAULT);
+                $params[':password'] = $new_hash_password;
+                $sql .= ', Password=:password';
+            }
+    
+            // 가입일은 항상 현재 날짜와 시간으로 갱신된다고 가정
+            $sql .= ', SignupDate=NOW()';
+    
+            // 사용자 ID를 지정하고 WHERE 절을 추가합니다.
+            $params[':id'] = $arr['id'];
+            $sql .= ' WHERE ID=:id';
+    
+            try {
+                $stmt = $this->conn->prepare($sql);
+                $success = $stmt->execute($params);
+    
+                if ($success) {
+                    // 사용자 프로필 업데이트 후 추가 코드가 필요한 경우
+                    return ['success' => true];
+                } else {
+                    return ['success' => false, 'error' => $stmt->errorInfo()];
+                }
+            } catch (PDOException $e) {
+                return ['success' => false, 'error' => $e->getMessage()];
+            }
+        }
         
         public function member_del($idx){
             $sql = "DELETE FROM sd_Users WHERE IDX = :idx";

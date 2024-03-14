@@ -89,5 +89,28 @@
         } else {
             die(json_encode(['result' => 'fail', 'message' => $result['error']]));
         }
-    }
+    } else if ($mode == 'edit') {
+        session_start();
+    
+        $arr = [
+            'id' => $id,
+            'password' => $password,
+            'email' => $email,
+            'name' => $name,
+            'mobile' => $mobile,
+            'phone' => $phone,
+            'zipcode' => $zipcode,
+            'address' => $addr,
+            'detailaddress' => $detail_addr
+        ];
+    
+        $result = $mem->member_edit($arr);
+    
+        if ($result['success']) {
+            die(json_encode(['result' => 'success']));
+        } else {
+            die(json_encode(['result' => 'fail', 'message' => $result['error']]));
+        }
+    } 
+
 ?>

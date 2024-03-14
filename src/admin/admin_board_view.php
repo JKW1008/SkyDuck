@@ -166,7 +166,8 @@
             </tr>
             <tr>
                 <td><label for="content">Content:</label></td>
-                <td><textarea id="content" name="content" rows="4" required><?= $row['content'] ?></textarea></td>
+                <td><textarea id="content" name="content" rows="4" required readonly><?= $row['content'] ?></textarea>
+                </td>
             </tr>
             <!-- <tr>
                 <td><label for="attachments">Attachments (comma-separated file names):</label></td>

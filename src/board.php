@@ -94,7 +94,7 @@
                 <tr>
                     <td colspan="4">
                         <!-- 전체 열을 합치는 셀 -->
-                        <div class="replies">
+                        <div class="replies" data-idx="<?= $replyArr['question_idx']; ?>">
                             <!-- 답글 정보 출력 -->
                             ↳<?= $replyArr['title']; ?>
                             <!-- 여기에 더 상세한 답글 정보를 추가할 수 있습니다. -->

@@ -1,4 +1,5 @@
 <?php
+    include '../inc/common.php';
     include '../inc/dbconfig.php';
 
     $db = $pdo;
@@ -21,6 +22,14 @@
 
     // echo "Services Array: ";
     // print_r($services);
+
+    $tableName = '';
+
+    if ($ses_grade == 'common_member') {
+        $tableName = 'sd_Users';
+    } else if ($ses_grade == 'business_member') {
+        $tableName = 'sd_BusinessUsers';
+    }
 
     if ($name == '') {
         die(json_encode(['result' => 'empty_name']));
@@ -64,6 +73,8 @@
     // var_dump($budget_int);
 
     $arr = [
+        'author_id' => $ses_id,
+        'member_table' => $tableName,
         'name' => $name,
         'c_number' => $tel,
         'email' => $email,

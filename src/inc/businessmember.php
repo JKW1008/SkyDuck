@@ -197,6 +197,15 @@
             return $stmt->fetch();
         }
 
+        public function getInfoFormId($id){
+            $sql = "SELECT * FROM sd_BusinessUsers WHERE ID=:id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":idx", $id);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetch();
+        }
+
         public function admin_to_business_member_edit($arr) {
             if (isset($_SESSION['ses_id']) && $_SESSION['ses_id'] == 'skyduck_admin') {
                 $sql = 'UPDATE sd_BusinessUsers SET CompanyName = :companyname, CEOName = :ceoname, MobileNumber = :mobilenumber, PhoneNumber = :phonenumber, FaxNumber = :faxnumber, Email = :Email, ZipCode = :zipcode, Address = :address, DetailAddress = :detailaddress, BusinessRegistrationNumber = :bnumber, BusinessRegistrationImage = :bimage, BusinessType = :btype, BusinessCategory = :bcategory';

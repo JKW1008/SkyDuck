@@ -8,9 +8,11 @@
         }
 
         public function input($arr) {
-            $sql = "INSERT INTO sd_Estimate_inquiry(name, contact_number, email, company_name, position, website, service_required, budget, timeline, additional_notes, created_at) VALUES
-            (:name, :contact_number, :email, :company_name, :position, :website, :service_r, :budget, :timeline, :a_note, NOW())";            
+            $sql = "INSERT INTO sd_Estimate_inquiry(author_id, member_table, name, contact_number, email, company_name, position, website, service_required, budget, timeline, additional_notes, created_at) 
+                    VALUES (:author_id, :member_table, :name, :contact_number, :email, :company_name, :position, :website, :service_r, :budget, :timeline, :a_note, NOW())";            
             $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':author_id', $arr['author_id']);
+            $stmt->bindParam(':member_table', $arr['member_table']);
             $stmt->bindParam(':name', $arr['name']);
             $stmt->bindParam(':contact_number', $arr['c_number']);
             $stmt->bindParam(':email', $arr['email']);
@@ -18,16 +20,17 @@
             $stmt->bindParam(':position', $arr['position']);
             $stmt->bindParam(':website', $arr['website']);
             $stmt->bindParam(':service_r', $arr['service_r']);
-            $stmt->bindParam(':budget', $arr['budget'], PDO::PARAM_INT);
+            $stmt->bindParam(':budget', $arr['budget'], PDO::PARAM_STR);
             $stmt->bindParam(':timeline', $arr['schedule']);
             $stmt->bindParam(':a_note', $arr['a_note']);
             $stmt->execute();
             if ($stmt->rowCount() === 0) {
                 return false;
             }
-
+        
             return true;
         }
+        
 
         public function list($page, $limit, $paramArr) {
             $start = ($page - 1) * $limit;

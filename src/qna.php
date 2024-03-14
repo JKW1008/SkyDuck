@@ -1,11 +1,26 @@
 <?php
     include "./inc/common.php";
+    include "./inc/dbconfig.php";
+
+    $db = $pdo;
+
+    include "./inc/member.php";
+    include "./inc/businessmember.php";
+
+    $mem = new Member($db);
+    $bmem = new BusinessMemeber($db);
 
     if ($ses_id == '') {
         echo "<script>
         alert('로그인이 필요한 서비스입니다.');
         window.location.href = './index.php';
     </script>";
+    };
+
+    if ($ses_grade == 'common_member') {
+        $arr = $mem->getInfoFormId($ses_id);
+    } else if ($ses_grade == 'business_member') {
+        $arr = $bmem->getInfoFormId($ses_id);
     }
 ?>
 
@@ -22,9 +37,9 @@
     <script src="./js/qna.js"></script>
     <div>
         <h2>상담에 필요한 기본정보를 입력해 주세요</h2>
-        <input type="text" id="qna_name" placeholder="이름">
+        <input type="text" id="qna_name" placeholder="이름" value="<?= $arr['Name'] ?>" readonly>
         <input type="tel" id="qna_tel" placeholder="연락처(-없이 입력)">
-        <input type="email" id="qna_email" placeholder="이메일">
+        <input type="email" id="qna_email" placeholder="이메일" value="<?= $arr['Email'] ?>" readonly>
         <input type="text" id="qna_company_name" placeholder="회사명">
         <input type="text" id="qna_grade" placeholder="직급">
         <input type="text" id="qna_user_page" placeholder="홈페이지">

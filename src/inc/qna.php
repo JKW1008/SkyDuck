@@ -113,5 +113,16 @@
             $stmt->execute();
             return $stmt->fetch();
         }
+
+        public function getAllInfoFromIdTable($id, $table) {
+            $sql = "SELECT * FROM sd_Estimate_inquiry WHERE author_id = :id AND member_table = :table";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":table", $table);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            return $stmt->fetchAll(); // 모든 행을 배열로 반환
+        }
+        
     }
 ?>

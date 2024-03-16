@@ -68,9 +68,6 @@
     };
 
     $services_json = json_encode($services);
-    $budget_int = intval($budget);
-
-    // var_dump($budget_int);
 
     $arr = [
         'author_id' => $ses_id,
@@ -82,7 +79,7 @@
         'position' => $grade,
         'website' => $user_page,
         'service_r' => $services_json,
-        'budget' => $budget_int,
+        'budget' => $budget,
         'schedule' => $schedule,
         'a_note' => $content
     ];

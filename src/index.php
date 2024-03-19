@@ -34,6 +34,30 @@ if ($currentPath == '/index.php') {
     <p class="text-xl text-grayService font-bold md:block hidden">원스탑(One-Stop) 디자인 컨설팅 서비스</p>
 </div>
 
+<!-- <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-700 bg-white hover:bg-gray-300 focus:ring-1 drop-shadow-[0_0px_6px_rgba(0,0,0,0.25)] focus:outline-none focus:ring-blue-100 font-medium rounded-full text-sm px-3 py-1.5 text-center inline-flex items-center" type="button">
+    <div class="w-8 h-8 mr-2">
+        <img src="./image/icon/user_icon.jpg" alt="">
+    </div>
+    <?php
+    // print_r($ses_id);
+    ?><span>&nbsp;님</span>
+    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+    </svg>
+</button> -->
+
+<!-- Dropdown menu -->
+<div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+        <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+        </li>
+        <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+        </li>
+    </ul>
+</div>
+
 <div class="w-[91%] justify-center items-center  h-[420px] m-auto sm:block hidden transition-all duration-700 ">
     <div class="m-auto flex justify-center items-center w-full max-w-[1440px]  h-full service overflow-hidden">
         <div class="w-1/4  bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainmak.png')] bg-cover bg-center rounded-s-[20px] transition-all duration-700 ">
@@ -140,84 +164,84 @@ if ($currentPath == '/index.php') {
 <div class="sm:hidden mt-[60px] ">
     <div class="m-auto w-[91%] ">
         <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainmak.png')] bg-cover bg-center rounded-[20px]">
-        <div class="m-auto w-full flex-col items-start ">
-                    <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
-                        <img class="w-[50px]" src="./image/icon/mak.png" alt="">
-                        <p class="text-[#ffff] font-bold text-2xl ps-2">마케팅·광고</p>
-                    </div>
-                    <div class="flex-col items-center justify-start pt-4">
-                        <p class="font-medium text-[#ffff] text-xl">디자인은 예술이 아닌 생활입니다.</p>
-                        <p class="font-medium text-[#ffff] text-xl">누구나 보고싶게 만들어 주세요</p>
-                    </div>
-                    <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
-                        <ul class="list-disc">
-                            <li>홍보물(브로슈어, 리플렛, 전단지 외)</li>
-                            <li>사인제품(현수막, 배너 외)</li>
-                            <li>판촉물(기념품 외)</li>
-                        </ul>
-                    </div>
+            <div class="m-auto w-full flex-col items-start ">
+                <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                    <img class="w-[50px]" src="./image/icon/mak.png" alt="">
+                    <p class="text-[#ffff] font-bold text-2xl ps-2">마케팅·광고</p>
                 </div>
+                <div class="flex-col items-center justify-start pt-4">
+                    <p class="font-medium text-[#ffff] text-xl">디자인은 예술이 아닌 생활입니다.</p>
+                    <p class="font-medium text-[#ffff] text-xl">누구나 보고싶게 만들어 주세요</p>
+                </div>
+                <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                    <ul class="list-disc">
+                        <li>홍보물(브로슈어, 리플렛, 전단지 외)</li>
+                        <li>사인제품(현수막, 배너 외)</li>
+                        <li>판촉물(기념품 외)</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="m-auto w-[91%]">
         <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainvisual.png')] bg-cover bg-center rounded-[20px]">
-        <div class="m-auto w-full flex-col items-start ">
-                    <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
-                        <img class="w-[55px]" src="./image/icon/visual.png" alt="">
-                        <p class="text-[#ffff] font-bold text-2xl ps-2">비주얼 아이덴티티</p>
-                    </div>
-                    <div class="flex-col items-center justify-start pt-4">
-                        <p class="font-medium text-[#ffff] text-xl">몸에 맞는 옷을 입듯</p>
-                        <p class="font-medium text-[#ffff] text-xl">브랜드에도 맞는 디자인을 입히세요.</p>
-                    </div>
-                    <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
-                        <ul class="list-disc">
-                            <li>BI, CI, Package 디자인</li>
-                            <li>서류 양식 디자인 </li>
-                        </ul>
-                    </div>
+            <div class="m-auto w-full flex-col items-start ">
+                <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                    <img class="w-[55px]" src="./image/icon/visual.png" alt="">
+                    <p class="text-[#ffff] font-bold text-2xl ps-2">비주얼 아이덴티티</p>
                 </div>
+                <div class="flex-col items-center justify-start pt-4">
+                    <p class="font-medium text-[#ffff] text-xl">몸에 맞는 옷을 입듯</p>
+                    <p class="font-medium text-[#ffff] text-xl">브랜드에도 맞는 디자인을 입히세요.</p>
+                </div>
+                <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                    <ul class="list-disc">
+                        <li>BI, CI, Package 디자인</li>
+                        <li>서류 양식 디자인 </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="m-auto w-[91%]">
         <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainpublishing.png')] bg-cover bg-center rounded-[20px]">
-        <div class="m-auto w-full flex-col items-start ">
-                    <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
-                        <img class="w-[55px]" src="./image/icon/publishing.png" alt="">
-                        <p class="text-[#ffff] font-bold text-2xl ps-2">환경그래픽</p>
-                    </div>
-                    <div class="flex-col items-center justify-start pt-4">
-                        <p class="font-medium text-[#ffff] text-xl">가장 오래 머무는 사무실과 학교,</p>
-                        <p class="font-medium text-[#ffff] text-xl">눈이 피로하지 않게 디자인해 주세요</p>
-                    </div>
-                    <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
-                        <ul class="list-disc">
-                            <li>학교 현황판, 입간판, 게시대</li>
-                            <li>표찰, 유리창 시트, 스카시</li>
-                        </ul>
-                    </div>
+            <div class="m-auto w-full flex-col items-start ">
+                <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                    <img class="w-[55px]" src="./image/icon/publishing.png" alt="">
+                    <p class="text-[#ffff] font-bold text-2xl ps-2">환경그래픽</p>
                 </div>
+                <div class="flex-col items-center justify-start pt-4">
+                    <p class="font-medium text-[#ffff] text-xl">가장 오래 머무는 사무실과 학교,</p>
+                    <p class="font-medium text-[#ffff] text-xl">눈이 피로하지 않게 디자인해 주세요</p>
+                </div>
+                <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                    <ul class="list-disc">
+                        <li>학교 현황판, 입간판, 게시대</li>
+                        <li>표찰, 유리창 시트, 스카시</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="m-auto w-[91%]">
         <div class="flex  items-center gap-[20px] mt-[30px] p-[40px] bg-blend-darken bg-black bg-opacity-50 h-full bg-[url('./image/main/service-mainInternet.png')] bg-cover bg-center rounded-[20px]">
-        <div class="m-auto w-full flex-col items-start">
-                    <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
-                        <img class="w-[55px]" src="./image/icon/Internet.png" alt="">
-                        <p class="text-[#ffff] font-bold text-2xl ps-2">웹디자인</p>
-                    </div>
-                    <div class="flex-col items-center justify-start pt-4">
-                        <p class="font-medium text-[#ffff] text-xl">고객과 소통하는 창구역할을 하는 </p>
-                        <p class="font-medium text-[#ffff] text-xl"> 웹에 꼭 맞는 코디는 필수</p>
-                    </div>
-                    <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
-                        <ul class="list-disc">
-                            <li>UX/UI 디자인</li>
-                            <li>웹 퍼블리싱</li>
-
-                        </ul>
-                    </div>
+            <div class="m-auto w-full flex-col items-start">
+                <div class="flex items-center pb-4 border-b-2 border-[#ffff] transition-all duration-300 ">
+                    <img class="w-[55px]" src="./image/icon/Internet.png" alt="">
+                    <p class="text-[#ffff] font-bold text-2xl ps-2">웹디자인</p>
                 </div>
+                <div class="flex-col items-center justify-start pt-4">
+                    <p class="font-medium text-[#ffff] text-xl">고객과 소통하는 창구역할을 하는 </p>
+                    <p class="font-medium text-[#ffff] text-xl"> 웹에 꼭 맞는 코디는 필수</p>
+                </div>
+                <div class="flex-col items-center justify-start pt-4 font-medium text-[#ffff] text-lg ps-4">
+                    <ul class="list-disc">
+                        <li>UX/UI 디자인</li>
+                        <li>웹 퍼블리싱</li>
+
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -232,7 +256,7 @@ if ($currentPath == '/index.php') {
 
 <div class="mt-[60px]">
     <div class="m-auto  grid sm:grid-cols-2 md:grid-cols-3 w-[91%] max-w-[1440px] gap-[20px]">
-        <div  >
+        <div>
             <img class="w-full " src="./image/main/Portfolio1.png" alt="">
         </div>
         <div>
@@ -292,7 +316,7 @@ if ($currentPath == '/index.php') {
         <p class="font-medium text-mblack text-lg">상담을 신청해 주시면 최대한 빠르게 연락드리겠습니다.</p>
     </div>
     <div class="flex justify-center items-center w-[91%] max-w-[1440px] m-auto pt-[25px] pb-[35px] px-3">
-        <form class="w-full" action=""   name="formname">
+        <form class="w-full" action="" name="formname">
             <div class="lg:flex justify-between">
                 <div class="flex lg:block">
                     <p class="font-semibold text-lg">상담에 필요한 기본정보를</p>
@@ -324,7 +348,7 @@ if ($currentPath == '/index.php') {
                         <input class="w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="내용" name="company_detail">
 
                     </div>
-                    
+
                 </div>
             </div>
             <div class="text-center pt-12">
@@ -350,25 +374,25 @@ if ($currentPath == '/index.php') {
         // https://dashboard.emailjs.com/admin/account
         emailjs.init('lwVwvssxtK8-d1g-b');
     })();
-        
+
     window.onload = function() {
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
-            
-            if(document.getElementById('user_phone').value == ''){
+
+            if (document.getElementById('user_phone').value == '') {
                 event.preventDefault();
                 alert('연락처를 입력하세요');
                 document.getElementById('user_phone').focus();
-            }else if(document.getElementById('user_email').value == ''){
+            } else if (document.getElementById('user_email').value == '') {
                 event.preventDefault();
                 alert('이메일을 입력하세요');
                 document.getElementById('user_email').focus();
-            }else if(document.getElementById('company_name').value == ''){
+            } else if (document.getElementById('company_name').value == '') {
                 event.preventDefault();
                 alert('회사명을 입력하세요');
                 document.getElementById('company_name').focus();
-            }else{
-                
+            } else {
+
                 // these IDs from the previous steps
                 emailjs.sendForm('service_7deictp', 'template_ikqaxfi', this)
                     .then(function() {

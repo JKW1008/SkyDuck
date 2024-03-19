@@ -16,35 +16,35 @@ $content = (isset($_POST['content']) && $_POST['content'] != '') ? $_POST['conte
 $attachment = (isset($_POST['attachment']) && $_POST['attachment'] != '') ? $_POST['attachment'] : '';
 $mode = (isset($_POST['mode']) && $_POST['mode'] != '') ? $_POST['mode'] : '';
 
-if ($name == '') {
-    die(json_encode(['result' => 'empty_name']));
-}
-
-if ($password == '') {
-    die(json_encode(['result' => 'empty_password']));
-}
-
-if ($email == '') {
-    die(json_encode(['result' => 'empty_email']));
-}
-
-if ($tel == '') {
-    die(json_encode(['result' => 'empty_tel']));
-}
-
-if ($title == '') {
-    die(json_encode(['result' => 'empty_title']));
-}
-
-if ($content == '') {
-    die(json_encode(['result' => 'empty_content']));
-}
-
-if ($mode == '') {
-    die(json_encode(['result' => 'empty_mode']));
-}
-
 if ($mode == 'board_input') {
+    if ($name == '') {
+        die(json_encode(['result' => 'empty_name']));
+    }
+    
+    if ($password == '') {
+        die(json_encode(['result' => 'empty_password']));
+    }
+    
+    if ($email == '') {
+        die(json_encode(['result' => 'empty_email']));
+    }
+    
+    if ($tel == '') {
+        die(json_encode(['result' => 'empty_tel']));
+    }
+    
+    if ($title == '') {
+        die(json_encode(['result' => 'empty_title']));
+    }
+    
+    if ($content == '') {
+        die(json_encode(['result' => 'empty_content']));
+    }
+    
+    if ($mode == '') {
+        die(json_encode(['result' => 'empty_mode']));
+    }
+
     $upload_dir = "../data/board_attachment/";
 
     $uploadedFiles = array();
@@ -93,6 +93,22 @@ if ($mode == 'board_input') {
     } catch (Exception $e) {
         header('Content-Type: application/json');
         die(json_encode(['result' => 'error', 'message' => $e->getMessage()]));
+    }
+} else if ($mode == 'board_password_chk') {
+    $idx = (isset($_POST['idx']) && $_POST['idx'] != '') ? $_POST['idx'] : '';
+    
+    if ($idx == '') {
+        die(json_encode(['result' => 'empty_idx']));
+    };
+
+    if ($password == '') {
+        die(json_encode(['result' => 'empty_password']));
+    };
+
+    if ($board->verifyPasswordById($idx, $password)) {
+        die(json_encode(['result' => 'success']));
+    } else {
+        die(json_encode(['result' => 'fail']));
     }
 }
 ?>

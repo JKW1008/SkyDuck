@@ -49,27 +49,37 @@ if ($mode == 'board_input') {
 
     $uploadedFiles = array();
 
-    for ($i = 0; $i < count($_FILES['files']['name']); $i++) {
-        $filename = $_FILES['files']['name'][$i];
-        $tmp_name = $_FILES['files']['tmp_name'][$i];
-
-        // 파일 확장자 확인
-        $extArray = explode('.', $filename);
-        $ext = end($extArray);
-
-        // 확장자가 허용 목록에 있는지 확인
-        $allowedExtensions = ["jpg", "jpeg", "png", "gif"];
-        if (in_array(strtolower($ext), $allowedExtensions)) {
-            // 허용되는 확장자일 경우 파일을 지정된 디렉토리로 복사
-            $newFilename = $name . '-' . ($i + 1) . '.' . $ext;
-            if (move_uploaded_file($tmp_name, $upload_dir . $newFilename)) {
-                $uploadedFiles[] = $newFilename; // 업로드된 파일명을 배열에 추가
-            } else {
-                // 파일 업로드 실패
-                die("File upload failed");
+    if (isset($_FILES['files']['name']) && is_array($_FILES['files']['name'])) {
+        for ($i = 0; $i < count($_FILES['files']['name']); $i++) {
+            // 파일이 첨부되어 있는지 확인
+            if (!empty($_FILES['files']['name'][$i])) {
+                $filename = $_FILES['files']['name'][$i];
+                $tmp_name = $_FILES['files']['tmp_name'][$i];
+    
+                // 파일 확장자 확인
+                $extArray = explode('.', $filename);
+                $ext = end($extArray);
+    
+                // 확장자가 허용 목록에 있는지 확인
+                $allowedExtensions = ["jpg", "jpeg", "png", "gif"];
+                if (in_array(strtolower($ext), $allowedExtensions)) {
+                    // 허용되는 확장자일 경우 파일을 지정된 디렉토리로 복사
+                    $newFilename = $name . '-' . ($i + 1) . '.' . $ext;
+                    if (move_uploaded_file($tmp_name, $upload_dir . $newFilename)) {
+                        $uploadedFiles[] = $newFilename; // 업로드된 파일명을 배열에 추가
+                    } else {
+                        // 파일 업로드 실패
+                        die("File upload failed");
+                    }
+                } else {
+                    // 확장자가 허용 목록에 없는 경우
+                    die("File extension not allowed");
+                }
             }
         }
     }
+    
+    
 
     $arr = [
         'name' => $name,

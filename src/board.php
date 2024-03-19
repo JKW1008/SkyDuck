@@ -56,7 +56,7 @@ $filename = basename(__FILE__, '.php');
         <h1 class="text-6xl">Q&A</h1>
         <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
     </div>
-    <div class="flex justify-end">
+    <!-- <div class="flex justify-end">
         <div class=" flex justify-end gap-2 w-1/2 max-[770px]:w-full mb-5">
             <select class="form-select w-25" name="sn" id="sn">
                 <option value="2">제목</option>
@@ -66,7 +66,7 @@ $filename = basename(__FILE__, '.php');
             <button class=" w-25 rounded-md bg-mblack text-white font-bold p-[10px]" id="btn_search">검색</button>
             <button class=" w-25 rounded-md bg-mblack text-white font-bold p-[10px]" id="btn_all">전체목록</button>
         </div>
-    </div>
+    </div> -->
     <main class="" style="height: calc(100vh - 257px);">
 
         <table class="mt-3 table table-border table-hover ">
@@ -77,7 +77,7 @@ $filename = basename(__FILE__, '.php');
                 <col width="10%">
             </colgroup>
             <tr class="table-secondary border-t-2 border-[#3333] p-0">
-                <th class="bg-[#cccccc]">번호</th>
+                <th class=" text-center">번호</th>
                 <th>제목</th>
                 <th>작성자</th>
                 <th>작성일</th>
@@ -97,8 +97,8 @@ $filename = basename(__FILE__, '.php');
                 };
             ?>
                 <tr class="detail_page" data-idx="<?= $row['idx']; ?>">
-                    <td><?= $number; ?></td>
-                    <td>🔒<?= $row['title']; ?></td>
+                    <td class="text-center"><?= $number; ?></td>
+                    <td class=""><div class="flex"><div><img class="w-5 me-2 " src="./image/icon/lock.png" alt=""></div> <div><?= $row['title']; ?></div></div></td>
                     <td><?= $row['name']; ?></td>
                     <?php
                     $parts = explode('-', $row['posting_time']);
@@ -111,9 +111,10 @@ $filename = basename(__FILE__, '.php');
                     $replyArr = $reply->getInfoBoardIdx($row['idx']);
                 ?>
                     <tr>
-                        <td colspan="4">
+                        <td colspan="1"></td>
+                        <td colspan="3">
                             <!-- 전체 열을 합치는 셀 -->
-                            <div class="replies" data-idx="<?= $replyArr['question_idx']; ?>">
+                            <div class="replies " data-idx="<?= $replyArr['question_idx']; ?>">
                                 <!-- 답글 정보 출력 -->
                                 ↳<?= $replyArr['title']; ?>
                                 <!-- 여기에 더 상세한 답글 정보를 추가할 수 있습니다. -->

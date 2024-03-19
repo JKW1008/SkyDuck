@@ -1,3 +1,8 @@
+<?php
+    include './inc/common.php';
+
+    print_r($ses_grade);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -121,13 +126,24 @@
                     <a href="./qna.php">
                         <div>견적문의</div>
                     </a>
-                    <a href="./login.php">
-                        <div class="w-[65px] h-[39px] bg-[#333333] rounded-md flex justify-center items-center text-white">로그인</div>
-                    </a>
+                    <?php if ($ses_id != '' && $ses_grade != '') : ?>
+                        <?php if ($ses_grade == 'common_member') : ?>
+                            <a href="./mypage.php">
+                                <button>마이페이지</button>
+                            </a>
+                        <?php elseif ($ses_grade == 'business_member') : ?>
+                            <a href="./business_mypage.php">
+                                <button>마이페이지</button>
+                            </a>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <a href="./login.php">
+                            <div class="w-[65px] h-[39px] bg-[#333333] rounded-md flex justify-center items-center text-white">로그인</div>
+                        </a>
+                    <?php endif; ?>
+                    <div id="MenuToggleBtn" class="hidden p-2 max-[640px]:block rounded-lg bg-[#004190] hover:bg-white hover:opacity-75"><img src="./image/icon/toggleBtn.png" alt=""></div>
                 </div>
-                <div id="MenuToggleBtn" class="hidden p-2 max-[640px]:block rounded-lg bg-[#004190] hover:bg-white hover:opacity-75"><img src="./image/icon/toggleBtn.png" alt=""></div>
             </div>
-        </div>
     </header>
     <div id="ToggleMenu" class="fixed w-screen h-full top-0 left-[100%] bg-[#F1F3F6] z-[1000] duration-150">
         <div class=" relative w-full h-full flex flex-col justify-start items-center">

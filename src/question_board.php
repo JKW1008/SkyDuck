@@ -22,27 +22,30 @@ $filename = basename(__FILE__, '.php');
 </section>
 <script src="./js/board_input.js"></script>
 <div class="w-[91%] flex-col justify-center items-center m-auto pt-12">
-    
+    <div>
+        <h1 class="text-6xl">Q&A</h1>
+        <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
+    </div>
     <table class="w-full ">
         <div class="flex border-t-2 border-black">
             <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="name">이름<p class="text-red-600">*</p></label></div>
-            <div class="w-2/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="name" name="name" required></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="name" name="name" required></div>
         </div>
         <div class="flex border-y-[1px] border-[#CCCCCC]">
             <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="password">비밀번호<p class="text-red-600">*</p></label></div>
-            <div class="w-2/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="password" name="password" min="1000" max="9999" required></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="password" name="password" min="1000" max="9999" required></div>
         </div>
         <div class="flex border-y-[1px] border-[#CCCCCC]">
             <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="email">이메일<p class="text-red-600">*</p></label></div>
-            <div class="w-2/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="email" id="email" name="email" required></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="email" id="email" name="email" required></div>
         </div>
         <div class="flex border-y-[1px] border-[#CCCCCC]">
             <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="phone_number">전화번호<p class="text-red-600">*</p></label></div>
-            <div class="w-2/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="tel" id="phone_number" name="phone_number" required></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="tel" id="phone_number" name="phone_number" required></div>
         </div>
         <div class="flex border-y-[1px] border-[#CCCCCC]">
             <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="title">제목<p class="text-red-600">*</p></label></div>
-            <div class="w-2/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="title" name="title" required></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="title" name="title" required></div>
         </div>
         <div>
             <!-- <td><label for="content">Content:</label></td> -->
@@ -63,7 +66,7 @@ $filename = basename(__FILE__, '.php');
         <button class="bg-gray-300 font-bold p-[10px] rounded-md " onclick="history.back()">취소</button>
         <button class="rounded-md bg-mblack text-white font-bold p-[10px]" type="button" id="board_write_submit">작성완료</button>
     </div>
-    
+
 </div>
 
 <?php

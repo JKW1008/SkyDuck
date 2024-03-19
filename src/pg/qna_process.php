@@ -1,4 +1,5 @@
 <?php
+    include '../inc/common.php';
     include '../inc/dbconfig.php';
 
     $db = $pdo;
@@ -11,20 +12,28 @@
     $tel = (isset($_POST['tel']) && $_POST['tel'] != '') ? $_POST['tel'] : '';
     $email = (isset($_POST['email']) && $_POST['email'] != '') ? $_POST['email'] : '';
     $c_name = (isset($_POST['c_name']) && $_POST['c_name'] != '') ? $_POST['c_name'] : '';
-    $grade = (isset($_POST['grade']) && $_POST['user_page'] != '') ? $_POST['user_page'] : '';
+    $grade = (isset($_POST['grade']) && $_POST['grade'] != '') ? $_POST['grade'] : '';
     $user_page = (isset($_POST['user_page']) && $_POST['user_page'] != '') ? $_POST['user_page'] : '';
     $budget = (isset($_POST['budget']) && $_POST['budget'] != '') ? $_POST['budget'] : '';
     $schedule = (isset($_POST['schedule']) && $_POST['schedule'] != '') ? $_POST['schedule'] : '';
     $content = (isset($_POST['content']) && $_POST['content'] != '') ? $_POST['content'] : '';
 
-    $services = (isset($_POST['services']) && is_array($_POST['services'])) ? $_POST['services'] : array();
+    $services = (isset($_POST['services']) && $_POST['services'] != '') ? $_POST['services'] : '';
 
     // echo "Services Array: ";
     // print_r($services);
 
-    // if ($name == '') {
-    //     die(json_encode(['result' => 'empty_name']));
-    // };
+    $tableName = '';
+
+    if ($ses_grade == 'common_member') {
+        $tableName = 'sd_Users';
+    } else if ($ses_grade == 'business_member') {
+        $tableName = 'sd_BusinessUsers';
+    }
+
+    if ($name == '') {
+        die(json_encode(['result' => 'empty_name']));
+    };
 
     if ($tel == '') {
         die(json_encode(['result' => 'empty_tel']));
@@ -38,13 +47,13 @@
         die(json_encode(['result' => 'emtpy_cname']));
     };
 
-    // if ($grade == '') {
-    //     die(json_encode(['result' => 'empty_grade']));
-    // };
+    if ($grade == '') {
+        die(json_encode(['result' => 'empty_grade']));
+    };
 
-    // if ($user_page == '') {
-    //     die(json_encode(['result' => 'empty_userpage']));
-    // };
+    if ($user_page == '') {
+        die(json_encode(['result' => 'empty_userpage']));
+    };
 
     if ($budget == '') {
         die(json_encode(['result' => 'empty_budget']));
@@ -59,11 +68,10 @@
     };
 
     $services_json = json_encode($services);
-    $budget_int = intval($budget);
-
-    // var_dump($budget_int);
 
     $arr = [
+        'author_id' => $ses_id,
+        'member_table' => $tableName,
         'name' => $name,
         'c_number' => $tel,
         'email' => $email,
@@ -71,7 +79,7 @@
         'position' => $grade,
         'website' => $user_page,
         'service_r' => $services_json,
-        'budget' => $budget_int,
+        'budget' => $budget,
         'schedule' => $schedule,
         'a_note' => $content
     ];

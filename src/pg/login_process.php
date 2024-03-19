@@ -25,6 +25,7 @@
 
         session_start();
         $_SESSION['ses_id'] = $id;
+        $_SESSION['ses_grade'] = "common_member";
     } else {
         $arr = ['result' => 'login_fail'];
     }

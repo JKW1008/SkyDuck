@@ -58,11 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
           return false;
         };
 
-        if (email.value == "") {
-          alert("이메일이 비어있습니다. 입력해 주세요.");
-          email.focus();
-          return false;
-        };
+        // if (email.value == "") {
+        //   alert("이메일이 비어있습니다. 입력해 주세요.");
+        //   email.focus();
+        //   return false;
+        // };
 
         if (phonenumber.value == "") {
           alert("연락처가 비어있습니다. 입력해 주세요.");
@@ -148,11 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 return false;
               };
 
-              if (data.result == 'empty_email') {
-                alert("이메일이 비어있습니다. 다시 입력해 주세요.");
-                email.focus();
-                return false;
-              };
+              // if (data.result == 'empty_email') {
+              //   alert("이메일이 비어있습니다. 다시 입력해 주세요.");
+              //   email.focus();
+              //   return false;
+              // };
 
               if (data.result == 'empty_tel') {
                 alert("연락처가 비어있습니다. 다시 입력해 주세요.");

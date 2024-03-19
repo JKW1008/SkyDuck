@@ -21,7 +21,7 @@ $filename = basename(__FILE__, '.php');
     </div>
 </section>
 <script src="./js/board_input.js"></script>
-<div class="w-[91%] flex-col justify-center items-center m-auto pt-12">
+<div class="w-[91%] max-w-[1024px] flex-col justify-center items-center m-auto pt-12">
     <div>
         <h1 class="text-6xl">Q&A</h1>
         <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>

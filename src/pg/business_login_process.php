@@ -1,6 +1,6 @@
 <?php
     $id = (isset($_POST['id']) && $_POST['id'] != '') ? $_POST['id'] : "";
-    $b_num = (isset($_POST['b_num']) && $_POST['b_num'] != '') ? $_POST['b_num'] : "";
+    $b_num = (isset($_POST['b_number']) && $_POST['b_number'] != '') ? $_POST['b_number'] : "";
     $password = (isset($_POST['password']) && $_POST['password'] != '') ? $_POST['password'] : "";
 
     if ($id == '') {
@@ -23,15 +23,16 @@
 
     $mem = new BusinessMemeber($db);
 
-    if ($b_mem->business_login($id, $password, $b_num)) {
+    if ($mem->business_login($id, $password, $b_num)) {
         $arr = ['result' => 'login_success'];
 
         $b_memArr = $mem->getInfo($id);
 
         session_start();
         $_SESSION['ses_id'] = $id;
-        $_SESSION['ses_grade'] = "business_member";
+        $_SESSION['ses_grade'] = 'business_member';
     } else {
         $arr = ['result' => 'login_fail'];
     }
+    die(json_encode($arr));
 ?>

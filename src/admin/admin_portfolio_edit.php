@@ -21,7 +21,7 @@
             window.location.href = './admin_login.php';
         </script>";
     };
-
+    
     $idx = (isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx'])) ? $_GET['idx'] : '';
 
     if($idx == ''){
@@ -34,7 +34,6 @@
     };
 
     $row = $port->getInfoFormIdx($idx);
-    // print_r($row);
 ?>
 
 <!DOCTYPE html>

@@ -31,6 +31,28 @@ $boardArr = $Qboard->list($page, $limit, $paramArr);
 <?php
 include './header.php';
 ?>
+<style>
+.page-link {
+  color: #000; 
+  background-color: #fff;
+  border: 1px solid #ccc; 
+}
+
+.page-item.active .page-link {
+ z-index: 1;
+ color: #555;
+ font-weight:bold;
+ background-color: #f1f1f1;
+ border-color: #ccc;
+ 
+}
+
+.page-link:focus, .page-link:hover {
+  color: #000;
+  background-color: #fafafa; 
+  border-color: #ccc;
+}
+</style>
 
 <?php
 $filename = basename(__FILE__, '.php');
@@ -56,17 +78,17 @@ $filename = basename(__FILE__, '.php');
         <h1 class="text-6xl">Q&A</h1>
         <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
     </div>
-    <!-- <div class="flex justify-end">
-        <div class=" flex justify-end gap-2 w-1/2 max-[770px]:w-full mb-5">
-            <select class="form-select w-25" name="sn" id="sn">
-                <option value="2">제목</option>
+    <div class="flex justify-end mb-3">
+        <div class=" flex justify-end gap-2 w-1/2 max-[770px]:w-full ">
+            <select class="form-select w-25 rounded-[3px] border-[#B7B7B7]" name="sn" id="sn">
                 <option value="1">번호</option>
+                <option value="2">제목</option>
             </select>
-            <input type="text" class="form-control w-25" id="sf" name="sf">
+            <input type="text" class="form-control w-25 rounded-[3px] border-[#B7B7B7]" id="sf" name="sf">
             <button class=" w-25 rounded-md bg-mblack text-white font-bold p-[10px]" id="btn_search">검색</button>
             <button class=" w-25 rounded-md bg-mblack text-white font-bold p-[10px]" id="btn_all">전체목록</button>
         </div>
-    </div> -->
+    </div>
     <main class="" style="height: calc(100vh - 257px);">
 
         <table class="mt-3 table table-border table-hover ">
@@ -98,7 +120,7 @@ $filename = basename(__FILE__, '.php');
             ?>
                 <tr class="detail_page" data-idx="<?= $row['idx']; ?>">
                     <td class="text-center"><?= $number; ?></td>
-                    <td class=""><div class="flex"><div><img class="w-5 me-2 " src="./image/icon/lock.png" alt=""></div> <div><?= $row['title']; ?></div></div></td>
+                    <td class=""><div class="flex cursor-pointer"><div><img class="w-5 me-2 " src="./image/icon/lock.png" alt=""></div> <div><?= $row['title']; ?></div></div></td>
                     <td><?= $row['name']; ?></td>
                     <?php
                     $parts = explode('-', $row['posting_time']);
@@ -114,7 +136,7 @@ $filename = basename(__FILE__, '.php');
                         <td colspan="1"></td>
                         <td colspan="3">
                             <!-- 전체 열을 합치는 셀 -->
-                            <div class="replies " data-idx="<?= $replyArr['question_idx']; ?>">
+                            <div class="replies cursor-pointer " data-idx="<?= $replyArr['question_idx']; ?>">
                                 <!-- 답글 정보 출력 -->
                                 ↳<?= $replyArr['title']; ?>
                                 <!-- 여기에 더 상세한 답글 정보를 추가할 수 있습니다. -->

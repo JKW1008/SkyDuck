@@ -1,4 +1,31 @@
 <?php
+    include "./inc/common.php";
+    include "./inc/dbconfig.php";
+
+    $db = $pdo;
+
+    include "./inc/member.php";
+    include "./inc/businessmember.php";
+
+    $mem = new Member($db);
+    $bmem = new BusinessMemeber($db);
+
+    if ($ses_id == '') {
+        echo "<script>
+        alert('로그인이 필요한 서비스입니다.');
+        window.location.href = './login.php';
+    </script>";
+    };
+
+    if ($ses_grade == 'common_member') {
+        $arr = $mem->getInfoFormId($ses_id);
+    } else if ($ses_grade == 'business_member') {
+        $arr = $bmem->getInfoFormId($ses_id);
+    }
+?>
+
+
+<?php
 include './header.php';
 ?>
 

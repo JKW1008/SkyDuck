@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const qna_submit = document.querySelector("#qna_submit");
 
     qna_submit.addEventListener("click", () => {
-        // if (qna_name.value == "") {
-        //     alert("이름을 입력해주세요");
-        //     qna_name.focus();
-        //     return false;
-        // };
+        if (qna_name.value == "") {
+            alert("이름을 입력해주세요");
+            qna_name.focus();
+            return false;
+        };
 
         if (qna_tel.value == "") {
             alert("연락처를 입력해 주세요");
@@ -108,11 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const responseText = xhr.responseText;
                 try {
                     const data = JSON.parse(responseText);
-                    // if (data.result === 'empty_name') {
-                    //     alert("이름이 비어있습니다. 다시 입력해 주세요");
-                    //     qna_name.focus();
-                    //     return false;
-                    // };
+                    if (data.result === 'empty_name') {
+                        alert("이름이 비어있습니다. 다시 입력해 주세요");
+                        qna_name.focus();
+                        return false;
+                    };
 
                     if (data.result === 'empty_tel') {
                         alert("연락처가 비어있습니다. 다시 입력해 주세요.");
@@ -163,12 +163,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (data.result === 'success') {
                         alert("견적문의 요청이 접수 되었습니다.");
-                        return false;
+                        self.location.reload();
                     };
 
                     if (data.result === 'fail') {
                         alert('견적 문의에 실패했습니다. 다시 입력해 주세요.');
-                        self.location.reload();
+                        return false;
                     };
                 } catch (error) {
                     console.error("JSON parsing error:", error);

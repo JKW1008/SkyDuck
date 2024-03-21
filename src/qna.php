@@ -3,30 +3,30 @@ include './header.php';
 ?>
 <?php
 
-    // include "./inc/common.php";
+// include "./inc/common.php";
 
-    include "./inc/dbconfig.php";
+include "./inc/dbconfig.php";
 
-    $db = $pdo;
+$db = $pdo;
 
-    include "./inc/member.php";
-    include "./inc/businessmember.php";
+include "./inc/member.php";
+include "./inc/businessmember.php";
 
-    $mem = new Member($db);
-    $bmem = new BusinessMemeber($db);
+$mem = new Member($db);
+$bmem = new BusinessMemeber($db);
 
-    if ($ses_id == '') {
-        echo "<script>
+if ($ses_id == '') {
+    echo "<script>
         alert('로그인이 필요한 서비스입니다.');
         window.location.href = './login.php';
     </script>";
-    };
+};
 
-    if ($ses_grade == 'common_member') {
-        $arr = $mem->getInfoFormId($ses_id);
-    } else if ($ses_grade == 'business_member') {
-        $arr = $bmem->getInfoFormId($ses_id);
-    }
+if ($ses_grade == 'common_member') {
+    $arr = $mem->getInfoFormId($ses_id);
+} else if ($ses_grade == 'business_member') {
+    $arr = $bmem->getInfoFormId($ses_id);
+}
 ?>
 
 
@@ -62,8 +62,8 @@ $filename = basename(__FILE__, '.php');
     <h1 class="font-bold text-4xl ">당신의 프로젝트에 대해 이야기해주세요.</h1>
     <p class="font-bold pt-3 pb-6 ">문의를 남겨주시면 최대한 빠르게 답변드리겠습니다. </p>
 </div>
-<form id="contact-form"  action="" >
-    
+<form id="contact-form" action="">
+
     <div class="pt-10 m-auto w-4/5 max-[1004px]:w-4/5">
         <div class="flex max-[1100px]:block ">
             <div class="w-1/3 max-[1100px]:w-full ps-2 pb-3">
@@ -99,7 +99,7 @@ $filename = basename(__FILE__, '.php');
             </div>
         </div>
     </div>
-    
+
     <div class="pt-10 m-auto w-4/5 max-[1004px]:w-4/5">
         <div class="flex max-[1100px]:block ">
             <div class="w-1/3 max-[1100px]:w-full ps-2 pb-3">
@@ -109,7 +109,7 @@ $filename = basename(__FILE__, '.php');
                 </h2>
             </div>
             <div class="w-full grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-1 ps-2 pb-3  ">
-                <div><input type="checkbox" value="Catalog/Brochure" ><span class="ps-2">카타로그/브로슈어</span></div>
+                <div><input type="checkbox" value="Catalog/Brochure"><span class="ps-2">카타로그/브로슈어</span></div>
                 <div><input type="checkbox" value="Leaflet/Pamphlet"><span class="ps-2">리플렛/팜플릿</span></div>
                 <div><input type="checkbox" value="Poster"><span class="ps-2">포스터</span></div>
                 <div><input type="checkbox" value="Package"><span class="ps-2">패키지</span></div>
@@ -120,7 +120,7 @@ $filename = basename(__FILE__, '.php');
             </div>
         </div>
     </div>
-    
+
     <div class="pt-10 m-auto w-4/5 max-[1004px]:w-4/5">
         <div class="flex max-[1100px]:block ">
             <div class="w-1/3 max-[1100px]:w-full ps-2 pb-3">
@@ -138,7 +138,7 @@ $filename = basename(__FILE__, '.php');
             </div>
         </div>
     </div>
-    
+
     <div class="pt-10 m-auto w-4/5 max-[1004px]:w-4/5">
         <div class="flex max-[1100px]:block ">
             <div class="w-1/3 max-[1100px]:w-full ps-2 pb-3">
@@ -165,8 +165,8 @@ $filename = basename(__FILE__, '.php');
     <div class="pt-10 m-auto w-4/5 max-[1004px]:w-4/5 text-center">
         <button class="rounded-md   bg-black text-white font-bold text-xl px-28 py-4" type="button" id="qna_submit">견적 문의</button>
     </div>
-    
-</form id="contact-form"  action="" >
+
+</form>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
 <script>
@@ -175,11 +175,11 @@ $filename = basename(__FILE__, '.php');
     //     // https://dashboard.emailjs.com/admin/account
     //     emailjs.init('Wh5DPzjPo5Ysz-aZX');
     // })();
-        
+
     // window.onload = function() {
     //     document.getElementById('qna_submit').addEventListener('click', function(event) {
     //         event.preventDefault();
-            
+
     //         if(document.getElementById('qna_tel').value == ''){
     //             event.preventDefault();
     //             alert('연락처를 입력하세요');

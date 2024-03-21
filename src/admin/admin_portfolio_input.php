@@ -111,12 +111,14 @@
                 <div class="w-100 mt-3">
                     <label for="choice_category">카테고리</label>
                     <select name="choice_category" id="choice_category" class="form-select">
+
                         <!-- <option value="all">카테고리</option> -->
                         <option value="광고 편집">광고 편집</option>
                         <option value="비쥬얼아이덴티티">비쥬얼아이덴티티</option>
                         <option value="환경디자인">환경디자인</option>
                         <option value="웹디자인">웹디자인</option>
                         <option value="기타">기타</option>
+
                     </select>
                 </div>
                 <div class="d-flex w-100">

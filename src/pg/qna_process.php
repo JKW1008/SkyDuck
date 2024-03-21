@@ -47,13 +47,13 @@
         die(json_encode(['result' => 'emtpy_cname']));
     };
 
-    // if ($grade == '') {
-    //     die(json_encode(['result' => 'empty_grade']));
-    // };
+    if ($grade == '') {
+        die(json_encode(['result' => 'empty_grade']));
+    };
 
-    // if ($user_page == '') {
-    //     die(json_encode(['result' => 'empty_userpage']));
-    // };
+    if ($user_page == '') {
+        die(json_encode(['result' => 'empty_userpage']));
+    };
 
     if ($budget == '') {
         die(json_encode(['result' => 'empty_budget']));

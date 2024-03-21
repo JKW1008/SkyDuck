@@ -1,4 +1,5 @@
 <?php
+
 include "./inc/common.php";
 
 include "./inc/dbconfig.php";
@@ -119,10 +120,12 @@ $filename = basename(__FILE__, '.php');
 
         <div class="flex mt-4 max-[369px]:block" id="emailWrap">
         <?php
+
         $email = $row['Email'];
         $parts = explode('@', $email);
         $beforeAtSymbol = $parts[0];
         $domain = $parts[1];
+
         ?>
             <div class="w-1/5"><label class="flex pt-2" for="business_member_email">이메일<p class="text-red-600">*</p></label></div>
             <div class="w-full">
@@ -236,3 +239,4 @@ $filename = basename(__FILE__, '.php');
 <?php
 include './footer.php';
 ?>
+

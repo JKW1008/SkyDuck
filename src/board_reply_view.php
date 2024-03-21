@@ -35,6 +35,7 @@
     ");
     }
 ?>
+
 <?php
 include './header.php';
 ?>
@@ -68,6 +69,7 @@ $filename = basename(__FILE__, '.php');
             <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="title">제목<p class="text-red-600">*</p></label></div>
             <div class="w-2/6 max-[960px]:w-4/6 p-2"><?= $replyrow['title'] ?></div>
         </div>
+
             <div class="p-3" id="contentWrap">
                 <?= $replyrow['content']; ?>
             </div>
@@ -77,7 +79,9 @@ $filename = basename(__FILE__, '.php');
                     data-idx="<?= $replyrow['question_idx'] ?>">본문보기</button>
             </div>
         </div>
+
 </div>
 <?php
 include './footer.php';
 ?>
+

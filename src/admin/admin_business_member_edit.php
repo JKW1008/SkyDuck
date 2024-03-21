@@ -246,19 +246,7 @@
         <div id="imageWrap">
             <label for="business_image">사업자 등록증</label>
             <input type="file" name="business_image" id="business_image">
-            <?php
-            if (!$row['BusinessRegistrationImage']) {
-            ?>
-                <input type="file" name="business_image" id="business_image">
 
-            <?php
-            } else {
-
-            ?>
-                <img class="w-1/2" src="../data/business_image/<?= $row['BusinessRegistrationImage'] ?>" alt="">
-            <?php
-            }
-            ?>
         </div>
         <button type="button" id="input_submit">확인</button>
     </div>

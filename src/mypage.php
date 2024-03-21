@@ -1,4 +1,5 @@
 <?php
+
 include "./inc/common.php";
 include "./inc/dbconfig.php";
 
@@ -237,3 +238,4 @@ $filename = basename(__FILE__, '.php');
 <?php
 include './footer.php';
 ?>
+

@@ -7,16 +7,19 @@
 
     $portfolio = new Portfolio($db);
 
+
     $category = (isset($_POST['category']) && $_POST['category']) ? $_POST['category'] : '';
     $name = (isset($_POST['name']) && $_POST['name'] != '') ? $_POST['name'] : '';
     $description = (isset($_POST['description']) && $_POST['description'] != '') ? $_POST['description'] : '';
     $mode = (isset($_POST['mode']) && $_POST['mode'] != '') ? $_POST['mode'] : '';
+
 
     if ($mode == '') {
         die(json_encode(['result' => 'empty_mode']));
     };
 
     if ($mode == 'portfolio_input') {
+
         if ($category == '') {
             die(json_encode(['result' => 'empty_category']));
         };
@@ -29,6 +32,7 @@
             die(json_encode(['result' => 'empty_description']));
         };
     
+
 
         $upload_dir = "../../data/admin_portfolio/";
 
@@ -77,6 +81,7 @@
             die(json_encode(['result' => 'error', 'message' => $e->getMessage()]));
         }
     } else if ($mode == "portfolio_edit") {
+
         if ($category == '') {
             die(json_encode(['result' => 'empty_category']));
         };
@@ -91,10 +96,12 @@
         
         session_start();
     
+
         $old_name = (isset($_POST['old_name']) && $_POST['old_name'] != '') ? $_POST['old_name'] : '';
         $old_images = (isset($_POST['old_images']) && $_POST['old_images'] != '') ? $_POST['old_images'] : '';
         $uploadedFiles = [];
         $uploadedFilesString = '';
+
         $idx = (isset($_POST['idx']) && $_POST['idx'] != '') ? $_POST['idx'] : '';
 
         if (isset($_FILES['files']['tmp_name']) && !empty($_FILES['files']['tmp_name'][0])) {
@@ -102,22 +109,26 @@
             $uploadedFiles = [];
 
         // 새로 업로드된 파일을 저장
+
             foreach ($_FILES['files']['tmp_name'] as $index => $tmp_name) {
                 $ext = pathinfo($_FILES['files']['name'][$index], PATHINFO_EXTENSION);
                 $newFilename = $name . "." . $ext;
                 move_uploaded_file($tmp_name, $upload_dir . $newFilename);
+
 
                 // 새로 업로드된 파일명을 배열에 추가
                 $uploadedFiles[] = $newFilename;
             }
 
             // 기존에 있던 파일을 삭제하는 부분을 새 파일 업로드 확인 조건 안으로 이동
+
             $oldFiles = explode(',', $old_images);
             foreach ($oldFiles as $oldFile) {
                 if (file_exists($upload_dir . $oldFile)) {
                     unlink($upload_dir . $oldFile);
                 }
             }
+
 
             // 파일명들을 하나의 문자열로 만듦
             $uploadedFilesString = implode(',', $uploadedFiles);
@@ -127,6 +138,7 @@
         }
 
         
+
         $arr = [
             'category' => $category,
             'name' => $name,
@@ -134,6 +146,7 @@
             'imageRoute' => $uploadedFilesString,
             'idx' => $idx
         ];
+
         
         if ($portfolio->admin_portfolio_edit($arr)) {
             die(json_encode(['result' => 'success']));
@@ -141,4 +154,5 @@
             die(json_encode(['result' => 'fail']));
         };
     }
+
 ?>

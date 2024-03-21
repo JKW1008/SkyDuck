@@ -21,7 +21,7 @@
             window.location.href = './admin_login.php';
         </script>";
     };
-    
+
     $idx = (isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx'])) ? $_GET['idx'] : '';
 
     if($idx == ''){
@@ -34,6 +34,7 @@
     };
 
     $row = $port->getInfoFormIdx($idx);
+
 ?>
 
 <!DOCTYPE html>
@@ -140,6 +141,7 @@
                         $Cate = $row['Category'];
                     ?>
                     <select name="choice_category" id="choice_category" class="form-select">
+
                         <!-- <option value="all">카테고리</option> -->
                         <option value="광고 편집" <?= ($Cate == 'add') ? 'selected' : '' ?>>광고 편집</option>
                         <option value="비쥬얼아이덴티티" <?= ($Cate == 'visual') ? 'selected' : '' ?>>비쥬얼아이덴티티</option>
@@ -147,6 +149,7 @@
                             환경디자인</option>
                         <option value="웹디자인" <?= ($Cate == 'web_design') ? 'selected' : '' ?>>웹디자인</option>
                         <option value="기타" <?= ($Cate == 'other') ? 'selected' : '' ?>>기타</option>
+
                     </select>
                 </div>
                 <div class="d-flex w-100">

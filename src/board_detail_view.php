@@ -1,4 +1,5 @@
 <?php
+
 include "./inc/dbconfig.php";
 
 $db = $pdo;
@@ -11,11 +12,13 @@ $idx = (isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx'])) ?
 
 if ($idx == '') {
     die("
+
             <script>
                 alert('idx 값이 비었습니다.');
                 history.go(-1);
             </script>
         ");
+
 };
 
 $boardArr = $board->getInfoFormIdx($idx);
@@ -117,3 +120,4 @@ $filename = basename(__FILE__, '.php');
 <?php
 include './footer.php';
 ?>
+

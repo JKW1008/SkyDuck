@@ -1,4 +1,5 @@
 <?php
+
 include "./inc/common.php";
 
 if ($ses_id == ' ') {
@@ -12,11 +13,13 @@ $idx = (isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx'])) ?
 
 if ($idx == '') {
     die("
+
         <script>
             alert('idx 값이 비었습니다.');
             history.go(-1);
         </script>
         ");
+
 };
 ?>
 <?php
@@ -57,3 +60,4 @@ $filename = basename(__FILE__, '.php');
 <?php
 include './footer.php';
 ?>
+

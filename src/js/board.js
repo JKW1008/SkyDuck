@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 
+
     const btn_search = document.querySelector("#btn_search");
 
     btn_search.addEventListener("click", () => {
@@ -36,4 +37,5 @@ document.addEventListener("DOMContentLoaded", () => {
     btn_all.addEventListener("click", () => {
         self.location.href = "./board.php";
     });
+
 })

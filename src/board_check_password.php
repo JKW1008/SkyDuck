@@ -1,13 +1,13 @@
 <?php
 
-include "./inc/common.php";
+// include "./inc/common.php";
 
-if ($ses_id == ' ') {
-    echo "<script>
-            alert('접근 권한 없음');
-            window.location.href = './member_login.php';
-        </script>";
-};
+// if ($ses_id == ' ') {
+//     echo "<script>
+//             alert('접근 권한 없음');
+//             window.location.href = './member_login.php';
+//         </script>";
+// };
 
 $idx = (isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx'])) ? $_GET['idx'] : '';
 

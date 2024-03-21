@@ -11,6 +11,16 @@ function getExtensionOfFilename(filename) {
     return "";
 }
 
+function getUrlParams() {
+    const params = {};
+    window.location.search.replace(
+        /[?&]+([^=&]+)=([^&]*)/gi,
+        function (str, key, value) {
+            params[key] = value;
+        }
+    );  
+    return params;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const btn_cancel = document.querySelector("#btn_cancel");
@@ -55,6 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
+        const params = getUrlParams();
+        
         const f = new FormData();
         f.append("category", choice_category.value);
         f.append("name", name.value);
@@ -62,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("old_images", old_images.value);
         f.append("description", description.value);
         f.append("mode", "portfolio_edit");
+        f.append("idx", params['idx']);
 
         let ext = "";
 
@@ -100,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const responseText = xhr.responseText;
                 try {
                     const data = JSON.parse(responseText);
-
+                    console.log(data);
                     if (data.result == 'empty_category') {
                         alert("카테고리를 선택해 주세요");
                         choice_category.focus();
@@ -127,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (data.result == 'success') {
                         alert("수정 성공.");
-                        window.location.href = "./admin_portfolio.php";
+                        // window.location.href = "./admin_portfolio.php";
                     };
 
                     if (data.result == 'fail') {

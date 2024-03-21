@@ -323,6 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (ceo_name.value == "") {
             alert("대표명을 입력해주세요.");
+            ceo_name.focus();
             return false;
         };
 
@@ -330,17 +331,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const b_phone = business_member_phone.value + "-" + business_member_phone2.value + "-" + business_member_phone3.value;
         const b_fax = business_member_fax.value + "-" + business_member_fax2.value + "-" + business_member_fax3.value;
 
-        if (business_member_mobile.value == "" || business_member_mobile2.value == "" || business_member_mobile3.value == "") {
-            alert("전화번호를 입력해 주세요");
-            business_member_mobile.value = "";
-            business_member_mobile2.value = "";
-            business_member_mobile3.value = "";
-            business_member_mobile.focus();
-            return false;
-        };
+        // if (business_member_mobile.value == "" || business_member_mobile2.value == "" || business_member_mobile3.value == "") {
+        //     alert("전화번호를 입력해 주세요");
+        //     business_member_mobile.value = "";
+        //     business_member_mobile2.value = "";
+        //     business_member_mobile3.value = "";
+        //     business_member_mobile.focus();
+        //     return false;
+        // };
 
         if (business_member_phone.value == "" || business_member_phone2.value == "" || business_member_phone3.value == "") {
-            alert("전화번호를 입력해주세요2");
+            alert("휴대전화번호를 입력해주세요2");
             business_member_phone.value = "";
             business_member_phone2.value = "";
             business_member_phone3.value = "";
@@ -348,14 +349,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (business_member_fax.value == "" || business_member_fax2.value == "" || business_member_fax3.value == "") {
-            alert("팩스번호를 입력해 주세요");
-            business_member_fax.value = "";
-            business_member_fax2.value = "";
-            business_member_fax3.value = "";
-            business_member_fax.focus();
-            return false;
-        };
+        // if (business_member_fax.value == "" || business_member_fax2.value == "" || business_member_fax3.value == "") {
+        //     alert("팩스번호를 입력해 주세요");
+        //     business_member_fax.value = "";
+        //     business_member_fax2.value = "";
+        //     business_member_fax3.value = "";
+        //     business_member_fax.focus();
+        //     return false;
+        // };
 
         const member_zipcode = document.getElementById("member_zipcode");
         const member_addr1 = document.getElementById("member_addr1");
@@ -399,10 +400,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (businessImageInput.files.length === 0) {
-            alert("사업자 등록증을 첨부해 주세요");
-            return false;
-        }
+        // if (businessImageInput.files.length === 0) {
+        //     alert("사업자 등록증을 첨부해 주세요");
+        //     return false;
+        // }
 
         const f = new FormData();
         f.append("id", business_member_id.value);
@@ -462,23 +463,23 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     }
 
-                    if (data.result == "empty_b_mobile") {
-                        alert("전화번호를 입력해주세요");
-                        business_member_mobile.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_b_mobile") {
+                    //     alert("전화번호를 입력해주세요");
+                    //     business_member_mobile.focus();
+                    //     return false;
+                    // }
 
                     if (data.result == "empty_b_phone") {
-                        alert("연락처를 입력해 주세요");
+                        alert("휴대전화번호를 입력해 주세요");
                         business_member_phone.focus();
                         return false;
                     }
 
-                    if (data.result == "empty_b_fax") {
-                        alert("팩스 번호를 입력해 주세요");
-                        business_member_fax.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_b_fax") {
+                    //     alert("팩스 번호를 입력해 주세요");
+                    //     business_member_fax.focus();
+                    //     return false;
+                    // }
 
                     if (data.result == "empty_zipcode") {
                         alert("우편번호를 입력해 주세요");
@@ -502,17 +503,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     }
 
-                    if (data.result == "empty_b_type") {
-                        alert("업태를 입력해 주세요.");
-                        business_type.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_b_type") {
+                    //     alert("업태를 입력해 주세요.");
+                    //     business_type.focus();
+                    //     return false;
+                    // }
 
-                    if (data.result == "empty_b_category") {
-                        alert("업종을 입력해 주세요");
-                        business_category.focus();
-                        return false;
-                    }
+                    // if (data.result == "empty_b_category") {
+                    //     alert("업종을 입력해 주세요");
+                    //     business_category.focus();
+                    //     return false;
+                    // }
 
                     if (data.result == "fail") {
                         alert("회원가입에 실패했습니다. 다시 한번 시도해 주세요");
@@ -521,7 +522,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (data.result == "success") {
                         alert("가입 성공");
-                        self.location.href = "./business_member_login.php";
+                        self.location.href = "./login.php";
                     }
                 } catch (error) {
                     console.error("JSON parsing error : ", error);

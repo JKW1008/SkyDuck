@@ -1,6 +1,9 @@
 <?php
+include './header.php';
+?>
+<?php
 
-include "./inc/common.php";
+// include "./inc/common.php";
 include "./inc/dbconfig.php";
 
 $db = $pdo;
@@ -12,7 +15,7 @@ $mem = new Member($db);
 if ($ses_id == '') {
     echo "<script>
             alert('로그인해주세요');
-            window.location.href = './member_login.php';
+            window.location.href = './login.php';
         </script>";
 };
 
@@ -26,9 +29,7 @@ if ($ses_grade != 'common_member') {
 $memArr = $mem->getInfoFormId($ses_id);
 // print_r($memArr);
 ?>
-<?php
-include './header.php';
-?>
+
 <?php
 $email = $memArr['Email'];
 $parts = explode('@', $email);

@@ -1,6 +1,9 @@
 <?php
+include './header.php';
+?>
+<?php
 
-include "./inc/common.php";
+// include "./inc/common.php";
 
 include "./inc/dbconfig.php";
 
@@ -14,7 +17,7 @@ $bmem = new BusinessMemeber($db);
 if ($ses_id == '') {
     echo "<script>
             alert('로그인해주세요');
-            window.location.href = './business_member_login.php';
+            window.location.href = './login.php';
         </script>";
 };
 
@@ -29,9 +32,7 @@ $row = $bmem->getInfoFormId($ses_id);
 // print_r($row); 
 ?>
 
-<?php
-include './header.php';
-?>
+
 
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

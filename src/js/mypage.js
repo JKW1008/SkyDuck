@@ -27,11 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const member_mobile = document.querySelector("#member_mobile");
     const member_mobile2 = document.querySelector("#member_mobile2");
     const member_mobile3 = document.querySelector("#member_mobile3");
-    const mMobile = member_mobile.value + "-" + member_mobile2.value + "-" + member_mobile3.value;
     const member_phone = document.querySelector("#member_phone");
     const member_phone2 = document.querySelector("#member_phone2");
     const member_phone3 = document.querySelector("#member_phone3");
-    const mPhone = member_phone.value + "-" + member_phone2.value + "-" + member_phone3.value;
     const old_email = document.querySelector("#old_email");
     const email_id = document.querySelector("#member_email");
     const email_domain = document.querySelector("#email_domain");
@@ -259,6 +257,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
+        const mPhone = member_phone.value + "-" + member_phone2.value + "-" + member_phone3.value;
+        const mMobile = member_mobile.value + "-" + member_mobile2.value + "-" + member_mobile3.value;
+
         const f = new FormData();
         f.append("id", member_id.value);
         f.append("password", member_password.value);
@@ -282,9 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const data = JSON.parse(responseText);
                     if (data.result == 'success') {
                         alert("수정되었습니다.");
-
-                        self.location.href = "./mypage.php";
-
+                        self.location.href = "./index.php";
                     } else if (data.result == 'fail' ) {
                         alert("수정실패");
                         return false;

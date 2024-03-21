@@ -1,4 +1,7 @@
 <?php
+include './header.php';
+?>
+<?php
     include "./inc/common.php";
     include "./inc/dbconfig.php";
 
@@ -25,9 +28,7 @@
 ?>
 
 
-<?php
-include './header.php';
-?>
+
 
 <?php
 $filename = basename(__FILE__, '.php');

@@ -109,7 +109,7 @@ $filename = basename(__FILE__, '.php');
                 // print_r($row);
         ?>
                 <tr>
-                    <td><?= $row['idx']; ?></td>
+                    <td class="text-center"><?= $row['idx']; ?></td>
                     <td><?= $row['name']; ?></td>
                     <td><?= $row['email']; ?></td>
                     <td><?= $row['company_name']; ?></td>

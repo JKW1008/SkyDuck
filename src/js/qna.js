@@ -36,17 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (qna_garde.value == "") {
-            alert("직급을 입력해 주세요");
-            qna_garde.focus();
-            return false;
-        };
+        // if (qna_garde.value == "") {
+        //     alert("직급을 입력해 주세요");
+        //     qna_garde.focus();
+        //     return false;
+        // };
 
-        if (qna_user_page.value == "") {
-            alert("홈페이지를 입력해 주세요");
-            qna_user_page.focus();
-            return false;
-        };
+        // if (qna_user_page.value == "") {
+        //     alert("홈페이지를 입력해 주세요");
+        //     qna_user_page.focus();
+        //     return false;
+        // };
 
         const c_boxes = document.querySelectorAll("input[type='checkbox']");
         let checked = false;
@@ -134,17 +134,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         return false;
                     };
 
-                    if (data.result === 'empty_grade') {
-                        alert("직급이 비어있습니다. 다시 입력해 주세요.");
-                        qna_garde.focus();
-                        return false;
-                    };
+                    // if (data.result === 'empty_grade') {
+                    //     alert("직급이 비어있습니다. 다시 입력해 주세요.");
+                    //     qna_garde.focus();
+                    //     return false;
+                    // };
 
-                    if (data.result === 'empty_userpage') {
-                        alert("사이트가 비어있습니다. 예시 사이트라도 넣어주세요");
-                        qna_user_page.focus();
-                        return false;
-                    };
+                    // if (data.result === 'empty_userpage') {
+                    //     alert("사이트가 비어있습니다. 예시 사이트라도 넣어주세요");
+                    //     qna_user_page.focus();
+                    //     return false;
+                    // };
 
                     if (data.result === 'empty_budget') {
                         alert("예산이 비어있습니다. 다시 입력해 주세요.");

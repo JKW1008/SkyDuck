@@ -1,5 +1,10 @@
-<div id="divWeb" class="grid grid-cols-3 max-[740px]:grid-cols-2 max-[390px]:grid-cols-1 gap-4 max-[390px]:gap-4 items-center overflow-hidden object-fill">
 
-    <script src="./js/portfolioList_Web.js"></script>
 
+<div class="d-flex mt-3 justify-content-between align-items-start">
+    <?php
+    if (isset($sn) && $sn != '' && isset($sf) && $sf != '') {
+        $param = '&sn=' . $sn . '&sf=' . $sf;
+    }
+    echo my_pagination($total, $limit, $page_limit, $page, $param);
+    ?>
 </div>

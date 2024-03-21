@@ -34,11 +34,7 @@
     }else if($mode == 'email_chk') {
         if ($email == '') {
             die(json_encode(['result' => 'empty_email']));
-        }
-
-        if ($mem->email_format_check($emial)) {
-            die(json_encode(['result' => 'email_format_wrong']));
-        }
+        };
 
         if ($mem->email_exists($email)) {
             die(json_encode(['result' => 'fail']));
@@ -71,5 +67,50 @@
             header('Content-Type: application/json');
             die(json_encode(['result' => 'error', 'message' => $e->getMessage()]));
         }
-    }
+    } else if ($mode == 'admin_edit') {
+        session_start();
+    
+        $arr = [
+            'id' => $id,
+            'password' => $password,
+            'email' => $email,
+            'name' => $name,
+            'mobile' => $mobile,
+            'phone' => $phone,
+            'zipcode' => $zipcode,
+            'address' => $addr,
+            'detailaddress' => $detail_addr
+        ];
+    
+        $result = $mem->admin_to_member_edit($arr);
+    
+        if ($result['success']) {
+            die(json_encode(['result' => 'success']));
+        } else {
+            die(json_encode(['result' => 'fail', 'message' => $result['error']]));
+        }
+    } else if ($mode == 'edit') {
+        session_start();
+    
+        $arr = [
+            'id' => $id,
+            'password' => $password,
+            'email' => $email,
+            'name' => $name,
+            'mobile' => $mobile,
+            'phone' => $phone,
+            'zipcode' => $zipcode,
+            'address' => $addr,
+            'detailaddress' => $detail_addr
+        ];
+    
+        $result = $mem->member_edit($arr);
+    
+        if ($result['success']) {
+            die(json_encode(['result' => 'success']));
+        } else {
+            die(json_encode(['result' => 'fail', 'message' => $result['error']]));
+        }
+    } 
+
 ?>

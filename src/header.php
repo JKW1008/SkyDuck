@@ -1,3 +1,8 @@
+<?php
+include './inc/common.php';
+
+// print_r($ses_grade);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,7 +113,7 @@
                 </div>
             </a>
             <div class="flex flex-row gap-4 items-center">
-                <div class="flex flex-row gap-4 items-center max-[640px]:hidden">
+                <div class="flex flex-row gap-4 items-center max-[740px]:hidden">
                     <a href="./intro.php">
                         <div>회사소개</div>
                     </a>
@@ -121,13 +126,25 @@
                     <a href="./qna.php">
                         <div>견적문의</div>
                     </a>
-                    <a href="./login.php">
-                        <div class="w-[65px] h-[39px] bg-[#333333] rounded-md flex justify-center items-center text-white">로그인</div>
-                    </a>
+                    <?php if ($ses_id != '') : ?>
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-700 bg-opacity-50 bg-white hover:bg-gray-300 focus:ring-1 drop-shadow-[0_0px_6px_rgba(0,0,0,0.25)] focus:outline-none font-medium rounded-full text-sm px-2.5 py-1 text-center inline-flex items-center" type="button">
+                            <div class="w-8 h-8 mr-2 rounded-full overflow-hidden">
+                                <img src="./image/icon/user_icon.jpg" alt="">
+                            </div>
+                            <?php echo $ses_id; ?><span>&nbsp;님</span>
+                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                    <?php else : ?>
+                        <a href="./login.php">
+                            <div class="w-[65px] h-[39px] bg-[#333333] rounded-md flex justify-center items-center text-white">로그인</div>
+                        </a>
+                    <?php endif; ?>
+
                 </div>
-                <div id="MenuToggleBtn" class="hidden p-2 max-[640px]:block rounded-lg bg-[#004190] hover:bg-white hover:opacity-75"><img src="./image/icon/toggleBtn.png" alt=""></div>
+                <div id="MenuToggleBtn" class="hidden p-2 max-[740px]:block rounded-lg bg-[#004190] hover:bg-white hover:opacity-75"><img src="./image/icon/toggleBtn.png" alt=""></div>
             </div>
-        </div>
     </header>
     <div id="ToggleMenu" class="fixed w-screen h-full top-0 left-[100%] bg-[#F1F3F6] z-[1000] duration-150">
         <div class=" relative w-full h-full flex flex-col justify-start items-center">
@@ -136,10 +153,26 @@
                 <div id="ToggleCloseBtn" class="w-[22px] h-[22px]"><img src="./image/icon/btn_X.png" alt="X"></div>
             </div>
             <div class="w-full flex flex-col text-[16px] font-bold pt-24 px-4 gap-6">
-                <a href="./login.php" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
-                    <div>로그인</div>
-                    <img src="./image/icon/bracket_R.png" alt="">
-                </a>
+
+                <?php if ($ses_id != '' && $ses_grade != '') : ?>
+                    <?php if ($ses_grade == 'common_member') : ?>
+                        <a href="./mypage.php" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
+                            <div>마이페이지</div>
+                            <img src="./image/icon/bracket_R.png" alt="">
+                        </a>
+                    <?php elseif ($ses_grade == 'business_member') : ?>
+                        <a href="./business_mypage.php" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
+                            <div>마이페이지</div>
+                            <img src="./image/icon/bracket_R.png" alt="">
+                        </a>
+                    <?php endif; ?>
+                <?php else : ?>
+                    <a href="./login.php" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
+                        <div>로그인</div>
+                        <img src="./image/icon/bracket_R.png" alt="">
+                    </a>
+                <?php endif; ?>
+
                 <div class="w-full flex flex-col bg-white px-2 rounded-xl py-3">
                     <a href="./intro.php" class="w-full flex justify-between items-center rounded-xl  px-3 py-2">
                         <div>회사소개</div>
@@ -159,8 +192,31 @@
                     </a>
                 </div>
 
-
-
+                <div class="w-full flex flex-col bg-white px-2 rounded-xl py-3">
+                    <a href="./logout.php" class="w-full flex justify-between items-center rounded-xl  px-3 py-2">
+                        <div>로그아웃</div>
+                        <img src="./image/icon/bracket_R.png" alt="">
+                    </a>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- 회원메뉴 드롭다운 -->
+    <div id="dropdown" class="z-[1000] hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 border-2 border-gray-200 text-xl">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+
+            <?php if ($ses_grade == 'common_member') : ?>
+                <li>
+                <a href="./mypage.php" class="block px-4 py-2">마이페이지</a>
+            </li>
+            <?php elseif ($ses_grade == 'business_member') : ?>
+                <li>
+                <a href="./business_mypage.php" class="block px-4 py-2">마이페이지</a>
+            </li>
+            <?php endif; ?>
+            <li>
+                <a href="./logout.php" class="block px-4 py-2">로그아웃</a>
+            </li>
+        </ul>
     </div>

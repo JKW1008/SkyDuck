@@ -2,6 +2,7 @@
 include './header.php';
 ?>
 
+
 <?php
 $filename = basename(__FILE__, '.php');
 ?>
@@ -16,12 +17,19 @@ $filename = basename(__FILE__, '.php');
         $filename = "portfolio";
         $textColor = "";
 
-        render_header($title, $subtitle, $filename,$textColor);
+        render_header($title, $subtitle, $filename, $textColor);
         ?>
     </div>
 </section>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
 <section class="relative w-full flex flex-col justify-center items-center mt-24">
+
     <article class="w-full max-w-[1440px] max-[740px]:px-4">
         <div class="mb-4 ">
             <ul class="flex flex-wrap justify-center -mb-px text-[#333333] text-[20px] font-medium text-center space-x-10 max-[740px]:space-x-2" id="default-tab" data-tabs-active-classes="text-[#333333] hover:text-[#333333] font-bold border-[#001C7E] border-b-0 border-t-4" data-tabs-toggle="#default-tab-content" role="tablist">
@@ -79,6 +87,8 @@ $filename = basename(__FILE__, '.php');
         </div>
     </article>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 <?php
 include './footer.php';
 ?>

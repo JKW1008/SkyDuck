@@ -7,7 +7,7 @@ include './header.php';
 
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="./js/main.js"></script>
+<script src="./js/person_member_input.js"></script>
 
 <div class="m-auto w-4/5 md:w-1/2 pt-20">
     <h1 class="font-bold text-4xl py-4 border-b-[3px] border-black">개인 회원가입</h1>
@@ -45,7 +45,7 @@ include './header.php';
         <div class="flex mt-4 max-[369px]:block">
             <div class="w-1/5"><label class="flex pt-2" for="member_email">이메일 <p class="text-red-600">*</p></label></div>
             <div class="w-full">
-                <div class="flex justify-between items-center gap-4 max-[369px]:block" id="emailWrap">
+                <div class="flex justify-between items-center gap-4 max-[369px]:block">
                     <input class="w-1/4 max-[369px]:w-1/3  rounded-md border-[#D9D9D9]" type="text" id="member_email" name="email" placeholder="이메일을 입력해주세요">@
                     <input class="w-1/4  max-[369px]:w-1/4   rounded-md border-[#D9D9D9]" type="text" id="manual_email_input" placeholder="이메일을 입력해 주세요">
                     <select class="w-1/4  max-[369px]:w-1/3   rounded-md border-[#D9D9D9]" name="email_domain" id="email_domain">
@@ -90,17 +90,17 @@ include './header.php';
                     <input class=" w-3/5 rounded-md border-[#D9D9D9]" type="text" name="zipcode" id="member_zipcode" readonly>
                     <button class="rounded-md bg-[#182548] w-2/6 text-white font-bold text-base py-2 px-3 " id="btn_zipicode" type="button">우편번호 찾기</button>
                 </div>
-
+    
                 <div class="w-full">
                     <input class="w-full rounded-md border-[#D9D9D9]" type="text" name="member_addr1" id="member_addr1" placeholder="">
-
+        
                 </div>
-
+    
                 <div class="w-full"><input class="w-full rounded-md border-[#D9D9D9]" type="text" name="member_addr2" id="member_addr2" placeholder="상세주소를 입력해 주세요"></div>
-
+    
             </div>
         </div>
-
+        
         <div id="buttonwrap">
             <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" id="input_btn" type="button">회원가입</button>
         </div>

@@ -160,9 +160,17 @@ include './inc/common.php';
                             <div>마이페이지</div>
                             <img src="./image/icon/bracket_R.png" alt="">
                         </a>
+                        <a href="./my_qna_list.php" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
+                            <div>문의내역</div>
+                            <img src="./image/icon/bracket_R.png" alt="">
+                        </a>
                     <?php elseif ($ses_grade == 'business_member') : ?>
                         <a href="./business_mypage.php" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
                             <div>마이페이지</div>
+                            <img src="./image/icon/bracket_R.png" alt="">
+                        </a>
+                        <a href="./my_qna_list.php" class="w-full h-[60px] flex justify-between items-center rounded-xl bg-white px-4">
+                            <div>문의내역</div>
                             <img src="./image/icon/bracket_R.png" alt="">
                         </a>
                     <?php endif; ?>
@@ -208,12 +216,18 @@ include './inc/common.php';
 
             <?php if ($ses_grade == 'common_member') : ?>
                 <li>
-                <a href="./mypage.php" class="block px-4 py-2">마이페이지</a>
-            </li>
+                    <a href="./mypage.php" class="block px-4 py-2">마이페이지</a>
+                </li>
+                <li>
+                    <a href="./my_qna_list.php" class="block px-4 py-2">문의내역</a>
+                </li>
             <?php elseif ($ses_grade == 'business_member') : ?>
                 <li>
-                <a href="./business_mypage.php" class="block px-4 py-2">마이페이지</a>
-            </li>
+                    <a href="./business_mypage.php" class="block px-4 py-2">마이페이지</a>
+                </li>
+                <li>
+                    <a href="./my_qna_list.php" class="block px-4 py-2">문의내역</a>
+                </li>
             <?php endif; ?>
             <li>
                 <a href="./logout.php" class="block px-4 py-2">로그아웃</a>

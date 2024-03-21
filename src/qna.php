@@ -2,7 +2,9 @@
 include './header.php';
 ?>
 <?php
+
     // include "./inc/common.php";
+
     include "./inc/dbconfig.php";
 
     $db = $pdo;

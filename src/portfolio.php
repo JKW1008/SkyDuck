@@ -97,7 +97,7 @@ $portArr = $port->list($page, $limit, $paramArr);
             <div class="hidden p-4 rounded-lg" id="listAd" role="tabpanel" aria-labelledby="listAd-tab">
                 <div id="divAll" class="grid grid-cols-3 max-[600px]:grid-cols-2 gap-4 max-[600px]:gap-1 items-center">
                     <?php foreach ($portArr as $portfolio) : ?>
-                        <?php if ($portfolio['Category'] === 'ad') : ?>
+                        <?php if ($portfolio['Category'] === '광고·편집') : ?>
                             <div class="relative">
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
@@ -113,7 +113,7 @@ $portArr = $port->list($page, $limit, $paramArr);
             <div class="hidden p-4 rounded-lg" id="listVi" role="tabpanel" aria-labelledby="listVi-tab">
                 <div id="divAll" class="grid grid-cols-3 max-[600px]:grid-cols-2 gap-4 max-[600px]:gap-1 items-center">
                     <?php foreach ($portArr as $portfolio) : ?>
-                        <?php if ($portfolio['Category'] === 'visual') : ?>
+                        <?php if ($portfolio['Category'] === '비쥬얼아이덴티티') : ?>
                             <div class="relative">
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
@@ -129,7 +129,7 @@ $portArr = $port->list($page, $limit, $paramArr);
             <div class="hidden p-4 rounded-lg" id="listEnv" role="tabpanel" aria-labelledby="listEnv-tab">
                 <div id="divAll" class="grid grid-cols-3 max-[600px]:grid-cols-2 gap-4 max-[600px]:gap-1 items-center">
                     <?php foreach ($portArr as $portfolio) : ?>
-                        <?php if ($portfolio['Category'] === 'env') : ?>
+                        <?php if ($portfolio['Category'] === '환경디자인') : ?>
                             <div class="relative">
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
@@ -145,7 +145,7 @@ $portArr = $port->list($page, $limit, $paramArr);
             <div class="hidden p-4 rounded-lg" id="listWeb" role="tabpanel" aria-labelledby="listWeb-tab">
                 <div id="divAll" class="grid grid-cols-3 max-[600px]:grid-cols-2 gap-4 max-[600px]:gap-1 items-center">
                     <?php foreach ($portArr as $portfolio) : ?>
-                        <?php if ($portfolio['Category'] === 'web') : ?>
+                        <?php if ($portfolio['Category'] === '웹디자인') : ?>
                             <div class="relative">
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
@@ -161,7 +161,7 @@ $portArr = $port->list($page, $limit, $paramArr);
             <div class="hidden p-4 rounded-lg" id="listEct" role="tabpanel" aria-labelledby="listEct-tab">
                 <div id="divAll" class="grid grid-cols-3 max-[600px]:grid-cols-2 gap-4 max-[600px]:gap-1 items-center">
                     <?php foreach ($portArr as $portfolio) : ?>
-                        <?php if ($portfolio['Category'] === 'ect') : ?>
+                        <?php if ($portfolio['Category'] === '기타') : ?>
                             <div class="relative">
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>

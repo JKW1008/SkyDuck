@@ -99,9 +99,9 @@
                 $phoneNumber = $memArr['PhoneNumber'];
                 $pparts = explode('-', $phoneNumber);
             ?>
-            <input type="text" id="member_phone" name="member_phone" pattern="[0-9]{3}" value="<?= $mparts[0] ?>"> -
-            <input type="text" id="member_phone2" name="member_phone2" pattern="[0-9]{4}" value="<?= $mparts[1] ?>"> -
-            <input type="text" id="member_phone3" name="member_phone3" pattern="[0-9]{4}" value="<?= $mparts[2] ?>">
+            <input type="text" id="member_phone" name="member_phone" pattern="[0-9]{3}" value="<?= $pparts[0] ?>"> -
+            <input type="text" id="member_phone2" name="member_phone2" pattern="[0-9]{4}" value="<?= $pparts[1] ?>"> -
+            <input type="text" id="member_phone3" name="member_phone3" pattern="[0-9]{4}" value="<?= $pparts[2] ?>">
         </div>
         <div id="addressWrap">
             <label for="member_zipcode">우편번호</label>

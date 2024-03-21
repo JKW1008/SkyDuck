@@ -15,19 +15,19 @@
         </div>
         <div class=" text-white min-[790px]:h-full flex items-end max-[790px]:w-full max-[790px]:justify-center">
             <div class="flex flex-row gap-4 ">
-                <a href="tel:01031861144">
+                <a href="tel:01075400153">
                     <div class="w-10 h-10"><img class="w-full h-full" src="./image/icon/footer_call_icon.png" alt=""></div>
                 </a>
 
-                <a href="tel:01031861144">
+                <a href="tel:01075400153">
                     <div class="w-10 h-10"><img class="w-full h-full" src="./image/icon/footer_kakao_icon.png" alt=""></div>
                 </a>
 
-                <a href="tel:01031861144">
+                <a href="tel:01075400153">
                     <div class="w-10 h-10"><img class="w-full h-full" src="./image/icon/footer_insta_icon.png" alt=""></div>
                 </a>
 
-                <a href="tel:01031861144">
+                <a href="tel:01075400153">
                     <div class="w-10 h-10"><img class="w-full h-full" src="./image/icon/footer_blog_icon.png" alt=""></div>
                 </a>
             </div>

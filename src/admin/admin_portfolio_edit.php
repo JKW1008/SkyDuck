@@ -143,7 +143,7 @@
                     <select name="choice_category" id="choice_category" class="form-select">
 
                         <!-- <option value="all">카테고리</option> -->
-                        <option value="광고 편집" <?= ($Cate == 'add') ? 'selected' : '' ?>>광고 편집</option>
+                        <option value="광고·편집" <?= ($Cate == 'add') ? 'selected' : '' ?>>광고·편집</option>
                         <option value="비쥬얼아이덴티티" <?= ($Cate == 'visual') ? 'selected' : '' ?>>비쥬얼아이덴티티</option>
                         <option value="환경디자인" <?= ($Cate == 'environmental_design') ? 'selected' : '' ?>>
                             환경디자인</option>

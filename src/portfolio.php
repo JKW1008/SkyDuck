@@ -183,8 +183,8 @@ $portArr = $port->list($page, $limit, $paramArr);
                         <!-- <div id="modalImageRoute" class="w-full pt-1 pb-3 text-gray-600 text-left"></div> -->
                     </div>
                     <div id="closeModal" class="absolute top-2 right-2 p-2 cursor-pointer rounded-lg overflow-hidden bg-white/25 hover:bg-white/50 w-10 h-10"><img src="./image/icon/btn_X.png" alt="" class="w-full h-full"></div>
-                    <div class="w-full max-w-[630px] h-full max-h-[600px]">
-                        <swiper-container id="swiper-container" class="mySwiper w-full h-full" pagination="true" navigation="true" loop="true">
+                    <div class="w-full max-w-[630px] max-h-[600px]">
+                        <swiper-container id="swiper-container" class="mySwiper w-full " pagination="true" navigation="true" loop="true">
 
                         </swiper-container>
                     </div>
@@ -214,7 +214,7 @@ $portArr = $port->list($page, $limit, $paramArr);
         imageRoutes.forEach(route => {
             const swiperSlide = document.createElement('div'); // swiper-slide 태그 대신 div 태그 사용
             swiperSlide.classList.add('swiper-slide');
-            swiperSlide.innerHTML = `<img src="./data/portfolio/${route.trim()}" alt="" class="m-auto w-full h-full object-cover">`;
+            swiperSlide.innerHTML = `<img src="./data/admin_portfolio/${route.trim()}" alt="" class="m-auto w-full object-cover">`;
             swiperWrapper.appendChild(swiperSlide);
         });
 

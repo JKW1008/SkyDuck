@@ -55,7 +55,7 @@ include './header.php';
       <button class="rounded-md bg-[#182548] w-2/6 text-white font-bold text-base py-2 px-3 max-[369px]:w-full" id="btn_business_number_chk" type="button">중복확인</button>
     </div>
 
-    <div class="flex mt-4 max-[369px]:block">
+    <!-- <div class="flex mt-4 max-[369px]:block">
       <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="business_type">업태 <p class="text-red-600">*</p></label></div>
       <input class="w-full  rounded-md border-[#D9D9D9]" type="text" name="business_type" id="business_type">
     </div>
@@ -63,7 +63,7 @@ include './header.php';
     <div class="flex mt-4 max-[369px]:block">
       <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="business_category">종목 <p class="text-red-600">*</p></label></div>
       <input class="w-full  rounded-md border-[#D9D9D9]" type="text" name="business_category" id="business_category">
-    </div>
+    </div> -->
 
     <div class="flex mt-4 max-[369px]:block" id="emailWrap">
       <div class="w-1/5"><label class="flex pt-2" for="business_member_email">이메일<p class="text-red-600">*</p></label></div>
@@ -107,7 +107,7 @@ include './header.php';
     </div>
 
     <div class="flex mt-4 max-[369px]:block"  id="Wrap">
-      <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="member_phone">팩스번호 <p class="text-red-600">*</p></label></div>
+      <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="member_phone">팩스번호 </label></div>
       <div class="w-full flex justify-between items-center gap-2">
         <input class="w-1/3 rounded-md border-[#D9D9D9] " type="text" id="business_member_fax" name="member_phone" pattern="[0-9]{3}">
         <input class="w-1/3 rounded-md border-[#D9D9D9] " type="text" id="business_member_fax2" name="member_phone2" pattern="[0-9]{4}">

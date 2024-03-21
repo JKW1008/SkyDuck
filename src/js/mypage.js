@@ -282,7 +282,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     const data = JSON.parse(responseText);
                     if (data.result == 'success') {
                         alert("수정되었습니다.");
-                        self.location.href = "./index.php";
+
+                        self.location.href = "./mypage.php";
+
                     } else if (data.result == 'fail' ) {
                         alert("수정실패");
                         return false;

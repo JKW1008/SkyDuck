@@ -246,6 +246,7 @@
         <div id="imageWrap">
             <label for="business_image">사업자 등록증</label>
             <input type="file" name="business_image" id="business_image">
+
         </div>
         <button type="button" id="input_submit">확인</button>
     </div>

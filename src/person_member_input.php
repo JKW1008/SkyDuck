@@ -9,6 +9,7 @@ include './header.php';
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="./js/person_member_input.js"></script>
 
+
 <div class="m-auto w-4/5 md:w-1/2 pt-20">
     <h1 class="font-bold text-4xl py-4 border-b-[3px] border-black">개인 회원가입</h1>
 
@@ -59,7 +60,7 @@ include './header.php';
                 <button class="mt-2 rounded-md bg-[#182548] w-full text-white font-bold text-base py-2 px-3 " id="btn_member_email_check" type="button">이메일 중복확인</button>
             </div>
         </div>
-
+       
         <div class="flex mt-4 max-[369px]:block">
             <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="member_name">이름 <p class="text-red-600">*</p></label></div>
             <input class="rounded-md border-[#D9D9D9] w-full" type="text" name="name" id="member_name" placeholder="이름을 입력해 주세요">

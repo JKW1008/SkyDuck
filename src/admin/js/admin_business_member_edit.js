@@ -146,7 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("mode", "email_chk");
 
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "./../pg/business_member_process.php", true);
+
+        xhr.open("POST", "../../pg/business_member_process.php", true);
+
         xhr.send(f);
         
         xhr.onload = () => {

@@ -36,37 +36,40 @@
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include './header.php';
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/sidebar.css">
-    <link rel="stylesheet" href="./css/admin_main.css">
-    <link rel="stylesheet" href="./css/admin_reply_write.css">
-    <link rel="stylesheet" href="./css/admin_reply_view.css">
-</head>
 
-<body>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
+<?php
+$filename = basename(__FILE__, '.php');
+?>
+
+<section class="portfolioPage">
+    <div id="Title" class="">
+        <?php
+        include 'pageTitle.php';
+
+        $title = "게시판";
+        $subtitle = "";
+        $filename = "board";
+        $textColor = "";
+
+        render_header($title, $subtitle, $filename, $textColor);
+        ?>
+    </div>
+</section>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="./js/board_reply.js"></script>
-    <div id="main_wrap">
-        <div class="container text-center">
-            <div class="pt-5 pb-5">
-                <input type="text" name="subject" id="id_subject" class="form-control" placeholder="제목을 입력해 주세요."
-                    autocomplete="off" value="<?= $replyrow['title'] ?>" readonly>
-            </div>
+<div class="w-[91%] max-w-[1024px] flex-col justify-center items-center m-auto pt-12">
+<div class="container text-center">
+<div class="flex border-y-[1px] border-[#CCCCCC]">
+            <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="title">제목<p class="text-red-600">*</p></label></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><?= $replyrow['title'] ?></div>
+        </div>
+
             <div class="p-3" id="contentWrap">
                 <?= $replyrow['content']; ?>
             </div>
@@ -76,8 +79,9 @@
                     data-idx="<?= $replyrow['question_idx'] ?>">본문보기</button>
             </div>
         </div>
-    </div>
 
-</body>
+</div>
+<?php
+include './footer.php';
+?>
 
-</html>

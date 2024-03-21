@@ -7,6 +7,15 @@
             $this->conn = $db;
         }
 
+        public function  title_exist($name)
+        {
+            $sql = "SELECT * FROM sd_portfolio WHERE Name = :name";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':name',  $name);
+            $stmt->execute();
+            return $stmt->rowCount() ? true : false;
+        }
+
         public function input($arr) {
             // 'description' 키가 $arr에 있는지 확인
             if (!isset($arr['Description'])) {

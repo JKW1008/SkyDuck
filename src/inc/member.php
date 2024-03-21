@@ -168,7 +168,7 @@
         public function admin_to_member_edit($arr) {
             // 세션에서 사용자 ID 확인하고 조건을 설정합니다.
             if (isset($_SESSION['ses_id']) && $_SESSION['ses_id'] == 'skyduck_admin') {
-                $sql = 'UPDATE sd_Users SET Name=:name, Email=:email, ZipCode=:zipcode, Address=:address, DetailAddress=:detailaddress, MobileNumber=:mobile, PhoneNumber=:phone';
+                $sql = 'UPDATE sd_Users SET Email=:email, Name=:name, MobileNumber=:mobile, PhoneNumber=:phone, ZipCode=:zipcode, Address=:address, DetailAddress=:detailaddress';
         
                 $params = [
                     ':name' => $arr['name'],

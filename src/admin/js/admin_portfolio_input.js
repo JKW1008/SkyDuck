@@ -23,6 +23,51 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.querySelector("#name");
     const description = document.querySelector("#description");
     const detail_photo = document.querySelector("#detail_photo");
+    const title_chk = document.querySelector("#title_chk");
+    let titChk = false;
+
+    title_chk.addEventListener("click", () => {
+        if (name.value == "") {
+            alert("프로젝트명을 입력해주세요");
+            name.focus();
+            return false;
+        };
+
+        const f = new FormData();
+        f.append("name", name.value);
+        f.append("mode", "title_chk");
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "./pg/admin_portfolio.php", true);
+        xhr.send(f);
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const responseText = xhr.responseText;
+                console.log(responseText);
+                try {
+                    const data = JSON.parse(responseText);
+                    console.log(data);
+                    if (data.result === 'success') {
+                        alert("사용이 가능한 제목.");
+                        titChk = true;
+                    } else if (data.result === "fail") {
+                        alert("이미 사용중인 제목.");
+                        titChk = false;
+                        name.value = "";
+                        name.focus();
+                    } else if (data.result === "empty_name") {
+                        alert("아이디가 비어있습니다.");
+                        name.focus();
+                    }
+                } catch (error) {
+                    console.error("JSON parsing error : ", error);
+                }
+            } else if (xhr.status == 404) {
+                alert("연결 실패 파일이 존재하지 않습니다.")
+            }
+        }
+    });
 
     btn_submit.addEventListener("click", () => {
         if (choice_category.value == "all") {

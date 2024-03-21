@@ -123,6 +123,7 @@
                     <div class="w-100">
                         <label for="name" class="form-label mt-3">프로젝트 이름</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="이름을 입력해 주세요.">
+                        <button id="title_chk" class="btn btn-primary w-50" type="button">확인</button>
                     </div>
                 </div>
                 <div class="mt-3">

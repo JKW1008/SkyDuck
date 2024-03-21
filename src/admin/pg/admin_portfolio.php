@@ -15,8 +15,17 @@
     if ($mode == '') {
         die(json_encode(['result' => 'empty_mode']));
     };
+    if ($mode == 'title_chk') {
+        if ($name == '') {
+            die(json_encode(['result' => 'empty_name']));
+        };
 
-    if ($mode == 'portfolio_input') {
+        if ($portfolio->title_exist($name)) {
+            die(json_encode(['result' => 'fail']));
+        } else {
+            die(json_encode(['result' => 'success']));
+        }
+    } else if ($mode == 'portfolio_input') {
         if ($category == '') {
             die(json_encode(['result' => 'empty_category']));
         };

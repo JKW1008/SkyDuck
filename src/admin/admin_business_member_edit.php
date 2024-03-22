@@ -199,7 +199,7 @@
                 $phoneNumber = $row['PhoneNumber'];
                 $pparts = explode('-', $phoneNumber);
             ?>
-            <label for="business_member_phone">전화 번호</label>
+            <label for="business_member_phone">휴대전화 번호</label>
             <input type="text" id="business_member_phone" name="member_phone" pattern="[0-9]{3}"
                 value="<?= $pparts[0] ?>"> -
             <input type="text" id="business_member_phone2" name="member_phone2" pattern="[0-9]{4}"

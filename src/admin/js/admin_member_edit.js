@@ -27,11 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const member_mobile = document.querySelector("#member_mobile");
     const member_mobile2 = document.querySelector("#member_mobile2");
     const member_mobile3 = document.querySelector("#member_mobile3");
-    const mMobile = member_mobile.value + "-" + member_mobile2.value + "-" + member_mobile3.value;
     const member_phone = document.querySelector("#member_phone");
     const member_phone2 = document.querySelector("#member_phone2");
     const member_phone3 = document.querySelector("#member_phone3");
-    const mPhone = member_phone.value + "-" + member_phone2.value + "-" + member_phone3.value;
     const old_email = document.querySelector("#old_email");
     const email_id = document.querySelector("#member_email");
     const email_domain = document.querySelector("#email_domain");
@@ -91,9 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("mode", "email_chk");
 
         const xhr = new XMLHttpRequest();
-
-        xhr.open("POST", "../../pg/member_process.php", true);
-
+        xhr.open("POST", "./../pg/member_process.php", true);
         xhr.send(f);
 
         xhr.onload = () => {
@@ -261,6 +257,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
+        const mPhone = member_phone.value + "-" + member_phone2.value + "-" + member_phone3.value;
+        const mMobile = member_mobile.value + "-" + member_mobile2.value + "-" + member_mobile3.value;
+
+        // console.log(mPhone);
+        // return;
         const f = new FormData();
         f.append("id", member_id.value);
         f.append("password", member_password.value);
@@ -272,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("addr", member_addr1.value);
         f.append("detail_addr", member_addr2.value);
         f.append("mode", "admin_edit");
-
+        
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "./../pg/member_process.php", true);
         xhr.send(f);

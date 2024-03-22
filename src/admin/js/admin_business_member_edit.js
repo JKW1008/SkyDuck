@@ -18,7 +18,7 @@ function validatePassword(password) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     const businessImageInput = document.getElementById('business_image');
     let b_image;
 
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("mode", "email_chk");
 
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "../../pg/business_member_process.php", true);
+        xhr.open("POST", "./../pg/business_member_process.php", true);
         xhr.send(f);
         
         xhr.onload = () => {
@@ -314,14 +314,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const FAX_PART_2 = document.getElementById('business_member_fax2');
     const FAX_PART_3 = document.getElementById('business_member_fax3');
    
-        // if (MOBILE_PART_1.value == "" || MOBILE_PART_2.value == "" || MOBILE_PART_3.value == "") {
-        //     alert("연락처가 비어있습니다. 다시 입력해주세요.");
-        //     MOBILE_PART_1.value = "";
-        //     MOBILE_PART_2.value = "";
-        //     MOBILE_PART_3.vlaue = "";
-        //     MOBILE_PART_1.focus();
-        //     return false;
-        // };
+        if (MOBILE_PART_1.value == "" || MOBILE_PART_2.value == "" || MOBILE_PART_3.value == "") {
+            alert("연락처가 비어있습니다. 다시 입력해주세요.");
+            MOBILE_PART_1.value = "";
+            MOBILE_PART_2.value = "";
+            MOBILE_PART_3.vlaue = "";
+            MOBILE_PART_1.focus();
+            return false;
+        };
 
         const b_mobile = MOBILE_PART_1.value + "-" + MOBILE_PART_2.value + "-" + MOBILE_PART_3.value;
         console.log(b_mobile)
@@ -340,14 +340,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-        // if (FAX_PART_1.value == "" || FAX_PART_2.value == "" || FAX_PART_3.value == "") {
-        //     alert("연락처가 비어있습니다. 다시 입력해주세요.");
-        //     FAX_PART_1.value = "";
-        //     FAX_PART_2.value = "";
-        //     FAX_PART_3.value = "";
-        //     FAX_PART_1.focus();
-        //     return false;
-        // };
+        if (FAX_PART_1.value == "" || FAX_PART_2.value == "" || FAX_PART_3.value == "") {
+            alert("연락처가 비어있습니다. 다시 입력해주세요.");
+            FAX_PART_1.value = "";
+            FAX_PART_2.value = "";
+            FAX_PART_3.value = "";
+            FAX_PART_1.focus();
+            return false;
+        };
 
         const b_fax = FAX_PART_1.value + "-" + FAX_PART_2.value + "-" + FAX_PART_3.value;
         const member_zipcode = document.querySelector("#member_zipcode");

@@ -111,20 +111,19 @@
                 <div class="w-100 mt-3">
                     <label for="choice_category">카테고리</label>
                     <select name="choice_category" id="choice_category" class="form-select">
-
                         <!-- <option value="all">카테고리</option> -->
-                        <option value="광고·편집">광고·편집</option>
+                        <option value="광고·편집">광고 편집</option>
                         <option value="비쥬얼아이덴티티">비쥬얼아이덴티티</option>
                         <option value="환경디자인">환경디자인</option>
                         <option value="웹디자인">웹디자인</option>
                         <option value="기타">기타</option>
-
                     </select>
                 </div>
                 <div class="d-flex w-100">
                     <div class="w-100">
                         <label for="name" class="form-label mt-3">프로젝트 이름</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="이름을 입력해 주세요.">
+                        <button id="title_chk" class="btn btn-primary w-50" type="button">확인</button>
                     </div>
                 </div>
                 <div class="mt-3">

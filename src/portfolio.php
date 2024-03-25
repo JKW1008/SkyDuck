@@ -87,7 +87,7 @@ $portArr = $port->list($page, $limit, $paramArr);
                         <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
                             <?php if ($index < 1) : ?> <!-- 각 포트폴리오 항목에서 최대 3개의 이미지만 표시 -->
                                 <div class="relative">
-                                    <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
+                                    <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer max-h-[450px] object-center overflow-hidden" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
                                 </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -102,7 +102,7 @@ $portArr = $port->list($page, $limit, $paramArr);
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
                                     <?php if ($index < 1) : ?>
-                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
+                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer max-h-[450px]" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
@@ -118,7 +118,7 @@ $portArr = $port->list($page, $limit, $paramArr);
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
                                     <?php if ($index < 1) : ?>
-                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
+                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer max-h-[450px]" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
@@ -134,7 +134,7 @@ $portArr = $port->list($page, $limit, $paramArr);
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
                                     <?php if ($index < 1) : ?>
-                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
+                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer max-h-[450px]" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
@@ -150,7 +150,7 @@ $portArr = $port->list($page, $limit, $paramArr);
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
                                     <?php if ($index < 1) : ?>
-                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
+                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer max-h-[450px]" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
@@ -166,7 +166,7 @@ $portArr = $port->list($page, $limit, $paramArr);
                                 <?php $imageRoutes = explode(',', $portfolio['ImageRoute']); ?>
                                 <?php foreach ($imageRoutes as $index => $imageRoute) : ?>
                                     <?php if ($index < 1) : ?>
-                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer" onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
+                                        <img src="./data/admin_portfolio/<?php echo $imageRoute; ?>" alt="포트폴리오 이미지" class="w-full cursor-pointer max-h-[450px] " onclick="openModal('./data/portfolio/<?php echo $imageRoute; ?>', '<?php echo $portfolio['Name']; ?>', '<?php echo $portfolio['Category']; ?>', '<?php echo $portfolio['ImageRoute']; ?>')">
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
@@ -184,7 +184,7 @@ $portArr = $port->list($page, $limit, $paramArr);
                     </div>
                     <div id="closeModal" class="absolute top-2 right-2 p-2 cursor-pointer rounded-lg overflow-hidden bg-white/25 hover:bg-white/50 w-10 h-10"><img src="./image/icon/btn_X.png" alt="" class="w-full h-full"></div>
                     <div class="w-full max-w-[630px] max-h-[600px]">
-                        <swiper-container id="swiper-container" class="mySwiper w-full " pagination="true" navigation="true" loop="true">
+                        <swiper-container id="swiper-container" class="mySwiper w-full h-auto overflow-y-scroll max-h-[500px]" pagination="true" navigation="true" loop="true">
 
                         </swiper-container>
                     </div>

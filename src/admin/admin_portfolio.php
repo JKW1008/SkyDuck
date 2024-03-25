@@ -160,17 +160,17 @@
             }
         ?>
             </table>
-            <div class=" container mt-3 d-flex gap-2 w-50">
-                <select class="form-select w-25" name="sn" id="sn">
+            <div class=" container mt-3 d-flex gap-2 w-100">
+                <select class="form-select w-10" name="sn" id="sn">
                     <option value="1">이름</option>
                     <option value="2">번호</option>
                     <option value="3">카테고리</option>
                 </select>
-                <input type="text" class="form-control w-25" id="sf" name="sf">
-                <button class="btn btn-primary w-25" id="btn_search">검색</button>
-                <button class="btn btn-success w-25" id="btn_all">전체목록</button>
-                <button class="btn btn-primary" id="btn_excel">엑셀로 저장</button>
-                <button class="btn btn-primary" id="btn_input">글쓰기</button>
+                <input type="text" class="form-control w-10" id="sf" name="sf">
+                <button class="btn btn-primary w-10" id="btn_search">검색</button>
+                <button class="btn btn-success w-20" id="btn_all">전체목록</button>
+                <button class="btn btn-primary w-25" id="btn_excel">엑셀로 저장</button>
+                <button class="btn btn-primary w-25" id="btn_input">글쓰기</button>
 
             </div>
             <div class="d-flex mt-3 justify-content-between align-items-start">

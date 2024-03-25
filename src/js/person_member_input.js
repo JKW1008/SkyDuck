@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const data = JSON.parse(responseText);
                     if (data.result === 'success') {
                         alert("회원 가입이 성공적으로 완료되었습니다.");
-                        self.location.href = "./member_login.php";
+                        self.location.href = "./login.php";
                         // 성공 시 필요한 추가 작업 수행
                     } else if (data.result === 'fail') {
                         alert("회원 가입에 실패했습니다. 다시 시도해 주세요.");

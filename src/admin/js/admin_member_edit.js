@@ -18,6 +18,10 @@ function validatePassword(password) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const view_all = document.querySelector("#view_all");
+    view_all.addEventListener("click", () => {
+        self.location.href = "./admin_member.php";
+    });
     let emailChecked = false;
     const member_id = document.querySelector("#member_id");
     const member_password = document.querySelector("#member_password");

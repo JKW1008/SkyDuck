@@ -18,6 +18,10 @@ function validatePassword(password) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const view_all = document.querySelector("#view_all");
+    view_all.addEventListener("click", () => {
+        self.location.href = "./admin_business_member.php";
+    });
 
     const businessImageInput = document.getElementById('business_image');
     let b_image;

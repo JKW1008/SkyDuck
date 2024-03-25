@@ -125,7 +125,7 @@ $row = $mem->getInfoFormIdx($idx);
             </li>
         </ul>
     </nav>
-    <div class="w-4/5 m-auto">
+    <div class="w-4/5 m-auto pt-9">
         <!-- Array ( [IDX] => 1 [ID] => znqptkzp [Password] => $2y$10$WIwOEqcAyCDtWmq6Th/.auHtKJKlMzQIUl9Aao/Ed1YPeiw.AINBW
         [Email] => znqptkzp@gmail.com [Name] => 정강우 [MobileNumber] => 010-8564-4780 [PhoneNumber] => 010-8564-4780
         [ZipCode] => 13529 [Address] => (백현동, 카카오 판교 아지트) [DetailAddress] => 2층 [SignupDate] => 2024-01-31 02:30:16 ) -->
@@ -168,7 +168,6 @@ $row = $mem->getInfoFormIdx($idx);
             ?>
                 <div class="flex justify-between items-center gap-4 max-[369px]:block">
                     <input class="w-1/4 max-[369px]:w-1/3  rounded-md border-[#D9D9D9]" type="text" id="member_email" name="email" placeholder="이메일을 입력해주세요" value="<?= $beforeAtSymbol ?>">@
-                    <input class="w-1/4  max-[369px]:w-1/4   rounded-md border-[#D9D9D9]" type="text" id="manual_email_input" placeholder="이메일을 입력해 주세요">
                     <select class="w-1/4  max-[369px]:w-1/3   rounded-md border-[#D9D9D9]" name="email_domain" id="email_domain">
                         <option value="manual_input" <?= (!in_array($domain, ['gmail.com', 'naver.com', 'kakao.com', 'hanmail.net'])) ? 'selected' : '' ?>>직접입력</option>
                         <option value="gmail.com" <?= ($domain == 'gmail.com') ? 'selected' : '' ?>>gmail.com</option>
@@ -176,6 +175,7 @@ $row = $mem->getInfoFormIdx($idx);
                         <option value="kakao.com" <?= ($domain == 'kakao.com') ? 'selected' : '' ?>>kakao.com</option>
                         <option value="hanmail.net" <?= ($domain == 'hanmail.net') ? 'selected' : '' ?>>hanmail.net</option>
                     </select>
+                    <input class="w-1/4  max-[369px]:w-1/4   rounded-md border-[#D9D9D9]" type="text" id="manual_email_input" placeholder="이메일을 입력해 주세요">
                 </div>
                 <button class="mt-2 rounded-md bg-[#182548] w-full text-white font-bold text-base py-2 px-3 " id="btn_member_email_check" type="button">이메일 중복확인</button>
             </div>
@@ -183,12 +183,12 @@ $row = $mem->getInfoFormIdx($idx);
 
         <div class="flex mt-4 max-[369px]:block">
             <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="member_name">이름 <p class="text-red-600">*</p></label></div>
-            <input class="rounded-md border-[#D9D9D9] w-full" type="text" name="name" id="member_name" placeholder="이름을 입력해 주세요" value="<?= $memArr['Name'] ?>">
+            <input class="rounded-md border-[#D9D9D9] w-full" type="text" name="name" id="member_name" placeholder="이름을 입력해 주세요" value="<?= $row['Name'] ?>">
         </div>
 
         <div class="flex mt-4 max-[369px]:block" id="mobileWrap">
-            <?php
-            $mobileNumber = $memArr['MobileNumber'];
+        <?php
+            $mobileNumber = $row['MobileNumber'];
             $mparts = explode('-', $mobileNumber);
             ?>
             <div class="w-1/5 pt-2 max-[369px]:w-full"><label for="member_mobile">전화 번호</label></div>
@@ -200,8 +200,8 @@ $row = $mem->getInfoFormIdx($idx);
         </div>
 
         <div class="flex mt-4 max-[369px]:block" id="phoneWrap">
-            <?php
-            $phoneNumber = $memArr['PhoneNumber'];
+        <?php
+            $phoneNumber = $row['PhoneNumber'];
             $pparts = explode('-', $phoneNumber);
             ?>
             <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="member_phone">휴대전화 <p class="text-red-600">*</p></label></div>
@@ -216,98 +216,27 @@ $row = $mem->getInfoFormIdx($idx);
             <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="member_phone">주소 <p class="text-red-600">*</p></label></div>
             <div class="w-full space-y-2">
                 <div class="flex justify-between">
-                    <input class=" w-3/5 rounded-md border-[#D9D9D9]" type="text" name="zipcode" id="member_zipcode" readonly value="<?= $memArr['ZipCode']; ?>">
+                    <input class=" w-3/5 rounded-md border-[#D9D9D9]" type="text" name="zipcode" id="member_zipcode" readonly value="<?= $row['ZipCode']; ?>">
                     <button class="rounded-md bg-[#182548] w-2/6 text-white font-bold text-base py-2 px-3 " id="btn_zipicode" type="button">우편번호 찾기</button>
                 </div>
 
                 <div class="w-full">
-                    <input class="w-full rounded-md border-[#D9D9D9]" type="text" name="member_addr1" id="member_addr1" placeholder="" value="<?= $memArr['Address']; ?>">
+                    <input class="w-full rounded-md border-[#D9D9D9]" type="text" name="member_addr1" id="member_addr1" placeholder="" value="<?= $row['Address']; ?>">
 
                 </div>
 
-                <div class="w-full"><input class="w-full rounded-md border-[#D9D9D9]" type="text" name="member_addr2" id="member_addr2" placeholder="상세주소를 입력해 주세요" value="<?= $memArr['DetailAddress'] ?>"></div>
+                <div class="w-full"><input class="w-full rounded-md border-[#D9D9D9]" type="text" name="member_addr2" id="member_addr2" placeholder="상세주소를 입력해 주세요" value="<?= $row['DetailAddress'] ?>"></div>
 
             </div>
         </div>
     </div>
-    <div id="inputform">
-        <!-- Array ( [IDX] => 1 [ID] => znqptkzp [Password] => $2y$10$WIwOEqcAyCDtWmq6Th/.auHtKJKlMzQIUl9Aao/Ed1YPeiw.AINBW
-        [Email] => znqptkzp@gmail.com [Name] => 정강우 [MobileNumber] => 010-8564-4780 [PhoneNumber] => 010-8564-4780
-        [ZipCode] => 13529 [Address] => (백현동, 카카오 판교 아지트) [DetailAddress] => 2층 [SignupDate] => 2024-01-31 02:30:16 ) -->
-
-        <input type="hidden" name="idx" value="<?= $row['IDX']; ?>">
-        <input type="hidden" name="email_chk" id="email_chk" value="0">
-        <input type="hidden" name="old_email" id="old_email" value="<?= $row['Email']; ?>">
-
-        <label for="member_id">아이디</label>
-        <input type="text" name="id" id="member_id" value="<?= $row['ID'] ?>" placeholder="아이디를 입려해 주세요" readonly>
-        <label for="member_password">비밀번호</label>
-        <input type="password" name="password" id="member_password" placeholder="비밀번호를 입력해 주세요">
-        <label for="member_password_check">비밀번호확인</label>
-        <input type="password" name="password_check" id="member_password_check" placeholder="비밀번호를 다시 입력해 주세요">
-        <div id="emailWrap">
-            <label for="member_email">이메일</label>
-            <?php
-            $email = $row['Email'];
-            $parts = explode('@', $email);
-            $beforeAtSymbol = $parts[0];
-            $domain = $parts[1];
-            ?>
-            <input type="text" id="member_email" name="email" value="<?= $beforeAtSymbol ?>" placeholder="이메일을 입력해주세요">
-
-            <select name="email_domain" id="email_domain">
-                <option value="gmail.com" <?= ($domain == 'gmail.com') ? 'selected' : '' ?>>gmail.com</option>
-                <option value="naver.com" <?= ($domain == 'naver.com') ? 'selected' : '' ?>>naver.com</option>
-                <option value="kakao.com" <?= ($domain == 'kakao.com') ? 'selected' : '' ?>>kakao.com</option>
-                <option value="hanmail.net" <?= ($domain == 'hanmail.net') ? 'selected' : '' ?>>hanmail.net</option>
-                <option value="manual_input" <?= (!in_array($domain, ['gmail.com', 'naver.com', 'kakao.com', 'hanmail.net'])) ? 'selected' : '' ?>>
-                    직접입력</option>
-            </select>
-
-            <input type="text" id="manual_email_input" value="<?= (!in_array($domain, ['gmail.com', 'naver.com', 'kakao.com', 'hanmail.net'])) ? $domain : '' ?>" placeholder="이메일을 입력해 주세요">
-
-            <button id="btn_member_email_check" type="button">이메일 중복확인</button>
+  
+       
+        <div class="flex justify-center gap-4 pt-3" id="buttonwrap">
+            <button class="rounded-md bg-black text-white font-bold p-[10px]" id="edit_btn" type="button">수정 확인</button>
+            <button class="rounded-md bg-black text-white font-bold p-[10px]" id="view_all" type="button">전체보기</button>
         </div>
-
-        <label for="member_name">이름</label>
-        <input type="text" name="name" id="member_name" placeholder="이름을 입력해 주세요" value="<?= $row['Name'] ?>">
-        <div id="mobileWrap">
-            <?php
-            $mobileNumber = $row['MobileNumber'];
-            $mparts = explode('-', $mobileNumber);
-            ?>
-            <label for="member_mobile">전화 번호</label>
-            <input type="text" id="member_mobile" name="member_mobile" pattern="[0-9]{3}" value="<?= $mparts[0] ?>"> -
-            <input type="text" id="member_mobile2" name="member_mobile2" pattern="[0-9]{4}" value="<?= $mparts[1] ?>"> -
-            <input type="text" id="member_mobile3" name="member_mobile3" pattern="[0-9]{4}" value="<?= $mparts[2] ?>">
-        </div>
-        <div id="phoneWrap">
-            <label for="member_phone">휴대전화 번호</label>
-            <?php
-            $phoneNumber = $row['PhoneNumber'];
-            $pparts = explode('-', $phoneNumber);
-            ?>
-            <input type="text" id="member_phone" name="member_phone" pattern="[0-9]{3}" value="<?= $pparts[0] ?>"> -
-            <input type="text" id="member_phone2" name="member_phone2" pattern="[0-9]{4}" value="<?= $pparts[1] ?>"> -
-            <input type="text" id="member_phone3" name="member_phone3" pattern="[0-9]{4}" value="<?= $pparts[2] ?>">
-        </div>
-        <div id="addressWrap">
-            <label for="member_zipcode">우편번호</label>
-            <input type="text" name="zipcode" id="member_zipcode" readonly value="<?= $row['ZipCode']; ?>">
-            <button id="btn_zipicode" type="button">우편번호 찾기</button>
-            <div class="w-50">
-                <label for="member_addr1">주소</label>
-                <input type="text" name="member_addr1" id="member_addr1" placeholder="" value="<?= $row['Address']; ?>">
-            </div>
-            <div class="w-50">
-                <label for="member_addr2">상세주소</label>
-                <input type="text" name="member_addr2" id="member_addr2" placeholder="상세주소를 입력해 주세요" value="<?= $row['DetailAddress'] ?>">
-            </div>
-        </div>
-        <div id="buttonwrap">
-            <button id="edit_btn" type="button">수정 확인</button>
-        </div>
-    </div>
+    
 </body>
 
 </html>

@@ -134,10 +134,10 @@ include './header.php';
         </div>   
 
 
-    <!-- <div class="flex mt-4 max-[369px]:block" id="imageWrap">
+    <div class="flex mt-4 max-[369px]:block" id="imageWrap">
       <div class="w-1/5 max-[369px]:w-full" ><label class="flex pt-2" for="business_image">사업자 등록증<p class="text-red-600">*</p></label></div >
       <input type="file" name="business_image" id="business_image">
-    </div> -->
+    </div>
     <button class="w-full rounded-md bg-mblack text-white font-bold text-xl p-3 my-8" type="button" id="input_submit">회원가입</button>
   </div>
 

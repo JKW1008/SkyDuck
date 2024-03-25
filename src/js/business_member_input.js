@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const business_member_fax3 = document.querySelector("#business_member_fax3");
     const business_registration_number = document.querySelector("#business_registration_number");
     const btn_business_number_chk = document.querySelector("#btn_business_number_chk");
-    // const business_type = document.querySelector("#business_type");
-    // const business_category = document.querySelector("#business_category");
+    const business_type = document.querySelector("#business_type");
+    const business_category = document.querySelector("#business_category");
     const input_submit = document.querySelector("#input_submit");
 
     btn_member_id_check.addEventListener("click", () => {
@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("b_number", business_registration_number.value);
         // f.append("b_type", business_type.value);
         // f.append("b_category", business_category.value);
-        // f.append("photo", b_image, b_image.name);
+        f.append("photo", b_image, b_image.name);
         f.append("mode", "input");
 
         const xhr = new XMLHttpRequest();

@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const business_member_fax3 = document.querySelector("#business_member_fax3");
     const business_registration_number = document.querySelector("#business_registration_number");
     const btn_business_number_chk = document.querySelector("#btn_business_number_chk");
-    // const business_type = document.querySelector("#business_type");
-    // const business_category = document.querySelector("#business_category");
+    const business_type = document.querySelector("#business_type");
+    const business_category = document.querySelector("#business_category");
     const input_submit = document.querySelector("#input_submit");
 
     btn_member_id_check.addEventListener("click", () => {
@@ -388,17 +388,17 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        // if (business_type.value == "") {
-        //     alert("업태를 입력해 주세요");
-        //     business_type.focus();
-        //     return false;
-        // };
+        if (business_type.value == "") {
+            alert("업태를 입력해 주세요");
+            business_type.focus();
+            return false;
+        };
 
-        // if (business_category.value == "") {
-        //     alert("업종을 입력해 주세요");
-        //     business_category.focus();
-        //     return false;
-        // };
+        if (business_category.value == "") {
+            alert("업종을 입력해 주세요");
+            business_category.focus();
+            return false;
+        };
 
         // if (businessImageInput.files.length === 0) {
         //     alert("사업자 등록증을 첨부해 주세요");
@@ -418,9 +418,9 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("addr", member_addr1.value);
         f.append("detail_addr", member_addr2.value);
         f.append("b_number", business_registration_number.value);
-        // f.append("b_type", business_type.value);
-        // f.append("b_category", business_category.value);
-        // f.append("photo", b_image, b_image.name);
+        f.append("b_type", business_type.value);
+        f.append("b_category", business_category.value);
+        f.append("photo", b_image, b_image.name);
         f.append("mode", "input");
 
         const xhr = new XMLHttpRequest();

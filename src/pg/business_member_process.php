@@ -19,8 +19,8 @@
     $addr = (isset($_POST['addr']) && $_POST['addr'] != '') ? $_POST['addr'] : '';
     $detail_addr = (isset($_POST['detail_addr']) && $_POST['detail_addr'] != '') ? $_POST['detail_addr'] : '';
     $b_number = (isset($_POST['b_number']) && $_POST['b_number'] != '') ? $_POST['b_number'] : '';
-    // $b_type = (isset($_POST['b_type']) && $_POST['b_type'] != '') ? $_POST['b_type'] : '';
-    // $b_category = (isset($_POST['b_category']) && $_POST['b_category'] != '') ? $_POST['b_category'] : '';
+    $b_type = (isset($_POST['b_type']) && $_POST['b_type'] != '') ? $_POST['b_type'] : '';
+    $b_category = (isset($_POST['b_category']) && $_POST['b_category'] != '') ? $_POST['b_category'] : '';
     $mode = (isset($_POST['mode']) && $_POST['mode'] != '') ? $_POST['mode'] : '';
 
     if ($mode == "id_chk") {
@@ -116,13 +116,13 @@
             die(json_encode(['result' => 'empty_b_number']));
         }
 
-        // if ($b_type == '') {
-        //     die(json_encode(['result' => 'empty_b_type']));
-        // }
+        if ($b_type == '') {
+            die(json_encode(['result' => 'empty_b_type']));
+        }
 
-        // if ($b_category == '') {
-        //     die(json_encode(['result' => 'empty_b_category']));
-        // }
+        if ($b_category == '') {
+            die(json_encode(['result' => 'empty_b_category']));
+        }
 
         $arr = [
             'id' => $id,
@@ -138,8 +138,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => $photo,
-            // 'businesstype' => $b_type,
-            // 'businesscategory' => $b_category
+            'businesstype' => $b_type,
+            'businesscategory' => $b_category
         ];
 
         try {
@@ -207,8 +207,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => (!empty($new_photo)) ? $new_photo : $old_photo,
-            // 'businesstype' => $b_type,
-            // 'businesscategory' => $b_category
+            'businesstype' => $b_type,
+            'businesscategory' => $b_category
         ];
     
         $result = $bmem->admin_to_business_member_edit($arr);
@@ -270,8 +270,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => (!empty($new_photo)) ? $new_photo : $old_photo,
-            // 'businesstype' => $b_type,
-            // 'businesscategory' => $b_category
+            'businesstype' => $b_type,
+            'businesscategory' => $b_category
         ];
     
         $result = $bmem->business_member_edit($arr);

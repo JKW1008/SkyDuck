@@ -78,13 +78,13 @@ $filename = basename(__FILE__, '.php');
 <script src="./js/my_qna_list.js"></script>
 
 <div class="w-[91%] max-w-[1024px] m-auto" id="main_wrap ">
-        <script src="./js/my_qna_list.js"></script>
-        <main class="w-full" style="height: calc(100vh - 257px);">
+    <script src="./js/my_qna_list.js"></script>
+    <main class="w-full" style="height: calc(100vh - 257px);">
         <div>
-        <h1 class="text-6xl">나의문의</h1>
-        <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
-    </div>
-            <!-- [idx] => 12
+            <h1 class="text-6xl">나의문의</h1>
+            <div class="w-[150px] h-[10px] bg-gradient-to-r from-customblue to-custombluetransparent mb-[24px]"></div>
+        </div>
+        <!-- [idx] => 12
             [name] => 정강우
             [contact_number] => 01011111111
             [email] => aaaa@gmail.com
@@ -95,19 +95,19 @@ $filename = basename(__FILE__, '.php');
             [budget] => 1.00
             [timeline] => 1주일
             [additional_notes] => 안녕하세요 -->
-            <table class="mt-3 table table-border table-hover">
-                <tr class="table-secondary border-t-2 border-[#3333] p-0">
-                    <th class=" text-center">번호</th>
-                    <th>이름</th>
-                    <th>이메일</th>
-                    <th>회사명</th>
-                    <th>내용</th>
-                    <th>관리</th>
-                </tr>
-                <?php
-            foreach($myQnaArr AS $row){
+        <table class="mt-3 table table-border table-hover">
+            <tr class="table-secondary border-t-2 border-[#3333] p-0">
+                <th class=" text-center">번호</th>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>회사명</th>
+                <th>내용</th>
+                <th>관리</th>
+            </tr>
+            <?php
+            foreach ($myQnaArr as $row) {
                 // print_r($row);
-        ?>
+            ?>
                 <tr>
                     <td class="text-center"><?= $row['idx']; ?></td>
                     <td><?= $row['name']; ?></td>
@@ -118,13 +118,13 @@ $filename = basename(__FILE__, '.php');
                         <button class="btn btn-primary btn-sm btn_mem_edit" data-idx="<?= $row['idx']; ?>">보기</button>
                     </td>
                 </tr>
-                <?php
+            <?php
             }
-        ?>
-            </table>
-        </main>
-    </div>
+            ?>
+        </table>
     </main>
+</div>
+</main>
 
 <?php
 include './footer.php';

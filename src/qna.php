@@ -109,11 +109,11 @@ $filename = basename(__FILE__, '.php');
                 </h2>
             </div>
             <div class="w-full grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-1 ps-2 pb-3  ">
-                <div><input type="checkbox" value="Catalog/Brochure" ><span class="ps-2">카타로그/브로슈어</span></div>
-                <div><input type="checkbox" value="Leaflet/Pamphlet"><span class="ps-2">리플렛/팜플릿</span></div>
+                <div><input type="checkbox" value="Catalog" ><span class="ps-2">카타로그/브로슈어</span></div>
+                <div><input type="checkbox" value="Leaflet"><span class="ps-2">리플렛/팜플릿</span></div>
                 <div><input type="checkbox" value="Poster"><span class="ps-2">포스터</span></div>
                 <div><input type="checkbox" value="Package"><span class="ps-2">패키지</span></div>
-                <div><input type="checkbox" value="Newsletter/Book"><span class="ps-2">사보/책</span></div>
+                <div><input type="checkbox" value="Newsletter"><span class="ps-2">사보/책</span></div>
                 <div><input type="checkbox" value="Advertisement"><span class="ps-2">지면광고</span></div>
                 <div><input type="checkbox" value="RFP"><span class="ps-2">제안서</span></div>
                 <div><input type="checkbox" value="Others"><span class="ps-2">기타</span></div>

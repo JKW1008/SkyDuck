@@ -121,15 +121,15 @@ $filename = basename(__FILE__, '.php');
                 // }, $service_required);
                 // print_r($service_required);
             ?>
-                <div><input type="checkbox" value="Catalog/Brochure" <?= in_array("\"CatalogBrochure", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">카타로그/브로슈어</span></div>
-                <div><input type="checkbox" value="Leaflet/Pamphlet" <?= in_array("LeafletPamphlet", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">리플렛/팜플릿</span></div>
-                <div><input type="checkbox" value="Poster"><span class="ps-2">포스터</span></div>
-                <div><input type="checkbox" value="Package" <?= in_array("Poster", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">패키지</span></div>
-                <div><input type="checkbox" value="Newsletter/Book" <?= in_array("NewsletterBook", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">사보/책</span></div>
+               <div><input type="checkbox" value="Catalog" <?= in_array("\"Catalog", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">카타로그/브로슈어</span></div>
+                <div><input type="checkbox" value="Leaflet" <?= in_array("Leaflet", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">리플렛/팜플릿</span></div>
+                <div><input type="checkbox" value="Poster" <?= in_array("Poster", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">포스터</span></div>
+                <div><input type="checkbox" value="Package" <?= in_array("Package", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">패키지</span></div>
+                <div><input type="checkbox" value="Newsletter" <?= in_array("Newsletter", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">사보/책</span></div>
                 <div><input type="checkbox" value="Advertisement" <?= in_array("Advertisement", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">지면광고</span></div>
                 <div><input type="checkbox" value="RFP" <?= in_array("RFP", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">제안서</span></div>
                 <div><input type="checkbox" value="Others" <?= in_array("Others", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">기타</span></div>
-            </div>
+           </div>
         </div>
     </div>
 

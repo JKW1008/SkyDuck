@@ -7,18 +7,27 @@
             $this->conn = $db;
         }
 
+        public function  title_exist($name)
+        {
+            $sql = "SELECT * FROM sd_portfolio WHERE Name = :name";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':name',  $name);
+            $stmt->execute();
+            return $stmt->rowCount() ? true : false;
+        }
+
         public function input($arr) {
             // 'description' 키가 $arr에 있는지 확인
-            if (!isset($arr['description'])) {
+            if (!isset($arr['Description'])) {
                 // 존재하지 않으면 기본값 설정
-                $arr['description'] = '특별한 설명이 없습니다';
+                $arr['Description'] = '특별한 설명이 없습니다';
             }
         
             $sql = "INSERT INTO sd_portfolio(Category, Name, description, ImageRoute, UploadDate) VALUES(:category, :name, :description, :imageRoute, NOW())";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':category', $arr['Category']);
             $stmt->bindParam(':name', $arr['Name']);
-            $stmt->bindParam(':description', $arr['description']);
+            $stmt->bindParam(':description', $arr['Description']);
             $stmt->bindParam(':imageRoute', $arr['ImageRoute']);
             $stmt->execute();
             
@@ -128,41 +137,28 @@
             $stmt->execute();
             return $stmt->fetch();
         }
-
         public function admin_portfolio_edit($arr) {
             if (!isset($arr['description'])) {
                 // 존재하지 않으면 기본값 설정
                 $arr['description'] = '특별한 설명이 없습니다';
             }
-
-            if (isset($_SESSION['ses_id']) && $_SESSION['ses_id'] == 'skyduck_admin') {
-                $sql = 'UPDATE `sd_portfolio` SET `Category` = :category, `Name` = :name, `description` = :description, `ImageRoute` = :imageRoute, `UploadDate` = NOW() WHERE `idx` = :idx';
-
-                $params = [
-                    ':category' => $arr['category'],
-                    ':name' => $arr['name'],
-                    ':description' => $arr['description'],
-                    ':imageRoute' => $arr['imageRoute'],
-                    ':idx' => $arr['idx']
-                ];
-
-                try {
-                    $stmt = $this->conn->prepare($sql);
-                    $success = $stmt->execute($params);
         
-                    if ($success) {
-                        // 사용자 프로필 업데이트 후 추가 코드가 필요한 경우
-                        return ['success' => true];
-                    } else {
-                        return ['success' => false, 'error' => $stmt->errorInfo()];
-                    }
-                } catch (PDOException $e) {
-                    return ['success' => false, 'error' => $e->getMessage()];
-                }
+            if (isset($_SESSION['ses_id']) && $_SESSION['ses_id'] == 'skyduck_admin') {
+                $sql = 'UPDATE sd_portfolio SET Category = :category, Name = :name, description = :description, ImageRoute = :imageRoute, UploadDate = NOW() WHERE idx = :idx';
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(':category', $arr['category']);
+                $stmt->bindParam(':name', $arr['name']);
+                $stmt->bindParam(':description', $arr['description']);
+                $stmt->bindParam(':imageRoute', $arr['imageRoute']);
+                $stmt->bindParam(':idx', $arr['idx']);
+                $stmt->execute();
+        
+                return true; // 성공 또는 실패 여부 반환
             } else {
-                // 'skyduck_admin'이 아닌 경우에는 업데이트를 허용하지 않음
-                return ['success' => false, 'error' => '허가되지 않은 사용자입니다.'];
+                return false; // 'skyduck_admin'이 아닌 경우에는 업데이트를 허용하지 않음
             }
         }
+        
+        
     }
 ?>

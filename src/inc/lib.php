@@ -18,10 +18,10 @@ function my_pagination($total, $limit, $page_limit, $page, $param) {
   $rs_str = '<nav>
     <ul class="pagination">';
   
-  $rs_str .= '<li class="page-item"><a class="page-link bg-white text-black" href="'.$_SERVER['PHP_SELF'].'?page=1'.$param.'">First</a></li>';
+  $rs_str .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page=1'.$param.'">First</a></li>';
   
   if ($prev_page > 1) {
-    $rs_str .= '<li class="page-item"><a class="page-link " href="'.$_SERVER['PHP_SELF'].'?page='.$prev_page.$param.'">Prev</a></li>';
+    $rs_str .= '<li class="page-item"><a class="page-link" href="'.$_SERVER['PHP_SELF'].'?page='.$prev_page.$param.'">Prev</a></li>';
   }
   
   for ($i = $start_page; $i <= $end_page; $i++) {

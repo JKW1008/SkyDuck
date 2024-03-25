@@ -131,7 +131,7 @@
     <div id="main_wrap">
         <main class="border rounded-2 p-5" style="height: calc(100vh - 257px);">
             <div class="container">
-                <h3>회원관리</h3>
+                <h3>포트폴리오 관리</h3>
             </div>
             <table class="mt-3 table table-border">
                 <tr>

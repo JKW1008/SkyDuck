@@ -56,6 +56,11 @@
     <link rel="stylesheet" href="./css/admin_board_view.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+        <!--테일윈드 CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
@@ -131,72 +136,73 @@
             </li>
         </ul>
     </nav>
-    <div id="main_wrap">
-        <table>
-            <!-- Array ( [idx] => 8
-            [name] => data
-            [password] => 1234
-            [email] => test@test.com
-            [phone_number] => 0101111111
-            [title] => teset
-            [content] => ewtsefgda
-            [attachments] => data-1.png, data-2.png, data-3.png
-            [posting_time] => 2024-03-08 17:20:59 ) -->
-            <tr>
-                <td><label for="name">Name:</label></td>
-                <td><input type="text" id="name" name="name" required value="<?= $row['name'] ?>" readonly></td>
-            </tr>
-            <tr>
-                <td><label for="password">Password (4-digit):</label></td>
-                <td><input type="text" id="password" name="password" min="1000" max="9999" required
-                        value="<?= $row['password'] ?>" readonly></td>
-            </tr>
-            <tr>
-                <td><label for="email">Email:</label></td>
-                <td><input type="email" id="email" name="email" required value="<?= $row['email'] ?>" readonly></td>
-            </tr>
-            <tr>
-                <td><label for="phone_number">Phone Number:</label></td>
-                <td><input type="tel" id="phone_number" name="phone_number" required value="<?= $row['phone_number'] ?>"
-                        readonly></td>
-            </tr>
-            <tr>
-                <td><label for="title">Title:</label></td>
-                <td><input type="text" id="title" name="title" required value="<?= $row['title'] ?>" readonly></td>
-            </tr>
-            <tr>
-                <td><label for="content">Content:</label></td>
-                <td><textarea id="content" name="content" rows="4" required readonly><?= $row['content'] ?></textarea>
-                </td>
-            </tr>
-            <!-- <tr>
-                <td><label for="attachments">Attachments (comma-separated file names):</label></td>
-                <td><input type="file" id="attachments" name="attachments" multiple></td>
-            </tr> -->
-        </table>
-        <?php
-            if (!empty($replyrow)) {
-        ?>
-        <button id="reply_view" type="button" data-idx="<?= $row['idx']; ?>">답글보기</button>
-        <?php
-        } else {
-        ?>
-        <button id="reply" type="button" data-idx="<?= $row['idx']; ?>">답글달기</button>
-        <?php
-        }
-        ?>
-        <button id="view_all" type="button">전체보기</button>
+    <div class="w-2/3 m-auto pt-10" id="">
+    <table class="w-2/3 ">
+        <div class="flex border-t-2 border-black">
+            <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="name">이름<p class="text-red-600">*</p></label></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="name" name="name" required value="<?= $row['name'] ?>" readonly></div>
+        </div>
+        <div class="flex border-y-[1px] border-[#CCCCCC]">
+            <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="password">비밀번호<p class="text-red-600">*</p></label></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="password" name="password" min="1000" max="9999" required value="<?= $row['password'] ?>" readonly></div>
+        </div>
+        <div class="flex border-y-[1px] border-[#CCCCCC]">
+            <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="email">이메일<p class="text-red-600">*</p></label></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="email" id="email" name="email" required value="<?= $row['email'] ?>" readonly></div>
+        </div>
+        <div class="flex border-y-[1px] border-[#CCCCCC]">
+            <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="phone_number">전화번호<p class="text-red-600">*</p></label></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="tel" id="phone_number" name="phone_number" required value="<?= $row['phone_number'] ?>" readonly></div>
+        </div>
+        <div class="flex border-y-[1px] border-[#CCCCCC]">
+            <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="title">제목<p class="text-red-600">*</p></label></div>
+            <div class="w-2/6 max-[960px]:w-4/6 p-2"><input class="w-full rounded-[3px] border-[#B7B7B7]" type="text" id="title" name="title" required value="<?= $row['title'] ?>" readonly></div>
+        </div>
+        <div>
+            <!-- <td><label for="content">Content:</label></td> -->
+            <div><textarea class="w-full border-[#C8C8C8] my-6" id="content" name="content" rows="10" required placeholder="
+            제목: ex 카탈로그/브로슈어, 리플렛/팜플렛, 포스터, 제안서 등 
+            사이즈: 
+            페이지 수:
+            인쇄 부수:
+            추가설명: ex 종이종류 및 재질/코팅유무/후가공 등
+                    " readonly><?= $row['content'] ?></textarea></div>
+        </div>
+        <div class="flex border-y-[1px] border-[#CCCCCC]">
+            <div class="w-1/6 text-center bg-[#D9D9D9]"><label class="w-full h-full flex  m-auto justify-center items-center text-xl" for="attachments">파일</label></div>
+            <div class="w-2/6 p-2">
+               
+                <?php
+                $images = explode(", ", $row['attachments']);
+                if (!$row['attachments']) {
+                    echo '<input class="w-full rounded-[3px] border-[#B7B7B7]" type="file" id="attachments" name="attachments" multiple>';
+                }else{
+                    for ($i = 0; $i < count($images); $i++) {
+                        echo '<h3>' . $images[$i] . '</h3>';
+                        echo '<img src="./data/board_attachment/' . $images[$i] . '" alt="설명' . ($i + 1) . '" width=400>';
+                    }
+                }
+                ?>
+            </div>
+        </div>
+        <div class="flex justify-center gap-5 m-auto pt-4">
+            <?php
+                if (!empty($replyrow)) {
+            ?>
+            <button class="rounded-md bg-black text-white font-bold p-[10px]" id="reply_view" type="button" data-idx="<?= $row['idx']; ?>">답글보기</button>
+            <?php
+            } else {
+            ?>
+            <button class="rounded-md bg-black text-white font-bold p-[10px]" id="reply" type="button" data-idx="<?= $row['idx']; ?>">답글달기</button>
+            <?php
+            }
+            ?>
+            <button class="rounded-md bg-black text-white font-bold p-[10px]" id="view_all" type="button">전체보기</button>
+        </div>
+    </table>
+       
     </div>
-    <div id="imagewrap">
-        <?php
-        $images = explode(", ", $row['attachments']);
-
-        for ($i = 0; $i < count($images); $i++) {
-            echo '<h3>'.$images[$i].'</h3>';
-            echo '<img src="./../data/board_attachment/'.$images[$i].'" alt="설명'.($i+1).'" width=400>';
-        }
-    ?>
-    </div>
+    
 </body>
 
 </html>

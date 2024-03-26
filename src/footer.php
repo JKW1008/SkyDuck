@@ -4,7 +4,7 @@
         <div class="text-[#c7c1c1] flex flex-col gap-4">
             <div><img class="w-[138px]" src="./image/logo/footer_logo.png" alt=""></div>
             <div class="flex flex-col gap-1 ">
-                <div>대구광역시 북구 산격로 OOO길 OOO</div>
+                <div>대구광역시 북구 산격로 5길 10</div>
                 <div class="flex flex-col min-[500px]:flex-row gap-2">
                     <div>Mobile : 010-7540-0153</div>
                     <div>Fax : 0508-957-0153</div>

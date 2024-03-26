@@ -16,6 +16,20 @@ function validatePassword(password) {
         return false; // 비밀번호가 조건을 만족하지 않는 경우
     }
 }
+function handleFileSelect(event) {
+    return new Promise((resolve, reject) => {
+        // 선택된 파일 가져오기
+        var selectedFile = event.target.files[0];
+
+        // 선택된 파일과 관련된 추가 작업 수행(서버에 업로드하는 등)
+
+        // 성공적으로 작업을 수행한 경우 선택된 파일을 resolve로 반환
+        resolve(selectedFile);
+
+        // 작업이 실패한 경우 reject를 사용하여 에러를 전달할 수도 있습니다.
+        // reject("작업 실패");
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const view_all = document.querySelector("#view_all");

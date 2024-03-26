@@ -288,9 +288,16 @@ $row = $bmem->getInfoFormIdx($idx);
             </div>
             <div>
                 <?php
+                if ($row['BusinessRegistrationImage'] != '') {
+                ?>
+                    <img src="../data/business_image/<?= $row['BusinessRegistrationImage'] ?>" alt="" width="300px">
+                <?php
+                }
+                ?>
+                <?php
                 for ($i = 0; $i < count($images); $i++) {
                     echo '<h3>' . $images[$i] . '</h3>';
-                    echo '<img src="./data/board_attachment/' . $images[$i] . '" alt="설명' . ($i + 1) . '" width=400>';
+                    echo '<img src="../data/board_attachment/' . $images[$i] . '" alt="설명' . ($i + 1) . '" width=400>';
                 }
                 ?>
             </div>

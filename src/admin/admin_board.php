@@ -59,6 +59,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
+    <!--테일윈드 CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+
     <script src="./js/admin_board.js"></script>
 </head>
 
@@ -174,15 +179,17 @@
             }
         ?>
             </table>
-            <div class=" container mt-3 d-flex gap-2 w-50">
-                <select class="form-select w-25" name="sn" id="sn">
-                    <option value="1">번호</option>
-                    <option value="2">제목</option>
+            <div class="mt-3 flex gap-2 ">
+                <select class="form-select w-[18%]" name="sn" id="sn">
+                    <option value="1">이름</option>
+                    <option value="2">번호</option>
+                    <option value="3">카테고리</option>
                 </select>
-                <input type="text" class="form-control w-25" id="sf" name="sf">
-                <button class="btn btn-primary w-25" id="btn_search">검색</button>
-                <button class="btn btn-success w-25" id="btn_all">전체목록</button>
-                <button class="btn btn-primary" id="btn_excel">엑셀로 저장</button>
+                <input type="text" class="form-control w-[20%]" id="sf" name="sf">
+                <button class="btn btn-primary w-1/6 " id="btn_search">검색</button>
+                <button class="btn btn-success w-1/6" id="btn_all">전체목록</button>
+                <button class="btn btn-primary w-[20%]" id="btn_excel">엑셀로 저장</button>
+                <button class="btn btn-primary w-1/6" id="btn_input">글쓰기</button>
 
             </div>
             <div class="d-flex mt-3 justify-content-between align-items-start">

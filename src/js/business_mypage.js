@@ -6,6 +6,21 @@ function isValidEmailDomain(emailDomain) {
     return domainRegex.test(emailDomain);
 }
 
+function handleFileSelect(event) {
+    return new Promise((resolve, reject) => {
+        // 선택된 파일 가져오기
+        var selectedFile = event.target.files[0];
+
+        // 선택된 파일과 관련된 추가 작업 수행(서버에 업로드하는 등)
+
+        // 성공적으로 작업을 수행한 경우 선택된 파일을 resolve로 반환
+        resolve(selectedFile);
+
+        // 작업이 실패한 경우 reject를 사용하여 에러를 전달할 수도 있습니다.
+        // reject("작업 실패");
+    });
+}
+
 function validatePassword(password) {
     // 비밀번호가 영문, 숫자, 특수문자를 포함하고 8자에서 16자까지의 길이를 가지는지 확인하는 정규식
     const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()-_+=])[a-zA-Z\d!@#$%^&*()-_+=]{8,16}$/;
@@ -16,6 +31,7 @@ function validatePassword(password) {
         return false; // 비밀번호가 조건을 만족하지 않는 경우
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -382,10 +398,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 return false;
             };
 
-            if (business_image.value == "") {
-                alert("사업자 등록증을 첨부해주세요");
-                return false;
-            };
+            // if (business_image.value == "") {
+            //     alert("사업자 등록증을 첨부해주세요");
+            //     return false;
+            // };
         };
 
 
@@ -406,8 +422,15 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("b_number", business_registration_number.value);
         f.append("b_type", business_type.value);
         f.append("b_category", business_category.value);
-        f.append("photo", b_image);
-        f.append("old_photo", old_photo.value);
+        // f.append("photo", b_image);
+        // f.append("old_photo", old_photo.value);
+        if (businessImageInput.files.length != 0) {
+            console.log(b_image);
+            f.append("photo", b_image, b_image.name);
+        };
+        if (old_photo.value != "") {
+            f.append("old_photo", old_photo.value);
+        };
         f.append("mode", "business_edit");
 
         const xhr = new XMLHttpRequest();

@@ -420,7 +420,10 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("b_number", business_registration_number.value);
         // f.append("b_type", business_type.value);
         // f.append("b_category", business_category.value);
-        f.append("photo", b_image, b_image.name);
+        // f.append("photo", b_image, b_image.name);
+        if (businessImageInput.files.length != 0) {
+            f.append("photo", b_image, b_image.name);
+        }
         f.append("mode", "input");
 
         const xhr = new XMLHttpRequest();

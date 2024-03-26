@@ -212,7 +212,7 @@ include './inc/common.php';
 
     <!-- 회원메뉴 드롭다운 -->
     <div id="dropdown" class="z-[1000] hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 border-2 border-gray-200 text-xl">
-        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
 
             <?php if ($ses_grade == 'common_member') : ?>
                 <li>

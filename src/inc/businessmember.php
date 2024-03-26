@@ -303,4 +303,19 @@
                 return ['success' => false, 'error' => $e->getMessage()];
             }
         }
+
+        // public function photo_upload($id, $new_photo, $old_photo = ''){
+        //     if ($old_photo != '') {
+        //         unlink("../data/business_image" ."/". $old_photo);
+        //         // unlink(PROFILE_DIR . $old_photo); //  삭제
+        //     }
+        
+        //     $tmparr = explode('.', $new_photo['name']);
+        //     $ext = end($tmparr);
+        //     $photo = $id . '.' . $ext;
+        
+        //     copy($new_photo['tmp_name'], "../data/business_image" ."/". $photo);
+        
+        //     return $photo;
+        // }
     }

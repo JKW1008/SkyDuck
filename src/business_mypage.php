@@ -164,7 +164,13 @@
         <label for="business_category">업종</label>
         <input type="text" name="business_category" id="business_category" value="<?= $row['BusinessCategory'] ?>">
         <div id="imageWrap">
+            <?php
+                if ($row['BusinessRegistrationImage'] != '') {
+            ?>
             <img src="./data/business_image/<?= $row['BusinessRegistrationImage'] ?>" alt="" width="300px">
+            <?php
+                }
+            ?>
             <label for="business_image">사업자 등록증</label>
             <input type="file" name="business_image" id="business_image">
         </div>

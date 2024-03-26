@@ -399,10 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         };
 
-        if (businessImageInput.files.length === 0) {
-            alert("사업자 등록증을 첨부해 주세요");
-            return false;
-        }
+   
 
         const f = new FormData();
         f.append("id", business_member_id.value);
@@ -419,7 +416,9 @@ document.addEventListener("DOMContentLoaded", () => {
         f.append("b_number", business_registration_number.value);
         f.append("b_type", business_type.value);
         f.append("b_category", business_category.value);
-        f.append("photo", b_image, b_image.name);
+        if (businessImageInput.files.length != 0) {
+            f.append("photo", b_image, b_image.name);
+        }
         f.append("mode", "input");
 
         const xhr = new XMLHttpRequest();

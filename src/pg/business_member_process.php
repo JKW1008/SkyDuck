@@ -138,8 +138,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => $photo,
-            // 'businesstype' => $b_type,
-            // 'businesscategory' => $b_category
+            'businesstype' => $b_type,
+            'businesscategory' => $b_category
         ];
 
         try {
@@ -207,8 +207,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => (!empty($new_photo)) ? $new_photo : $old_photo,
-            // 'businesstype' => $b_type,
-            // 'businesscategory' => $b_category
+            'businesstype' => $b_type,
+            'businesscategory' => $b_category
         ];
     
         $result = $bmem->admin_to_business_member_edit($arr);
@@ -275,8 +275,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => (!empty($new_photo)) ? $new_photo : $old_photo,
-            // 'businesstype' => $b_type,
-            // 'businesscategory' => $b_category
+            'businesstype' => $b_type,
+            'businesscategory' => $b_category
         ];
     
         $result = $bmem->business_member_edit($arr);

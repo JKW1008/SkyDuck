@@ -110,12 +110,12 @@ $filename = basename(__FILE__, '.php');
         </div>
 
         <div class="flex mt-4 max-[369px]:block">
-            <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="business_type">업태 <p class="text-red-600">*</p></label></div>
+            <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="business_type">업태 </label></div>
             <input class="w-full  rounded-md border-[#D9D9D9]" type="text" name="business_type" id="business_type" value="<?= $row['BusinessType'] ?>">
         </div>
 
         <div class="flex mt-4 max-[369px]:block">
-            <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="business_category">종목 <p class="text-red-600">*</p></label></div>
+            <div class="w-1/5 max-[369px]:w-full"><label class="flex pt-2" for="business_category">종목 </label></div>
             <input class="w-full  rounded-md border-[#D9D9D9]" type="text" name="business_category" id="business_category" value="<?= $row['BusinessCategory'] ?>">
         </div>
 

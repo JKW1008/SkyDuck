@@ -1,39 +1,39 @@
 <?php
-    include "../inc/common.php";
+include "../inc/common.php";
 
-    include "../inc/dbconfig.php";
+include "../inc/dbconfig.php";
 
-    $db = $pdo;
+$db = $pdo;
 
-    include "../inc/portfolio.php";
+include "../inc/portfolio.php";
 
-    $port = new Portfolio($db);
+$port = new Portfolio($db);
 
-    if (isset($_GET['logout']) && $_GET['logout'] == 1) {
-        session_destroy();
-        header("Location: ../index.php");
-        exit();
-    };
+if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+    session_destroy();
+    header("Location: ../index.php");
+    exit();
+};
 
-    if ($ses_id != 'skyduck_admin') {
-        echo "<script>
+if ($ses_id != 'skyduck_admin') {
+    echo "<script>
             alert('접근 권한 없음');
             window.location.href = './admin_login.php';
         </script>";
-    };
-    
-    $idx = (isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx'])) ? $_GET['idx'] : '';
+};
 
-    if($idx == ''){
-        die("
+$idx = (isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx'])) ? $_GET['idx'] : '';
+
+if ($idx == '') {
+    die("
             <script>
                 alert('idx 값이 비었습니다.');
                 history.go(-1);
             </script>
         ");
-    };
+};
 
-    $row = $port->getInfoFormIdx($idx);
+$row = $port->getInfoFormIdx($idx);
 ?>
 
 <!DOCTYPE html>
@@ -44,11 +44,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/admin_main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
     <script src="./js/admin_portfolio_edit.js"></script>
 </head>
@@ -137,7 +135,7 @@
                 <div class="w-100 mt-3">
                     <label for="choice_category">카테고리</label>
                     <?php
-                        $Cate = $row['Category'];
+                    $Cate = $row['Category'];
                     ?>
                     <select name="choice_category" id="choice_category" class="form-select">
                         <option value="all">카테고리</option>
@@ -152,22 +150,27 @@
                 <div class="d-flex w-100">
                     <div class="w-100">
                         <label for="name" class="form-label mt-3">프로젝트 이름</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="이름을 입력해 주세요."
-                            value="<?= $row['Name'] ?>">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="이름을 입력해 주세요." value="<?= $row['Name'] ?>">
                     </div>
                 </div>
                 <div class="mt-3">
                     <label for="description" class="form-label mt-3">설명</label>
-                    <textarea name="description" id="description" class="form-control" rows="4"
-                        placeholder="첫번째 설명을 입력해 주세요."><?= $row['description'] ?></textarea>
+                    <textarea name="description" id="description" class="form-control" rows="4" placeholder="첫번째 설명을 입력해 주세요."><?= $row['description'] ?></textarea>
                 </div>
                 <div class="mt-3 d-flex flex-column gap-5">
                     <div>
                         <label for="detail_photo" class="form-label">디테일 이미지</label>
+                        <?php
+                        if ($row['ImageRoute'] != '') {
+                        ?>
+                            <img src="../data/admin_portfolio/<?= $row['ImageRoute'] ?>" alt="" width="300px">
+                        <?php
+                        }
+                        ?>
                         <input type="file" name="detail_photo" id="detail_photo" class="form-control" multiple>
                     </div>
                 </div>
-                <div class="mt-3 d-flex gap-2 mt-5">
+                <div class="mt-3 d-flex gap-2 ">
                     <button id="btn_submit" class="btn btn-primary w-50" type="button">확인</button>
                     <button id="btn_cancel" class="btn btn-secondary w-50" type="button">취소</button>
                 </div>

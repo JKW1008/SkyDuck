@@ -116,13 +116,13 @@
             die(json_encode(['result' => 'empty_b_number']));
         }
 
-        if ($b_type == '') {
-            die(json_encode(['result' => 'empty_b_type']));
-        }
+        // if ($b_type == '') {
+        //     die(json_encode(['result' => 'empty_b_type']));
+        // }
 
-        if ($b_category == '') {
-            die(json_encode(['result' => 'empty_b_category']));
-        }
+        // if ($b_category == '') {
+        //     die(json_encode(['result' => 'empty_b_category']));
+        // }
 
         $arr = [
             'id' => $id,
@@ -138,8 +138,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => $photo,
-            'businesstype' => $b_type,
-            'businesscategory' => $b_category
+            // 'businesstype' => $b_type,
+            // 'businesscategory' => $b_category
         ];
 
         try {
@@ -207,8 +207,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => (!empty($new_photo)) ? $new_photo : $old_photo,
-            'businesstype' => $b_type,
-            'businesscategory' => $b_category
+            // 'businesstype' => $b_type,
+            // 'businesscategory' => $b_category
         ];
     
         $result = $bmem->admin_to_business_member_edit($arr);
@@ -223,31 +223,36 @@
 
         $old_photo = (isset($_POST['old_photo']) && $_POST['old_photo'] != '') ? $_POST['old_photo'] : '';
         $old_b_name = (isset($_POST['old_b_name']) && $_POST['old_b_name'] != '') ? $_POST['old_b_name'] : '';
-    
+        // $photo = $old_photo;
+
+        // if (isset($_FILES['photo']) && $_FILES['photo']['name'] != '') {
+        //     $new_photo = $_FILES['photo']['name'];
+        //     $photo = $bmem->photo_upload($b_name, $new_photo, $old_photo); // 새 파일 업로드
+        // };
         // Check if b_name has changed
         if ($old_b_name != $b_name) {
             // Rename the old image file
-            if (!empty($old_photo) && file_exists("./data/business_image/" . $old_photo)) {
+            if (!empty($old_photo) && file_exists("../data/business_image/" . $old_photo)) {
                 $extArray = explode('.', $old_photo);
                 $ext = end($extArray);
                 $new_photo_with_new_b_name = $b_name . "." . $ext;
-                rename("../data/business_image/" . $old_photo, "./data/business_image/" . $new_photo_with_new_b_name);
+                rename("../data/business_image/" . $old_photo, "../data/business_image/" . $new_photo_with_new_b_name);
                 $old_photo = $new_photo_with_new_b_name;
             }
         }
     
-        // Handle new image file
+        // // Handle new image file
         if (!empty($_FILES['photo']['name'])) {
             // Delete the old image file
-            if (!empty($old_photo) && file_exists("./data/business_image/" . $old_photo)) {
-                unlink("./data/business_image/" . $old_photo);
+            if (!empty($old_photo) && file_exists("../data/business_image/" . $old_photo)) {
+                unlink("../data/business_image/" . $old_photo);
             }
     
             // Process the new image file
             $extArray = explode('.', $_FILES['photo']['name']);
             $ext = end($extArray);
             $new_photo = $b_name . "." . $ext;
-            move_uploaded_file($_FILES['photo']['tmp_name'], "./data/business_image/" . $new_photo);
+            move_uploaded_file($_FILES['photo']['tmp_name'], "../data/business_image/" . $new_photo);
             $old_photo = $new_photo;
         }
     
@@ -270,8 +275,8 @@
             'detailaddress' => $detail_addr,
             'businessregistrationnumber' => $b_number,
             'businessregistrationimage' => (!empty($new_photo)) ? $new_photo : $old_photo,
-            'businesstype' => $b_type,
-            'businesscategory' => $b_category
+            // 'businesstype' => $b_type,
+            // 'businesscategory' => $b_category
         ];
     
         $result = $bmem->business_member_edit($arr);

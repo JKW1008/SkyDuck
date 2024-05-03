@@ -19,22 +19,33 @@
                     <div class="w-10 h-10"><img class="w-full h-full" src="./image/icon/footer_call_icon.png" alt=""></div>
                 </a>
 
-                <a href="tel:01075400153">
+                <a id="Preparing-kakao" href="#">
                     <div class="w-10 h-10"><img class="w-full h-full" src="./image/icon/footer_kakao_icon.png" alt=""></div>
                 </a>
 
-                <a href="tel:01075400153">
+                <a id="Preparing-insta" href="#">
                     <div class="w-10 h-10"><img class="w-full h-full" src="./image/icon/footer_insta_icon.png" alt=""></div>
                 </a>
 
-                <a href="tel:01075400153">
-                    <div class="w-10 h-10"><img class="w-full h-full" src="./image/icon/footer_blog_icon.png" alt=""></div>
+                <a id="Preparing-blog" href="#">
+                    <div class="w-10 h-10 Preparing"><img  class="w-full h-full Preparing" src="./image/icon/footer_blog_icon.png" alt=""></div>
                 </a>
             </div>
         </div>
     </div>
 </footer>
 
+<script>
+    document.getElementById("Preparing-kakao").addEventListener("click", function() {
+        alert("카카오톡 준비중입니다");
+    });
+    document.getElementById("Preparing-insta").addEventListener("click", function() {
+        alert("인스타그램 준비중입니다");
+    });
+    document.getElementById("Preparing-blog").addEventListener("click", function() {
+        alert("블로그 준비중입니다");
+    });
+</script>
 
 
 
@@ -52,17 +63,17 @@
 
 <!-- 헤더 토글 스크립트 -->
 <script>
-        document.getElementById('MenuToggleBtn').addEventListener('click', function() {
-            document.getElementById('ToggleMenu').classList.remove('left-[100%]');
-            document.getElementById('ToggleMenu').classList.add('left-0');
-        });
-    </script>
-    <script>
-        document.getElementById('ToggleCloseBtn').addEventListener('click', function() {
-            document.getElementById('ToggleMenu').classList.remove('left-0');
-            document.getElementById('ToggleMenu').classList.add('left-[100%]');
-        });
-    </script>
+    document.getElementById('MenuToggleBtn').addEventListener('click', function() {
+        document.getElementById('ToggleMenu').classList.remove('left-[100%]');
+        document.getElementById('ToggleMenu').classList.add('left-0');
+    });
+</script>
+<script>
+    document.getElementById('ToggleCloseBtn').addEventListener('click', function() {
+        document.getElementById('ToggleMenu').classList.remove('left-0');
+        document.getElementById('ToggleMenu').classList.add('left-[100%]');
+    });
+</script>
 
 </body>
 

@@ -1,7 +1,7 @@
-<aside  id="myAside" class="z-[999] fixed bottom-8 right-8 w-16 h-16 rounded-[100%] bg-white flex justify-center items-center duration-300 overflow-hidden">
+<aside  id="myAside" class="z-[999] fixed bottom-8 right-8 w-16 h-16 rounded-[100%]  flex justify-center items-center duration-300 overflow-hidden">
     <div class="w-[91%] max-w-[1440px] max-[500px]:flex-col flex justify-between items-center py-2 gap-2">
         <div onclick="expandAside()" id="asideBtn" class="w-16 h-16 flex justify-center items-center max-[500px]:self-end rounded-full text-3xl bg-blue-500">
-            <img id="asideBtn1" src="./image/icon/paper_plane_w.png" class=" w-full h-full self-center border-2 border-white rounded-full" alt="">
+            <img id="asideBtn1" src="./image/icon/paper_plane_w.png" class=" w-full h-full self-center  rounded-full" alt="">
             <img id="asideBtn2" src="./image/icon/bracket_R_white_D.png" alt="" class="w-8 h-8 hidden ">
         </div>
         <form id="asideForm" class="w-full  flex hidden justify-end max-[500px]:justify-center">
@@ -54,6 +54,7 @@
         var asideBtn2 = document.getElementById('asideBtn2');
 
         asideElement.classList.toggle('bottom-8');
+        asideElement.classList.toggle('bg-white');
         asideElement.classList.toggle('bottom-0');
         asideElement.classList.toggle('right-8');
         asideElement.classList.toggle('right-0');

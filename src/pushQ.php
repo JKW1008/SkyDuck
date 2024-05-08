@@ -1,43 +1,47 @@
-<aside onclick="expandAside()" id="myAside" class="z-[999] fixed bottom-8 right-8 w-16 h-16 rounded-[100%] bg-white flex justify-center items-center duration-200 overflow-hidden">
-    <div id="asideBtn" class="w-16 h-16 flex justify-center items-center rounded-full text-3xl bg-blue-500">
-        <img id="asideBtn1" src="./image/icon/paper_plane_w.png" class=" w-full h-full self-center border-2 border-white rounded-full" alt="">
-        <img id="asideBtn2" src="./image/icon/bracket_R_white_D.png" alt="" class="w-8 h-8 hidden ">
-    </div>
-    <form id="asideForm" class="w-full max-w-[1440px] h-[80px] flex hidden justify-center">
-        <div id="asideFormInner" class=" flex hidden justify-between items-center gap-8 p-4">
-            <div class="text-3xl">
-                <h1 class="text-3xl">상담전화</h1>
-                <p class="text-[#5879E2] font-bold">010-7540-0153</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <div class="flex items-center gap-2">
-                    <!-- <div>이름 : </div> -->
-                    <input class="input_1 border-[#cccccc] placeholder-slate-400" name="이름" rows="4" cols="50" placeholder="성함" required></input>
-                </div>
-                <div class="flex items-center gap-2">
-                    <!-- <div>나이 : </div> -->
-                    <input class="input_1 border-[#cccccc] placeholder-slate-400" name="연락처" rows="4" cols="50" placeholder="연락처" required></input>
-                </div>
-                <div class="flex items-center gap-2">
-                    <!-- <div>전화번호 : </div> -->
-                    <select class="input_1 text-gray-400 border-[#cccccc] placeholder-slate-400" name="문의내용" placeholder="문의내용" required>
-                        <option class="text-[#cccccc]" value="">문의내용</option>
-                        <option class="text-[#cccccc]" value="광고·편집">광고·편집</option>
-                        <option class="text-[#cccccc]" value="비주얼아이덴티티">비주얼아이덴티티</option>
-                        <option class="text-[#cccccc]" value="환경디자인">환경디자인</option>
-                        <option class="text-[#cccccc]" value="웹디자인">웹디자인</option>
-                        <option class="text-[#cccccc]" value="기타문의">기타문의</option>
-                    </select>
-                </div>
-                <div class="flex items-center">
-                    <input type="checkbox">
-                    <p>개인정보 수집에 동의합니다.</p>
-                </div>
-                <button class="w-[150px] h-[64px] bg-gradient-to-r from-[#8273F6] to-[#1651E8] rounded-full font-bold text-2xl text-white" type="button" onclick="sendPushRequest()">상담요청</button> <!-- type="button" 추가 -->
-                <!-- <div id="asideCloseBtn" class="w-16 h-16 border-2 flex justify-center items-center rounded-full text-3xl" onclick="expandAside()">></div> -->
-            </div>
+<aside  id="myAside" class="z-[999] fixed bottom-8 right-8 w-16 h-16 rounded-[100%] bg-white flex justify-center items-center duration-300 overflow-hidden">
+    <div class="w-[91%] max-w-[1440px] max-[500px]:flex-col flex justify-between items-center py-2 gap-2">
+        <div onclick="expandAside()" id="asideBtn" class="w-16 h-16 flex justify-center items-center max-[500px]:self-end rounded-full text-3xl bg-blue-500">
+            <img id="asideBtn1" src="./image/icon/paper_plane_w.png" class=" w-full h-full self-center border-2 border-white rounded-full" alt="">
+            <img id="asideBtn2" src="./image/icon/bracket_R_white_D.png" alt="" class="w-8 h-8 hidden ">
         </div>
-    </form>
+        <form id="asideForm" class="w-full  flex hidden justify-end max-[500px]:justify-center">
+            <div id="asideFormInner" class="max-[500px]:w-full max-[500px]:flex-col max-[500px]:justify-center  flex hidden justify-between items-center gap-4">
+                <div class="text-3xl w-[18%] text-start max-[500px]:w-full">
+                    <h1 class="text-3xl text-nowrap">상담전화</h1>
+                    <p class="text-[#5879E2] font-bold">010-7540-0153</p>
+                </div>
+                <div class="max-[500px]:w-full flex max-[900px]:flex-col justify-between items-center gap-3">
+                    <div class="w-[30%] max-[900px]:w-full flex items-center">
+                        <!-- <div>이름 : </div> -->
+                        <input class="input_1 w-full border-[#cccccc] placeholder-slate-400" name="이름" rows="4" cols="50" placeholder="성함" required></input>
+                    </div>
+                    <div class=" w-[30%] max-[900px]:w-full flex items-center">
+                        <!-- <div>나이 : </div> -->
+                        <input class="input_1 w-full border-[#cccccc] placeholder-slate-400" name="연락처" rows="4" cols="50" placeholder="연락처" required></input>
+                    </div>
+                    <div class="w-[30%] max-[900px]:w-full flex items-center">
+                        <!-- <div>전화번호 : </div> -->
+                        <select class="input_1 w-full text-gray-400 border-[#cccccc] placeholder-slate-400" name="문의내용" placeholder="문의내용" required>
+                            <option class="text-[#cccccc]" value="">문의내용</option>
+                            <option class="text-[#cccccc]" value="광고·편집">광고·편집</option>
+                            <option class="text-[#cccccc]" value="비주얼아이덴티티">비주얼아이덴티티</option>
+                            <option class="text-[#cccccc]" value="환경디자인">환경디자인</option>
+                            <option class="text-[#cccccc]" value="웹디자인">웹디자인</option>
+                            <option class="text-[#cccccc]" value="기타문의">기타문의</option>
+                        </select>
+                    </div>
+                    <!-- <div id="asideCloseBtn" class="w-16 h-16 border-2 flex justify-center items-center rounded-full text-3xl" onclick="expandAside()">></div> -->
+                </div>
+                <div class="flex max-[900px]:flex-col gap-2">
+                    <div class="flex items-center">
+                        <input type="checkbox">
+                        <p class="text-sm text-nowrap">개인정보 수집에 동의합니다.</p>
+                    </div>
+                    <button class="w-[150px] h-[64px] bg-gradient-to-r from-[#8273F6] to-[#1651E8] rounded-full font-bold text-2xl text-white" type="button" onclick="sendPushRequest()">상담요청</button> <!-- type="button" 추가 -->
+                </div>
+            </div>
+        </form>
+    </div>
 </aside>
 
 <script>
@@ -49,13 +53,13 @@
         var asideBtn1 = document.getElementById('asideBtn1');
         var asideBtn2 = document.getElementById('asideBtn2');
 
-        asideElement.classList.toggle('h-16');
-        asideElement.classList.toggle('h-[80px]');
-        asideElement.classList.toggle('w-20');
         asideElement.classList.toggle('bottom-8');
         asideElement.classList.toggle('bottom-0');
         asideElement.classList.toggle('right-8');
         asideElement.classList.toggle('right-0');
+        asideElement.classList.toggle('h-16');
+        // asideElement.classList.toggle('h-[80px]');
+        asideElement.classList.toggle('w-20');
         asideElement.classList.toggle('w-20');
         asideElement.classList.toggle('w-full');
         asideElement.classList.toggle('rounded-[100%]');

@@ -12,6 +12,10 @@ if ($currentPath == '/index.php') {
 
 <?php include 'pushQ.php' ?>
 
+
+
+
+
 <section class="relative w-full h-screen flex justify-center">
     <video class="z-0 absolute top-0 left-0 w-full h-full object-cover" autoplay muted>
         <source src="./video/mainBgmp4.mp4" type="video/mp4">

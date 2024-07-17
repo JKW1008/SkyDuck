@@ -109,7 +109,7 @@ include './inc/common.php';
     <title>SkyDuckdesign</title>
 
 </head>
-
+<?php include 'pushQ.php' ?>
 <body class=" relative transition-all font-[Pretendard-Regular] pb-[500px] max-[640px]:pb-[700px] ">
     <header id="mainHeader" class="z-[999] fixed w-full h-16 flex justify-center items-center bg-white duration-300 shadow-md">
         <div class="container max-w-[1024px] flex flex-row justify-between px-10">

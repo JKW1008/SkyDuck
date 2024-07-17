@@ -361,7 +361,7 @@ if ($currentPath == '/index.php') {
             <div id="asideFormInner" class="min-[1080px]:flex justify-between">
                 <div class="flex min-[1080px]:block">
                     <p class="font-semibold text-lg">상담에 필요한 기본정보를</p>
-                    <p class="font-semibold text-lg">입력해주세요.</p>
+                    <p class="font-semibold text-lg max-[1080px]:ps-2">입력해주세요.</p>
                 </div>
                 <div class="grid grid-cols-3 gap-6">
                     <div class="relative">

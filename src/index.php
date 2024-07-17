@@ -12,10 +12,6 @@ if ($currentPath == '/index.php') {
 
 <?php include 'pushQ.php' ?>
 
-
-
-
-
 <section class="relative w-full h-screen flex justify-center">
     <video class="z-0 absolute top-0 left-0 w-full h-full object-cover" autoplay muted>
         <source src="./video/mainBgmp4.mp4" type="video/mp4">
@@ -282,7 +278,7 @@ if ($currentPath == '/index.php') {
 </div>
 
 <div class="flex justify-center my-[50px]">
-    <a class=" rounded-full py-[13px] px-[20px] bg-black text-white font-bold flex justify-center items-center" href="">
+    <a class=" rounded-full py-[13px] px-[20px] bg-black text-white font-bold flex justify-center items-center" href="./portfolio.php">
         포트폴리오 더보기
         <svg class="w-4 h-4 text-white ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -320,7 +316,7 @@ if ($currentPath == '/index.php') {
         <p class="font-medium text-mblack text-lg">상담을 신청해 주시면 최대한 빠르게 연락드리겠습니다.</p>
     </div>
     <div class="flex justify-center items-center w-[91%] max-w-[1440px] m-auto pt-[25px] pb-[35px] px-3">
-        <form class="w-full" action="" name="formname">
+        <form class="w-full" id="contact-form" action="" name="formname">
             <div class="lg:flex justify-between">
                 <div class="flex lg:block">
                     <p class="font-semibold text-lg">상담에 필요한 기본정보를</p>
@@ -467,28 +463,6 @@ $isIndexPage = (strpos($currentPath, '/') !== false); ?> <?php if ($isIndexPage)
         });
     </script>
 <?php endif; ?>
-
-
-<button
-  type="button"
-  data-twe-ripple-init
-  data-twe-ripple-color="light"
-  class="!fixed bottom-5 end-5 hidden rounded-full bg-red-600 p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg"
-  id="btn-back-to-top">
-  <span class="[&>svg]:w-4">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="3"
-      stroke="currentColor">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
-    </svg>
-  </span>
-</button>
 
 <?php
 include './footer.php';

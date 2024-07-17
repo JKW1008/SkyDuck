@@ -4,7 +4,7 @@
             <img id="asideBtn1" src="./image/icon/paper_plane_w.png" class=" w-full h-full self-center  rounded-full" alt="">
             <img id="asideBtn2" src="./image/icon/bracket_R_white_D.png" alt="" class="w-8 h-8 hidden ">
         </div>
-        <form id="asideForm" class="w-full  flex hidden justify-end max-[500px]:justify-center">
+        <form id="asideForm" class="w-full  flex  justify-end max-[500px]:justify-center">
             <div id="asideFormInner" class="max-[500px]:w-full max-[500px]:flex-col max-[500px]:justify-center  flex hidden justify-between items-center gap-4">
                 <div class="text-3xl w-[18%] text-start max-[500px]:w-full">
                     <h1 class="text-3xl text-nowrap">상담전화</h1>

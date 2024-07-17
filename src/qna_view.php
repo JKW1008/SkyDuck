@@ -141,11 +141,11 @@ $filename = basename(__FILE__, '.php');
             <div class="w-full flex ps-2 pb-3 space-x-3">
                 <div class="w-full flex items-center gap-2">
                     <label class="max-[766px]:hidden w-1/6" for="qna_budget">예산 <span class="text-red-600">*</span></label>
-                    <input class="rounded-md border-[#D9D9D9] w-full" type="text" id="qna_budget" placeholder="예산을 입력해 주세요" value="<?= $qnaArr['budget'] ?>">
+                    <input class="rounded-md border-[#D9D9D9] w-full" type="text" id="qna_budget" placeholder="예산을 입력해 주세요" value="<?= $qnaArr['budget'] ?>" readonly>
                 </div>
                 <div class="w-full flex items-center gap-2">
                     <label class="max-[766px]:hidden w-1/6" for="qna_schedule">일정 <span class="text-red-600">*</span></label>
-                    <input class="rounded-md border-[#D9D9D9] w-full " type="text" id="qna_schedule" placeholder="일정을 입력해 주세요" value="<?= $qnaArr['timeline'] ?>">
+                    <input class="rounded-md border-[#D9D9D9] w-full " type="text" id="qna_schedule" placeholder="일정을 입력해 주세요" value="<?= $qnaArr['timeline'] ?>" readonly>
                 </div>
             </div>
         </div>

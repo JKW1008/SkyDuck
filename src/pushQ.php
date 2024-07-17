@@ -1,7 +1,7 @@
 <script src="./js/pushQ.js"></script>
 
 <form class="w-full z-[200]  bg-white fixed bottom-0 left-0 flex justify-center shadow-[0_-2px_3px_0px_rgba(0,0,0,0.05)]">
-    <div class="w-full max-w-[1440px] h-full  flex justify-between items-center gap-8 p-4">
+    <div class="w-full max-w-[1440px] h-full  flex justify-between items-center gap-8 p-2">
         <div class="text-3xl  max-[1240px]:hidden ">
             <h1 class="text-3xl text-nowrap">상담전화</h1>
             <p class="text-[#5879E2] font-bold text-nowrap">010-7540-0153</p>

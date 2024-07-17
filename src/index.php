@@ -369,15 +369,15 @@ if ($currentPath == '/index.php') {
                     </div>
                     <div class="relative">
                         <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="연락처" name="연락처" required>
-                        <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
+                        <div class="asterisk  absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
                     </div>
                     <div class="relative">
                         <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="이메일" name="이메일" required>
-                        <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
+                        <div class="asterisk  absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
                     </div>
                     <div class="relative">
                         <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="회사명" name="회사명">
-                        <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
+                        <div class="asterisk  absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
                     </div>
                     <div class="relative">
                         <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="내용" name="내용" required>
@@ -405,7 +405,28 @@ if ($currentPath == '/index.php') {
 </div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.input_2');
+    
+    inputs.forEach(input => {
+        const asterisk = input.nextElementSibling;
+        
+        input.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                asterisk.style.display = 'none';
+            } else {
+                asterisk.style.display = 'flex';
+            }
+        });
+        
+        // 페이지 로드 시 초기 상태 설정
+        if (input.value.trim() !== '') {
+            asterisk.style.display = 'none';
+        }
+    });
+});
+</script>
 
 <!-- 푸시큐 -->
 <script>

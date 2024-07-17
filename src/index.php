@@ -316,7 +316,8 @@ if ($currentPath == '/index.php') {
         <p class="font-medium text-mblack text-lg">상담을 신청해 주시면 최대한 빠르게 연락드리겠습니다.</p>
     </div>
     <div class="flex justify-center items-center w-[91%] max-w-[1440px] m-auto pt-[25px] pb-[35px] px-3">
-        <form class="w-full" id="contact-form" action="" name="formname">
+        <!-- 푸시큐 -->
+        <!-- <form class="w-full" id="contact-form" action="" name="formname">
             <div class="lg:flex justify-between">
                 <div class="flex lg:block">
                     <p class="font-semibold text-lg">상담에 필요한 기본정보를</p>
@@ -354,6 +355,42 @@ if ($currentPath == '/index.php') {
             <div class="text-center pt-12">
                 <button class="rounded-md py-3 px-16 bg-black text-white text-base font-semibold" type="submit">상담 신청</button>
             </div>
+        </form> -->
+        <!-- 푸시큐 -->
+        <form class="w-full" id="asideForm">
+            <div id="asideFormInner" class="lg:flex justify-between">
+                <div class="flex lg:block">
+                    <p class="font-semibold text-lg">상담에 필요한 기본정보를</p>
+                    <p class="font-semibold text-lg">입력해주세요.</p>
+                </div>
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="relative">
+                        <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="이름" name="이름" required>
+                    </div>
+                    <div class="relative">
+                        <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="연락처" name="연락처" required>
+                        <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
+                    </div>
+                    <div class="relative">
+                        <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="이메일" name="이메일" required>
+                        <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
+                    </div>
+                    <div class="relative">
+                        <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="회사명" name="회사명">
+                        <div class="absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
+                    </div>
+                    <div class="relative">
+                        <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="내용" name="내용" required>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center mt-6">
+                <input type="checkbox" id="consent2">
+                <label for="consent2" class="ml-2 text-sm">개인정보 수집에 동의합니다.</label>
+            </div>
+            <div class="text-center pt-6">
+                <button class="rounded-md py-3 px-16 bg-black text-white text-base font-semibold" type="button" onclick="sendPushRequest()">상담 신청</button>
+            </div>
         </form>
     </div>
 </div>
@@ -363,47 +400,73 @@ if ($currentPath == '/index.php') {
         <p class="py-3 text-xs">문의를 남겨주시면 최대한 빠르게 답변드리겠습니다.</p>
     </div>
     <div class="m-auto pt-10  text-center">
-        <a class="rounded-md w-full  bg-black text-white font-bold text-xl px-[60px] py-[23px]" href="">견적문의</a>
+        <a class="rounded-md w-full  bg-black text-white font-bold text-xl px-[60px] py-[23px]" href="./qna.php">견적문의</a>
     </div>
 </div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
+
+
+<!-- 푸시큐 -->
 <script>
-    // Email JS
-    (function() {
-        // https://dashboard.emailjs.com/admin/account
-        emailjs.init('lwVwvssxtK8-d1g-b');
-    })();
+    function sendPushRequest() {
 
-    window.onload = function() {
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+        // 입력된 값 확인
+        var inputsElements = document.querySelectorAll(".input_2");
+        var inputs = {};
+        var isEmpty = false;
 
-            if (document.getElementById('user_phone').value == '') {
-                event.preventDefault();
-                alert('연락처를 입력하세요');
-                document.getElementById('user_phone').focus();
-            } else if (document.getElementById('user_email').value == '') {
-                event.preventDefault();
-                alert('이메일을 입력하세요');
-                document.getElementById('user_email').focus();
-            } else if (document.getElementById('company_name').value == '') {
-                event.preventDefault();
-                alert('회사명을 입력하세요');
-                document.getElementById('company_name').focus();
-            } else {
+        inputsElements.forEach(function(element) {
+            var inputName = element.getAttribute("name");
+            var inputValue = element.value.trim(); // 공백 제거
 
-                // these IDs from the previous steps
-                emailjs.sendForm('service_7deictp', 'template_ikqaxfi', this)
-                    .then(function() {
-                        console.log('SUCCESS!');
-                        alert('전송이 완료되었습니다');
-                        location.reload();
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                    });
+            if (!inputValue) { // 값이 비어있는 경우
+                if (!isEmpty) { // 빈 값에 대한 요청 팝업이 하나만 뜨도록 함
+                    // alert(inputName + "을(를) 입력하세요.");
+                    element.focus();
+                    isEmpty = true;
+                }
+                return;
             }
+
+            inputs[inputName] = inputValue;
         });
+
+        if (isEmpty) {
+            return; // 값이 비어있으면 전송 중지
+        }
+
+        // 개인정보 동의 확인
+        var consentCheckbox = document.getElementById('consent2');
+        if (!consentCheckbox.checked) {
+            Swal.fire({
+                // title: 'Error!',
+                html: '개인정보 수집에 동의해야 합니다!',
+                icon: 'warning',
+                confirmButtonText: '확인'
+            });
+            consentCheckbox.focus();
+            return;
+        }
+
+
+        var jsonBody = JSON.stringify(inputs);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./pg/pushQueue.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert("문의가 접수되었습니다.");
+                    window.location.href = "index.php"; // 성공했을 때 main.php로 이동
+                } else {
+                    alert("문의접수에 실패하였습니다.");
+                    location.reload(); // 실패했을 때 페이지 새로고침
+                }
+            }
+        };
+        xhr.send("body=" + encodeURIComponent(jsonBody));
     }
 </script>
 <script>

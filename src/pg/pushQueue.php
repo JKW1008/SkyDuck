@@ -24,6 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['body'])) {
         'code' => 'skyduckdesign',
         'body' => $body_content
     );
+    // $data = array(
+    //     'uuid' => 'a69e033ff97eb7d6',
+    //     'secret_key' => 'hOacbTxluU',
+    //     'code' => 'KdPushQueue',
+    //     'body' => $body_content
+    // );
 
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, true);

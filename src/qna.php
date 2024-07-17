@@ -17,10 +17,19 @@ include './header.php';
 
     if ($ses_id == '') {
         echo "<script>
-        alert('로그인이 필요한 서비스입니다.');
-        window.location.href = './login.php';
-    </script>";
-    };
+        Swal.fire({
+            title: '로그인 필요',
+            text: '로그인이 필요한 서비스입니다.',
+            icon: 'warning',
+            confirmButtonText: '확인'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = './login.php';
+            }
+        });
+        </script>";
+        exit;
+    }
 
     if ($ses_grade == 'common_member') {
         $arr = $mem->getInfoFormId($ses_id);

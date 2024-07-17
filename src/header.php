@@ -17,6 +17,11 @@ include './inc/common.php';
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <!-- 제이쿼리 -->
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <!-- sweet Alert -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+    <!-- 폰트어썸 -->
+    <script src="https://kit.fontawesome.com/1821147619.js" crossorigin="anonymous"></script>
 
     <style type="text/tailwindcss">
         @layer utilities {

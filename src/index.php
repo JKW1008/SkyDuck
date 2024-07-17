@@ -358,8 +358,8 @@ if ($currentPath == '/index.php') {
         </form> -->
         <!-- 푸시큐 -->
         <form class="w-full" id="asideForm">
-            <div id="asideFormInner" class="lg:flex justify-between">
-                <div class="flex lg:block">
+            <div id="asideFormInner" class="min-[1080px]:flex justify-between">
+                <div class="flex min-[1080px]:block">
                     <p class="font-semibold text-lg">상담에 필요한 기본정보를</p>
                     <p class="font-semibold text-lg">입력해주세요.</p>
                 </div>

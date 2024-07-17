@@ -366,6 +366,7 @@ if ($currentPath == '/index.php') {
                 <div class="grid grid-cols-3 gap-6">
                     <div class="relative">
                         <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="이름" name="이름" required>
+                        <div class="asterisk  absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
                     </div>
                     <div class="relative">
                         <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="연락처" name="연락처" required>
@@ -377,7 +378,7 @@ if ($currentPath == '/index.php') {
                     </div>
                     <div class="relative">
                         <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="회사명" name="회사명">
-                        <div class="asterisk  absolute inset-y-1 left-0 pl-16 flex items-center pointer-events-none text-red-600">*</div>
+                        
                     </div>
                     <div class="relative">
                         <input class="input_2 w-full placeholder-slate-400 border rounded-[4px]" type="text" placeholder="내용" name="내용" required>

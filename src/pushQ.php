@@ -1,27 +1,24 @@
-<aside  id="myAside" class="z-[999] fixed bottom-8 right-8 w-16 h-16 rounded-[100%]  flex justify-center items-center duration-300 overflow-hidden">
-    <div class="w-[91%] max-w-[1440px] max-[500px]:flex-col flex justify-between items-center py-2 gap-2">
-        <div onclick="expandAside()" id="asideBtn" class="w-16 h-16 flex justify-center items-center max-[500px]:self-end rounded-full text-3xl bg-blue-500">
-            <img id="asideBtn1" src="./image/icon/paper_plane_w.png" class=" w-full h-full self-center  rounded-full" alt="">
-            <img id="asideBtn2" src="./image/icon/bracket_R_white_D.png" alt="" class="w-8 h-8 hidden ">
+<script src="./js/pushQ.js"></script>
+
+<form class="w-full z-[200]  bg-white fixed bottom-0 left-0 flex justify-center shadow-[0_-2px_3px_0px_rgba(0,0,0,0.05)]">
+    <div class="w-full max-w-[1440px] h-full  flex justify-between items-center gap-8 p-4">
+        <div class="text-3xl  max-[1240px]:hidden ">
+            <h1 class="text-3xl text-nowrap">상담전화</h1>
+            <p class="text-[#5879E2] font-bold text-nowrap">010-7540-0153</p>
         </div>
-        <form id="asideForm" class="w-full  flex  justify-end max-[500px]:justify-center">
-            <div id="asideFormInner" class="max-[500px]:w-full max-[500px]:flex-col max-[500px]:justify-center  flex hidden justify-between items-center gap-4">
-                <div class="text-3xl w-[18%] text-start max-[500px]:w-full">
-                    <h1 class="text-3xl text-nowrap">상담전화</h1>
-                    <p class="text-[#5879E2] font-bold">010-7540-0153</p>
+        <div class="flex justify-between items-center max-[700px]:flex-col  max-[1120px]:justify-between w-full gap-3">
+            <div class="flex gap-2  max-[1120px]:w-[90%] max-[700px]:w-full">
+                <div class="flex items-center gap-2 max-[700px]:w-[25%]">
+                    <!-- <div>이름 : </div> -->
+                    <input class="input_1 border-[#cccccc] placeholder-slate-400 max-[1120px]:w-full max-[400px]:text-xs " name="이름" rows="4" cols="50" placeholder="성함" required></input>
                 </div>
-                <div class="max-[500px]:w-full flex max-[900px]:flex-col justify-between items-center gap-3">
-                    <div class="w-[30%] max-[900px]:w-full flex items-center">
-                        <!-- <div>이름 : </div> -->
-                        <input class="input_1 w-full border-[#cccccc] placeholder-slate-400" name="이름" rows="4" cols="50" placeholder="성함" required></input>
-                    </div>
-                    <div class=" w-[30%] max-[900px]:w-full flex items-center">
-                        <!-- <div>나이 : </div> -->
-                        <input class="input_1 w-full border-[#cccccc] placeholder-slate-400" name="연락처" rows="4" cols="50" placeholder="연락처" required></input>
-                    </div>
-                    <div class="w-[30%] max-[900px]:w-full flex items-center">
-                        <!-- <div>전화번호 : </div> -->
-                        <select class="input_1 w-full text-gray-400 border-[#cccccc] placeholder-slate-400" name="문의내용" placeholder="문의내용" required>
+                <div class="flex items-center gap-2 max-[700px]:w-[39%]">
+                    <!-- <div>나이 : </div> -->
+                    <input class="input_1 border-[#cccccc] placeholder-slate-400 max-[1120px]:w-full max-[400px]:text-xs" name="연락처" rows="4" cols="50" placeholder="연락처" required></input>
+                </div>
+                <div class="flex items-center gap-2 max-[700px]:w-[36%]">
+                    <!-- <div>전화번호 : </div> -->
+                    <select class="input_1 w-full text-gray-400 border-[#cccccc] placeholder-slate-400" name="문의내용" required>
                             <option class="text-[#cccccc]" value="">문의내용</option>
                             <option class="text-[#cccccc]" value="광고·편집">광고·편집</option>
                             <option class="text-[#cccccc]" value="비주얼아이덴티티">비주얼아이덴티티</option>
@@ -29,105 +26,24 @@
                             <option class="text-[#cccccc]" value="웹디자인">웹디자인</option>
                             <option class="text-[#cccccc]" value="기타문의">기타문의</option>
                         </select>
-                    </div>
-                    <!-- <div id="asideCloseBtn" class="w-16 h-16 border-2 flex justify-center items-center rounded-full text-3xl" onclick="expandAside()">></div> -->
-                </div>
-                <div class="flex max-[900px]:flex-col gap-2">
-                    <div class="flex items-center">
-                        <input type="checkbox">
-                        <p class="text-sm text-nowrap">개인정보 수집에 동의합니다.</p>
-                    </div>
-                    <button class="w-[150px] h-[64px] bg-gradient-to-r from-[#8273F6] to-[#1651E8] rounded-full font-bold text-2xl text-white" type="button" onclick="sendPushRequest()">상담요청</button> <!-- type="button" 추가 -->
                 </div>
             </div>
-        </form>
+            <div class=" flex max-[1430px]:flex-col max-[700px]:flex-row max-[400px]:flex-col justify-center items-center   gap-2">
+                <div class="flex items-center text-nowrap">
+                    <input type="checkbox" id="chk">
+                    <label for="chk" class="ps-1">개인정보 수집에 동의합니다.</label>
+                </div>
+                <button class="w-[150px] h-[64px] bg-gradient-to-r from-[#8273F6] to-[#1651E8] rounded-full font-bold text-2xl text-white" type="button" onclick="sendPushRequest()">빠른상담</button>
+                </div>
+        </div>
+        <a href="#" class="max-[700px]:hidden duration-75 flex-col items-center  "><i class="fa-solid fa-chevron-up ps-[5px] text-3xl leading-none text-[#777777]"></i>
+            <p class="text-lg leading-none text-[#5879E2]">TOP</p>
+        </a>
+
     </div>
-</aside>
+    <a href="#" class="min-[700px]:hidden absolute right-8 bottom-40 max-[400px]:bottom-48 w-[50px] h-[50px] duration-75 flex-col items-center 
+    justify-center rounded-full bg-gradient-to-r from-[#8273F6] to-[#1651E8] text-center "><i class=" fa-solid fa-chevron-up text-xl leading-none text-white"></i>
+            <p class="text-sm leading-none text-white">TOP</p>
+        </a>
+</form>
 
-<script>
-    function expandAside() {
-        var asideElement = document.getElementById('myAside');
-        var asideForm = document.getElementById('asideForm');
-        var asideFormInner = document.getElementById('asideFormInner');
-        var asideBtn = document.getElementById('asideBtn');
-        var asideBtn1 = document.getElementById('asideBtn1');
-        var asideBtn2 = document.getElementById('asideBtn2');
-
-        asideElement.classList.toggle('bottom-8');
-        asideElement.classList.toggle('bg-white');
-        asideElement.classList.toggle('bottom-0');
-        asideElement.classList.toggle('right-8');
-        asideElement.classList.toggle('right-0');
-        asideElement.classList.toggle('h-16');
-        // asideElement.classList.toggle('h-[80px]');
-        asideElement.classList.toggle('w-20');
-        asideElement.classList.toggle('w-20');
-        asideElement.classList.toggle('w-full');
-        asideElement.classList.toggle('rounded-[100%]');
-        asideElement.classList.toggle('rounded-[0%]');
-        asideBtn1.classList.toggle('hidden');
-        asideBtn2.classList.toggle('hidden');
-        asideForm.classList.toggle('hidden');
-        setTimeout(function() {
-            asideFormInner.classList.remove('hidden');
-        }, 200); // 0.1초 지연
-    }
-
-</script>
-
-
-<script>
-    function sendPushRequest() {
-
-        // 입력된 값 확인
-        var inputsElements = document.querySelectorAll(".input_1");
-        var inputs = {};
-        var isEmpty = false;
-
-        inputsElements.forEach(function(element) {
-            var inputName = element.getAttribute("name");
-            var inputValue = element.value.trim(); // 공백 제거
-
-            if (!inputValue) { // 값이 비어있는 경우
-                if (!isEmpty) { // 빈 값에 대한 요청 팝업이 하나만 뜨도록 함
-                    // alert(inputName + "을(를) 입력하세요.");
-                    element.focus();
-                    isEmpty = true;
-                }
-                return;
-            }
-
-            inputs[inputName] = inputValue;
-        });
-
-        if (isEmpty) {
-            return; // 값이 비어있으면 전송 중지
-        }
-
-        // 개인정보 동의 확인
-        var consentCheckbox = document.querySelector('input[type="checkbox"]');
-        if (!consentCheckbox.checked) {
-            alert("개인정보 수집에 동의해야 합니다.");
-            return;
-        }
-
-
-        var jsonBody = JSON.stringify(inputs);
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "./pg/pushQueue.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    alert("문의가 접수되었습니다.");
-                    window.location.href = "index.php"; // 성공했을 때 main.php로 이동
-                } else {
-                    alert("문의접수에 실패하였습니다.");
-                    location.reload(); // 실패했을 때 페이지 새로고침
-                }
-            }
-        };
-        xhr.send("body=" + encodeURIComponent(jsonBody));
-    }
-</script>

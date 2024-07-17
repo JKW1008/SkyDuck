@@ -18,10 +18,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['body'])) {
 
     $ch = curl_init();
     $url = 'http://push.doday.net/api/push';
+    // $data = array(
+    //     'uuid' => '6974153b33be7e04',
+    //     'secret_key' => 'Ll9hS94t97',
+    //     'code' => 'skyduckdesign',
+    //     'body' => $body_content
+    // );
+
     $data = array(
-        'uuid' => '6974153b33be7e04',
-        'secret_key' => 'Ll9hS94t97',
-        'code' => 'skyduckdesign',
+        'uuid' => 'a69e033ff97eb7d6',
+        'secret_key' => 'hOacbTxluU',
+        'code' => 'KdPushQueue',
         'body' => $body_content
     );
     // $data = array(

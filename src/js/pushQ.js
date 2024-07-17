@@ -1,4 +1,4 @@
-function sendPushRequest() {
+function sendPushRequest_1() {
 
   // 입력된 값 확인
   var inputsElements = document.querySelectorAll(".input_1");

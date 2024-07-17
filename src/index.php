@@ -457,14 +457,27 @@ if ($currentPath == '/index.php') {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    alert("문의가 접수되었습니다.");
-                    window.location.href = "index.php"; // 성공했을 때 main.php로 이동
-                } else {
-                    alert("문의접수에 실패하였습니다.");
-                    location.reload(); // 실패했을 때 페이지 새로고침
-                }
-            }
+      if (xhr.status === 200) {
+        Swal.fire({
+          title: '접수완료',
+          html: '상담신청이 성공적으로 접수되었습니다.',
+          icon: 'success',
+          confirmButtonText: '확인'
+        }).then((result) => {
+          window.location.href = "index.php";
+        });
+      } else {
+        Swal.fire({
+          title: '접수실패',
+          html: '메세지 전송에 실패했습니다' + '<br>' + '잠시후 다시 시도해주세요',
+          icon: 'error',
+          confirmButtonText: '확인'
+        });
+        swal("Push 메시지 전송에 실패했습니다.").then((result) => {
+          location.reload(); // 실패했을 때 페이지 새로고침
+        });
+      }
+    }
         };
         xhr.send("body=" + encodeURIComponent(jsonBody));
     }

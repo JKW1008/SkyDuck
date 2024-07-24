@@ -118,8 +118,8 @@ include './inc/common.php';
                     <img class="w-full h-full object-contain" src="./image/logo/SkyDuck_Logo.png" alt="">
                 </div>
             </a>
-            <div class="flex flex-row gap-4 items-center">
-                <div class="flex flex-row gap-4 items-center max-[740px]:hidden">
+            <div class="flex flex-row gap-4 text-xl items-center">
+                <div class="flex flex-row gap-4 items-center max-[802px]:hidden">
                     <a href="./intro.php">
                         <div>회사소개</div>
                     </a>
@@ -149,7 +149,7 @@ include './inc/common.php';
                     <?php endif; ?>
 
                 </div>
-                <div id="MenuToggleBtn" class="hidden p-2 max-[740px]:block rounded-lg bg-[#004190] hover:bg-white hover:opacity-75"><img src="./image/icon/toggleBtn.png" alt=""></div>
+                <div id="MenuToggleBtn" class="hidden p-2 max-[802px]:block rounded-lg bg-[#004190] hover:bg-white hover:opacity-75"><img src="./image/icon/toggleBtn.png" alt=""></div>
             </div>
     </header>
     <div id="ToggleMenu" class="fixed w-screen h-full top-0 left-[100%] bg-[#F1F3F6] z-[1000] duration-150">
@@ -158,7 +158,7 @@ include './inc/common.php';
                 <div><a href="./"><img src="./image/logo/SkyDuck_Logo.png" alt=""></a></div>
                 <div id="ToggleCloseBtn" class="w-[22px] h-[22px]"><img src="./image/icon/btn_X.png" alt="X"></div>
             </div>
-            <div class="w-full flex flex-col text-[16px] font-bold pt-24 px-4 gap-6">
+            <div class="w-full flex flex-col text-xl font-bold pt-24 px-4 gap-6">
 
                 <?php if ($ses_id != '' && $ses_grade != '') : ?>
                     <?php if ($ses_grade == 'common_member') : ?>

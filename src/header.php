@@ -9,6 +9,8 @@ include './inc/common.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 메타 키워드 (Meta Keywords, 덜 중요하지만 참고) -->
+    <meta name="keywords" content="웹 디자인, 웹 페이지, 웹 기획, 홈페이지 제작, 랜딩페이지, 반응형 웹, 맞춤형 홈페이지, 광고, 편집, 비주얼아이덴티티, 학교 현황판, 패키지 디자인, 스티커, 명함, 전단지, 현수막, book cover, 책 표지 디자인, 봉투, 리플렛, 팜플렛, 포스터, 명찰, 사인제품, 스카이덕디자인, 디자인"> 
     <link rel="icon" href="./image/icon/pavicon.ico">
     <!-- 부트스트랩 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">

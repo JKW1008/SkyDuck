@@ -132,6 +132,9 @@ include './inc/common.php';
                     <a href="./qna.php">
                         <div>견적문의</div>
                     </a>
+                    <a href="./quote.php">
+                        <div>견적문의_2</div>
+                    </a>
                     <?php if ($ses_id != '') : ?>
                         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-700 bg-opacity-50 bg-white hover:bg-gray-300 focus:ring-1 drop-shadow-[0_0px_6px_rgba(0,0,0,0.25)] focus:outline-none font-medium rounded-full text-sm px-2.5 py-1 text-center inline-flex items-center" type="button">
                             <div class="w-8 h-8 mr-2 rounded-full overflow-hidden">

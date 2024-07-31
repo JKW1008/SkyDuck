@@ -119,7 +119,7 @@ $filename = basename(__FILE__, '.php');
                 // $service_required = array_map(function($service) {
                 //     return str_replace('/on', '', $service);
                 // }, $service_required);
-                // print_r($service_required);
+                print_r($service_required);
             ?>
                <div><input type="checkbox" value="Catalog" <?= in_array("\"Catalog", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">카타로그/브로슈어</span></div>
                 <div><input type="checkbox" value="Leaflet" <?= in_array("Leaflet", $service_required) ? 'checked' : '' ?> disabled><span class="ps-2">리플렛/팜플릿</span></div>
